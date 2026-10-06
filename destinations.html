@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Trips & Destinations | WanderHums Community</title>
+  <meta name="description" content="Explore all backpacking tours, weekend getaways, and international adventures. Filter by destination, price, and duration." />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎒</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .catalog-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 32px;
+      padding: 40px 0 80px 0;
+    }
+    .filter-card {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      position: sticky;
+      top: 100px;
+    }
+    .filter-group {
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .filter-group:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .filter-title {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .filter-checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: #475569;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+    .catalog-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+    }
+    @media (max-width: 900px) {
+      .catalog-layout {
+        grid-template-columns: 1fr;
+      }
+      .filter-card {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-promo">
+        <span>⚡ Early Bird Discount: Flat ₹2,000 OFF on all 2026 batches! Use code:</span>
+        <span class="top-promo-code">WANDERHUMS2026</span>
+      </div>
+      <div class="top-actions">
+        <a href="tel:+919899771122" class="top-link"><i class="fa-solid fa-phone"></i> +91 9899 771122</a>
+        <a href="https://wa.me/919899771122" target="_blank" class="top-link"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        <div class="rating-pill-top"><i class="fa-solid fa-star"></i> 4.9/5 (18,400+ Reviews)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2-Tier Header (WanderOn Style) -->
+  <header class="site-header">
+    
+    <!-- Tier 1: Top White Row -->
+    <div class="header-top-row">
+      <div class="container header-top-inner">
+        <a href="index.html" class="header-logo-link" aria-label="WanderHums Home">
+          <img src="assets/wanderhums-brand-logo.png" alt="WanderHums" class="header-logo-img" />
+        </a>
+
+        <div class="header-top-right">
+          <ul class="top-menu-links">
+            <li><a href="index.html#trending-trips" class="top-menu-link">Upcoming Trips <i class="fa-regular fa-calendar-days"></i></a></li>
+            <li><a href="javascript:void(0)" onclick="openCallbackModal()" class="top-menu-link">Corporate Tours</a></li>
+            <li><a href="community.html" class="top-menu-link">Blogs</a></li>
+            <li><a href="community.html" class="top-menu-link">About Us</a></li>
+          </ul>
+
+          <a href="tel:+918130288566" class="header-phone-pill">
+            <i class="fa-solid fa-phone"></i> <span class="phone-number-full">+91-8130288566</span>
+          </a>
+
+          <a href="destinations.html?view=wishlist" class="btn-icon wishlist-btn-header" title="Saved Trips">
+            <i class="fa-regular fa-heart"></i>
+            <span class="badge-count wishlist-counter">0</span>
+          </a>
+
+          <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tier 2: Colored Navigation Bar (#01AFD1 Cyan-Blue) -->
+    <div class="header-bottom-bar">
+      <div class="container header-bottom-inner">
+        <div class="bottom-nav-item">
+          <a href="destinations.html?cat=international" class="bottom-nav-link">
+            <span>International Trips</span> <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="trip-detail.html?id=bali-island-explorer" class="dropdown-link"><span>Bali & Nusa Penida</span><small>7D/6N</small></a>
+            <a href="trip-detail.html?id=vietnam-cross-country" class="dropdown-link"><span>Vietnam Highlights</span><small>8D/7N</small></a>
+            <a href="destinations.html?cat=international" class="dropdown-link" style="color: #01AFD1; font-weight: 700;"><span>View All International Trips →</span></a>
+          </div>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="destinations.html?cat=backpacking" class="bottom-nav-link">
+            <span>India Trips</span> <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="trip-detail.html?id=spiti-valley-circuit" class="dropdown-link"><span>Spiti Valley Circuit</span><small>9D/8N</small></a>
+            <a href="trip-detail.html?id=meghalaya-backpacking" class="dropdown-link"><span>Meghalaya Living Roots</span><small>6D/5N</small></a>
+            <a href="trip-detail.html?id=kashmir-paradise-circuit" class="dropdown-link"><span>Kashmir Paradise</span><small>6D/5N</small></a>
+            <a href="destinations.html?cat=backpacking" class="dropdown-link" style="color: #01AFD1; font-weight: 700;"><span>View All India Trips →</span></a>
+          </div>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="destinations.html" class="bottom-nav-link">
+            <span>Group Tours</span> <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="destinations.html?cat=backpacking" class="dropdown-link"><span>Backpacking Road Trips</span></a>
+            <a href="destinations.html?cat=bike" class="dropdown-link"><span>Motorbike Expeditions</span></a>
+            <a href="community.html" class="dropdown-link"><span>Solo Friendly Departures</span></a>
+          </div>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="destinations.html?q=Trek" class="bottom-nav-link"><span>Events & Festivals</span></a>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="destinations.html?cat=weekend" class="bottom-nav-link">
+            <span>Weekend Getaways</span>
+          </a>
+          <div class="dropdown-menu">
+            <a href="trip-detail.html?id=kasol-kheerganga-weekend" class="dropdown-link"><span>Kasol & Kheerganga</span><small>3D/2N</small></a>
+            <a href="trip-detail.html?id=jibhi-tirthan-weekend" class="dropdown-link"><span>Jibhi & Tirthan Valley</span><small>3D/2N</small></a>
+            <a href="trip-detail.html?id=chopta-chandrashila-trek" class="dropdown-link"><span>Chopta Tungnath Trek</span><small>3D/2N</small></a>
+          </div>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="index.html#trending-trips" class="bottom-nav-link">
+            <span>Christmas & New Year Sale</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- Page Header -->
+  <div style="background: linear-gradient(180deg, #0B0F19 0%, #1E293B 100%); color: #fff; padding: 50px 0 40px 0;">
+    <div class="container">
+      <h1 id="page-catalog-title" style="font-size: 2.2rem; font-weight: 800; margin-bottom: 8px;">Explore All WanderHums Trips</h1>
+      <p style="color: #CBD5E1; font-size: 1rem; max-width: 650px;">
+        Curated group road trips, weekend escapes, and international journeys for free-spirited travelers.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Catalog Content -->
+  <div class="container">
+    <div class="catalog-layout">
+      
+      <!-- Filter Sidebar -->
+      <aside class="filter-sidebar">
+        <div class="filter-card">
+          
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+            <h3 style="font-size: 1.1rem; font-weight: 800; color: #0F172A;">Filters</h3>
+            <button class="btn btn-sm" style="padding: 4px 8px; font-size: 0.75rem;" onclick="clearCatalogFilters()">Reset</button>
+          </div>
+
+          <!-- Keyword Search -->
+          <div class="filter-group">
+            <span class="filter-title">Search Destination</span>
+            <input type="text" id="catalog-search" class="form-control" placeholder="Search Spiti, Bali..." oninput="applyCatalogFilters()" />
+          </div>
+
+          <!-- Trip Category -->
+          <div class="filter-group">
+            <span class="filter-title">Trip Category</span>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="catFilter" value="backpacking" onchange="applyCatalogFilters()" /> Backpacking Trips
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="catFilter" value="weekend" onchange="applyCatalogFilters()" /> Weekend Getaways
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="catFilter" value="international" onchange="applyCatalogFilters()" /> International Tours
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="catFilter" value="bike" onchange="applyCatalogFilters()" /> Bike Expeditions
+            </label>
+          </div>
+
+          <!-- Max Budget Slider -->
+          <div class="filter-group">
+            <span class="filter-title">Max Budget: <strong id="budget-val" style="color: var(--primary);">₹50,000</strong></span>
+            <input type="range" id="budget-slider" min="5000" max="50000" step="2000" value="50000" style="width: 100%; accent-color: var(--primary);" oninput="updateBudgetSlider(this.value)" />
+          </div>
+
+          <!-- Duration Filter -->
+          <div class="filter-group">
+            <span class="filter-title">Duration</span>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="durationFilter" value="short" onchange="applyCatalogFilters()" /> Weekend (2 - 4 Days)
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="durationFilter" value="medium" onchange="applyCatalogFilters()" /> Medium (5 - 7 Days)
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="durationFilter" value="long" onchange="applyCatalogFilters()" /> Epic Expeditions (8+ Days)
+            </label>
+          </div>
+
+        </div>
+      </aside>
+
+      <!-- Trips Grid Area -->
+      <main class="catalog-main">
+        
+        <div class="catalog-top-bar">
+          <div>
+            <span style="color: #64748B; font-size: 0.9rem;">Showing <strong id="results-count" style="color: #0F172A;">0</strong> packages</span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label for="sort-select" style="font-size: 0.85rem; font-weight: 700; color: #475569;">Sort by:</label>
+            <select id="sort-select" class="form-control" style="width: auto; padding: 6px 14px;" onchange="applyCatalogFilters()">
+              <option value="popular">Most Popular</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="duration">Trip Duration</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="trips-grid" id="catalog-trips-container">
+          <!-- Rendered by JS -->
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Booking Modal -->
+  <div class="modal-backdrop" id="booking-modal">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" onclick="closeModal('booking-modal')"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-content-pad" style="padding-top: 36px;">
+        <h3 id="book-trip-title" style="font-size: 1.4rem; font-weight: 800; color: #0F172A;">Trip Booking</h3>
+        <p style="color: #64748B; font-size: 0.88rem; margin-bottom: 20px;">Pay only 20% token advance today to lock your seat!</p>
+
+        <form onsubmit="handleBookingSubmit(event)">
+          <div class="form-group">
+            <label class="form-label">Departure Batch</label>
+            <select id="book-batch-select" class="form-control" required></select>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <input type="text" id="book-name" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mobile (WhatsApp)</label>
+              <input type="tel" id="book-phone" class="form-control" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" id="book-email" class="form-control" required />
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px;">
+            <button type="button" class="btn btn-secondary btn-block" onclick="bookViaWhatsApp()" style="background: #DCFCE7; color: #166534; border-color: #86EFAC;">
+              <i class="fa-brands fa-whatsapp"></i> Book via WhatsApp
+            </button>
+            <button type="submit" class="btn btn-primary btn-block">Confirm Reservation</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Itinerary Modal -->
+  <div class="modal-backdrop" id="itinerary-modal">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" onclick="closeModal('itinerary-modal')"><i class="fa-solid fa-xmark"></i></button>
+      <div id="itinerary-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Callback Modal -->
+  <div class="modal-backdrop" id="callback-modal">
+    <div class="modal-dialog" style="max-width: 460px;">
+      <button class="modal-close-btn" onclick="closeModal('callback-modal')"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-content-pad" style="text-align: center; padding-top: 36px;">
+        <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 8px;">Request a Callback</h3>
+        <p style="font-size: 0.88rem; color: #64748B; margin-bottom: 20px;">Our travel guru will call you within 15 minutes.</p>
+        <form onsubmit="handleCallbackSubmit(event)" style="text-align: left;">
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" placeholder="10-digit mobile" required pattern="[0-9]{10}" />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Confirm Callback</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Toast -->
+  <div class="social-proof-toast" id="social-toast">
+    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Traveler" class="toast-avatar" id="toast-avatar" />
+    <div class="toast-text">
+      <h6 id="toast-title">Aman V. from Delhi</h6>
+      <p id="toast-text"><span class="toast-badge">just booked</span> Spiti Valley</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© 2026 WanderHums Experiential Travel Pvt. Ltd. All Rights Reserved.</div>
+      <div class="payment-badges">
+        <i class="fa-brands fa-google-pay"></i>
+        <i class="fa-brands fa-cc-visa"></i>
+        <i class="fa-brands fa-cc-mastercard"></i>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/trips-data.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    let isWishlistView = false;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const catParam = urlParams.get('cat');
+      const queryParam = urlParams.get('q');
+      isWishlistView = urlParams.get('view') === 'wishlist';
+
+      if (isWishlistView) {
+        document.getElementById('page-catalog-title').textContent = 'Your Saved Trips (Wishlist)';
+      } else if (catParam) {
+        const catBox = document.querySelector(`input[name="catFilter"][value="${catParam}"]`);
+        if (catBox) catBox.checked = true;
+      }
+
+      if (queryParam) {
+        const searchInput = document.getElementById('catalog-search');
+        if (searchInput) searchInput.value = queryParam;
+      }
+
+      applyCatalogFilters();
+    });
+
+    function updateBudgetSlider(val) {
+      document.getElementById('budget-val').textContent = `₹${parseInt(val).toLocaleString('en-IN')}`;
+      applyCatalogFilters();
+    }
+
+    function clearCatalogFilters() {
+      document.getElementById('catalog-search').value = '';
+      document.querySelectorAll('input[name="catFilter"]').forEach(c => c.checked = false);
+      document.querySelectorAll('input[name="durationFilter"]').forEach(d => d.checked = false);
+      document.getElementById('budget-slider').value = 50000;
+      document.getElementById('budget-val').textContent = '₹50,000';
+      applyCatalogFilters();
+    }
+
+    function applyCatalogFilters() {
+      const container = document.getElementById('catalog-trips-container');
+      const searchVal = document.getElementById('catalog-search').value.toLowerCase().trim();
+      const maxBudget = parseInt(document.getElementById('budget-slider').value);
+      const sortVal = document.getElementById('sort-select').value;
+
+      const checkedCats = Array.from(document.querySelectorAll('input[name="catFilter"]:checked')).map(c => c.value);
+      const checkedDurations = Array.from(document.querySelectorAll('input[name="durationFilter"]:checked')).map(d => d.value);
+
+      const wishlist = getWishlist();
+
+      let results = TRIPS_DATA.filter(trip => {
+        if (isWishlistView && !wishlist.includes(trip.id)) return false;
+
+        // Search
+        const matchesQuery = !searchVal || 
+          trip.title.toLowerCase().includes(searchVal) ||
+          trip.destination.toLowerCase().includes(searchVal) ||
+          trip.region.toLowerCase().includes(searchVal);
+
+        // Category
+        const matchesCat = checkedCats.length === 0 || checkedCats.includes(trip.category);
+
+        // Budget
+        const matchesBudget = trip.price <= maxBudget;
+
+        // Duration
+        let matchesDuration = true;
+        if (checkedDurations.length > 0) {
+          matchesDuration = false;
+          if (checkedDurations.includes('short') && trip.daysCount <= 4) matchesDuration = true;
+          if (checkedDurations.includes('medium') && trip.daysCount >= 5 && trip.daysCount <= 7) matchesDuration = true;
+          if (checkedDurations.includes('long') && trip.daysCount >= 8) matchesDuration = true;
+        }
+
+        return matchesQuery && matchesCat && matchesBudget && matchesDuration;
+      });
+
+      // Sorting
+      if (sortVal === 'price-asc') results.sort((a, b) => a.price - b.price);
+      else if (sortVal === 'price-desc') results.sort((a, b) => b.price - a.price);
+      else if (sortVal === 'duration') results.sort((a, b) => a.daysCount - b.daysCount);
+
+      document.getElementById('results-count').textContent = results.length;
+
+      if (results.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: #fff; border-radius: 16px; border: 1px dashed #CBD5E1;">
+            <i class="fa-solid fa-compass" style="font-size: 3rem; color: #CBD5E1; margin-bottom: 16px;"></i>
+            <h3 style="font-size: 1.3rem; font-weight: 800; color: #1E293B;">No matching trips found</h3>
+            <p style="color: #64748B; margin-top: 6px;">Try loosening your filters or budget slider.</p>
+            <button class="btn btn-primary btn-sm" style="margin-top: 18px;" onclick="clearCatalogFilters()">Reset All Filters</button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = results.map(trip => {
+        const isWishlisted = wishlist.includes(trip.id);
+        const firstBatches = trip.upcomingBatches.slice(0, 3).map(b => b.date.split(' - ')[0]).join(' • ');
+
+        return `
+          <div class="trip-card">
+            <div class="card-media">
+              <img src="${trip.image}" alt="${trip.title}" loading="lazy" />
+              <div class="card-gradient-overlay"></div>
+              <span class="card-badge ${trip.badgeClass}">${trip.badge}</span>
+              <button class="card-wishlist-btn ${isWishlisted ? 'active' : ''}" onclick="toggleWishlist('${trip.id}', event)">
+                <i class="${isWishlisted ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+              </button>
+              <div class="card-img-bottom">
+                <span class="duration-chip"><i class="fa-regular fa-clock"></i> ${trip.duration}</span>
+                <span class="pickup-chip"><i class="fa-solid fa-location-dot"></i> ${trip.pickup}</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="card-category-rating">
+                <span class="card-category-name">${trip.categoryLabel}</span>
+                <span class="card-rating"><i class="fa-solid fa-star"></i> ${trip.rating} <small>(${trip.reviewsCount})</small></span>
+              </div>
+              <a href="trip-detail.html?id=${trip.id}" class="card-title">${trip.title}</a>
+              <div class="card-tags">
+                ${trip.highlights.slice(0, 3).map(h => `<span class="mini-tag">${h.split(' - ')[0].slice(0, 26)}</span>`).join('')}
+              </div>
+              <div class="batches-strip">
+                <i class="fa-regular fa-calendar-check"></i>
+                <span><strong>Upcoming:</strong> ${firstBatches}</span>
+              </div>
+              <div class="card-footer">
+                <div class="pricing-row">
+                  <div class="price-block">
+                    <span class="price-from">Starts from</span>
+                    <div class="price-values">
+                      <span class="price-current">₹${trip.price.toLocaleString('en-IN')}</span>
+                      <span class="price-original">₹${trip.originalPrice.toLocaleString('en-IN')}</span>
+                    </div>
+                  </div>
+                  <span class="emi-badge">EMI: ${trip.emiStarts}</span>
+                </div>
+                <div class="card-actions-grid">
+                  <button class="btn btn-secondary btn-sm" onclick="openItineraryModal('${trip.id}')">View Plan</button>
+                  <button class="btn btn-primary btn-sm" onclick="openBookingModal('${trip.id}')">Book Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+  </script>
+</body>
+</html>

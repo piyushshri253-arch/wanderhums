@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trip Itinerary & Details | WanderHums Travel Community</title>
+  <meta name="description" content="View full day-by-day itinerary, dates, inclusions, prices and book your backpacking group adventure with WanderHums." />
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎒</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Dedicated Trip Detail Styles */
+    .trip-hero {
+      position: relative;
+      background: #0B0F19;
+      color: #fff;
+      padding: 40px 0 30px 0;
+    }
+    .trip-breadcrumbs {
+      font-size: 0.85rem;
+      color: #94A3B8;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .trip-breadcrumbs a:hover {
+      color: var(--primary);
+    }
+    .trip-gallery-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 200px 200px;
+      gap: 14px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .trip-gallery-main {
+      grid-row: span 2;
+      position: relative;
+    }
+    .trip-gallery-main img, .trip-gallery-sub img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .trip-gallery-main:hover img, .trip-gallery-sub:hover img {
+      transform: scale(1.03);
+    }
+    .trip-header-meta {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 10px;
+    }
+    .trip-header-left h1 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+    .trip-key-stats {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: #CBD5E1;
+      margin-top: 10px;
+    }
+    .stat-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+    }
+    .stat-badge i {
+      color: var(--primary);
+    }
+
+    /* Layout Split */
+    .trip-layout-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 40px;
+      padding: 40px 0;
+    }
+    
+    /* Sticky Booking Card */
+    .sticky-booking-card {
+      position: sticky;
+      top: 100px;
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      box-shadow: var(--shadow-lg);
+    }
+    .booking-price-header {
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+    }
+    .booking-seats-alert {
+      background: #FEF2F2;
+      border: 1px solid #FCA5A5;
+      color: #B91C1C;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 8px 12px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    /* Itinerary Accordion */
+    .day-box {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .day-box.open {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+    .day-box-header {
+      width: 100%;
+      padding: 18px 22px;
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      text-align: left;
+    }
+    .day-tag {
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 800;
+      margin-right: 12px;
+      text-transform: uppercase;
+    }
+    .day-title-text {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+    .day-box-content {
+      padding: 0 22px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      color: #475569;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+    .day-box.open .day-box-content {
+      max-height: 500px;
+      padding: 0 22px 20px 22px;
+    }
+
+    /* Mobile Sticky Checkout Bar */
+    .mobile-booking-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-top: 1px solid var(--border-color);
+      padding: 12px 20px;
+      z-index: 1000;
+      box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.08);
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 1024px) {
+      .trip-layout-grid {
+        grid-template-columns: 1fr;
+      }
+      .trip-gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 260px;
+      }
+      .trip-gallery-sub {
+        display: none;
+      }
+      .mobile-booking-bar {
+        display: flex;
+      }
+      body {
+        padding-bottom: 70px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-promo">
+        <span>⚡ Early Bird Discount: Flat ₹2,000 OFF on all 2026 batches! Use code:</span>
+        <span class="top-promo-code">WANDERHUMS2026</span>
+      </div>
+      <div class="top-actions">
+        <a href="tel:+919899771122" class="top-link"><i class="fa-solid fa-phone"></i> +91 9899 771122</a>
+        <a href="https://wa.me/919899771122" target="_blank" class="top-link"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        <div class="rating-pill-top"><i class="fa-solid fa-star"></i> 4.9/5 (18,400+ Reviews)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2-Tier Header (WanderOn Style) -->
+  <header class="site-header">
+    
+    <!-- Tier 1: Top White Row -->
+    <div class="header-top-row">
+      <div class="container header-top-inner">
+        <a href="index.html" class="header-logo-link" aria-label="WanderHums Home">
+          <img src="assets/wanderhums-brand-logo.png" alt="WanderHums" class="header-logo-img" />
+        </a>
+
+        <div class="header-top-right">
+          <ul class="top-menu-links">
+            <li><a href="index.html#trending-trips" class="top-menu-link">Upcoming Trips <i class="fa-regular fa-calendar-days"></i></a></li>
+            <li><a href="javascript:void(0)" onclick="openCallbackModal()" class="top-menu-link">Corporate Tours</a></li>
+            <li><a href="community.html" class="top-menu-link">Blogs</a></li>
+            <li><a href="community.html" class="top-menu-link">About Us</a></li>
+          </ul>
+
+          <a href="tel:+918130288566" class="header-phone-pill">
+            <i class="fa-solid fa-phone"></i> <span class="phone-number-full">+91-8130288566</span>
+          </a>
+
+          <a href="destinations.html?view=wishlist" class="btn-icon wishlist-btn-header" title="Saved Trips">
+            <i class="fa-regular fa-heart"></i>
+            <span class="badge-count wishlist-counter">0</span>
+          </a>
+
+          <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tier 2: Colored Navigation Bar (#01AFD1 Cyan-Blue) -->
+    <div class="header-bottom-bar">
+      <div class="container header-bottom-inner">
+        <div class="bottom-nav-item">
+          <a href="destinations.html?cat=international" class="bottom-nav-link">
+            <span>International Trips</span> <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="trip-detail.html?id=bali-island-explorer" class="dropdown-link"><span>Bali & Nusa Penida</span><small>7D/6N</small></a>
+            <a href="trip-detail.html?id=vietnam-cross-country" class="dropdown-link"><span>Vietnam Highlights</span><small>8D/7N</small></a>
+            <a href="destinations.html?cat=international" class="dropdown-link" style="color: #01AFD1; font-weight: 700;"><span>View All International Trips →</span></a>
+          </div>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="destinations.html?cat=backpacking" class="bottom-nav-link">
+            <span>India Trips</span> <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="trip-detail.html?id=spiti-valley-circuit" class="dropdown-link"><span>Spiti Valley Circuit</span><small>9D/8N</small></a>
+            <a href="trip-detail.html?id=meghalaya-backpacking" class="dropdown-link"><span>Meghalaya Living Roots</span><small>6D/5N</small></a>
+            <a href="trip-detail.html?id=kashmir-paradise-circuit" class="dropdown-link"><span>Kashmir Paradise</span><small>6D/5N</small></a>
+            <a href="destinations.html?cat=backpacking" class="dropdown-link" style="color: #01AFD1; font-weight: 700;"><span>View All India Trips →</span></a>
+          </div>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="destinations.html" class="bottom-nav-link">
+            <span>Group Tours</span> <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="destinations.html?cat=backpacking" class="dropdown-link"><span>Backpacking Road Trips</span></a>
+            <a href="destinations.html?cat=bike" class="dropdown-link"><span>Motorbike Expeditions</span></a>
+            <a href="community.html" class="dropdown-link"><span>Solo Friendly Departures</span></a>
+          </div>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="destinations.html?q=Trek" class="bottom-nav-link"><span>Events & Festivals</span></a>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="destinations.html?cat=weekend" class="bottom-nav-link">
+            <span>Weekend Getaways</span>
+          </a>
+          <div class="dropdown-menu">
+            <a href="trip-detail.html?id=kasol-kheerganga-weekend" class="dropdown-link"><span>Kasol & Kheerganga</span><small>3D/2N</small></a>
+            <a href="trip-detail.html?id=jibhi-tirthan-weekend" class="dropdown-link"><span>Jibhi & Tirthan Valley</span><small>3D/2N</small></a>
+            <a href="trip-detail.html?id=chopta-chandrashila-trek" class="dropdown-link"><span>Chopta Tungnath Trek</span><small>3D/2N</small></a>
+          </div>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="index.html#trending-trips" class="bottom-nav-link">
+            <span>Christmas & New Year Sale</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- Trip Hero Section -->
+  <section class="trip-hero">
+    <div class="container">
+      
+      <!-- Breadcrumbs -->
+      <div class="trip-breadcrumbs">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+        <a href="destinations.html">Trips</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+        <span id="trip-breadcrumb-title" style="color: #F8FAFC;">Trip Details</span>
+      </div>
+
+      <!-- Photo Gallery Grid -->
+      <div class="trip-gallery-grid" id="trip-gallery-container">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Header Info -->
+      <div class="trip-header-meta">
+        <div class="trip-header-left">
+          <span class="card-badge badge-hot" id="detail-badge" style="position: static; display: inline-block; margin-bottom: 8px;">BESTSELLER 🔥</span>
+          <h1 id="detail-title">Loading Trip Title...</h1>
+          
+          <div class="trip-key-stats">
+            <div class="stat-badge"><i class="fa-regular fa-clock"></i> <span id="stat-duration">-</span></div>
+            <div class="stat-badge"><i class="fa-solid fa-location-dot"></i> <span id="stat-pickup">-</span></div>
+            <div class="stat-badge"><i class="fa-solid fa-mountain"></i> <span id="stat-altitude">-</span></div>
+            <div class="stat-badge"><i class="fa-solid fa-gauge-high"></i> <span id="stat-difficulty">-</span></div>
+            <div class="stat-badge"><i class="fa-solid fa-star" style="color: #F59E0B;"></i> <span id="stat-rating">-</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Main Details Content -->
+  <main class="container">
+    <div class="trip-layout-grid">
+      
+      <!-- Left Column: Details & Itinerary -->
+      <div class="trip-main-content">
+        
+        <!-- Highlights Box -->
+        <div style="background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--border-color); padding: 28px; margin-bottom: 30px;">
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: #0F172A; margin-bottom: 16px;">🌟 Major Trip Highlights</h3>
+          <div id="detail-highlights-list" style="display: grid; gap: 10px;">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Day by Day Accordion -->
+        <div style="margin-bottom: 40px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+            <h3 style="font-size: 1.4rem; font-weight: 800; color: #0F172A;">🗺️ Detailed Day-Wise Itinerary</h3>
+            <button class="btn btn-secondary btn-sm" onclick="expandAllDays()">Expand All</button>
+          </div>
+          
+          <div id="itinerary-accordion-box">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Inclusions & Exclusions -->
+        <div style="background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--border-color); padding: 28px; margin-bottom: 30px;">
+          <h3 style="font-size: 1.3rem; font-weight: 800; color: #0F172A; margin-bottom: 20px;">What's In The Package</h3>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+            <div>
+              <h4 style="font-size: 1rem; font-weight: 800; color: #15803D; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-circle-check"></i> Inclusions (All Included)
+              </h4>
+              <ul id="detail-inclusions-list" style="list-style: none; padding: 0; display: grid; gap: 8px; font-size: 0.88rem; color: #334155;">
+                <!-- Rendered by JS -->
+              </ul>
+            </div>
+
+            <div>
+              <h4 style="font-size: 1rem; font-weight: 800; color: #B91C1C; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-circle-xmark"></i> Exclusions
+              </h4>
+              <ul id="detail-exclusions-list" style="list-style: none; padding: 0; display: grid; gap: 8px; font-size: 0.88rem; color: #334155;">
+                <!-- Rendered by JS -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backpacker Guidelines -->
+        <div style="background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: var(--radius-lg); padding: 24px; margin-bottom: 30px;">
+          <h4 style="font-size: 1.1rem; font-weight: 800; color: #0F172A; margin-bottom: 10px;">🎒 Backpacking Essentials & Tips</h4>
+          <p style="font-size: 0.88rem; color: #64748B; line-height: 1.6;">
+            Carry a 50-60L rucksack with rain cover, warm thermal layers, fleece jacket, high-ankle trekking shoes, personal water bottle, power bank, lip balm, and personal medicines. Detailed packing checklist will be shared in your batch WhatsApp group 3 days before departure!
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Sticky Booking Widget -->
+      <aside class="trip-sidebar">
+        <div class="sticky-booking-card">
+          
+          <div class="booking-price-header">
+            <span style="font-size: 0.78rem; font-weight: 700; color: #64748B; text-transform: uppercase;">Starting Price</span>
+            <div style="display: flex; align-items: baseline; gap: 10px; margin-top: 4px;">
+              <span id="side-price-current" style="font-size: 1.8rem; font-weight: 800; color: #0F172A;">₹0</span>
+              <span id="side-price-original" style="font-size: 1rem; color: #94A3B8; text-decoration: line-through;">₹0</span>
+            </div>
+            <div style="font-size: 0.82rem; color: #2563EB; font-weight: 700; margin-top: 4px;" id="side-emi-text">
+              No Cost EMI options from ₹1,540/mo
+            </div>
+          </div>
+
+          <div class="booking-seats-alert">
+            <i class="fa-solid fa-fire"></i>
+            <span>Only <strong id="side-seats-left">4</strong> slots left for next weekend departure!</span>
+          </div>
+
+          <form onsubmit="handleDirectBooking(event)">
+            
+            <div class="form-group">
+              <label class="form-label">Select Departure Batch</label>
+              <select id="side-batch-select" class="form-control" required>
+                <!-- Populated by JS -->
+              </select>
+            </div>
+
+            <!-- Passenger counter -->
+            <div class="form-group" style="display: flex; align-items: center; justify-content: space-between; background: #F8FAFC; padding: 10px 14px; border-radius: 12px; border: 1px solid #E2E8F0;">
+              <div>
+                <strong style="color: #0F172A; font-size: 0.88rem; display: block;">Backpackers</strong>
+                <small style="color: #64748B;">Group or Solo</small>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <button type="button" class="btn-icon" style="width: 32px; height: 32px;" onclick="changeSidePassengers(-1)">-</button>
+                <span id="side-passengers-count" style="font-weight: 800; font-size: 1rem; min-width: 16px; text-align: center;">1</span>
+                <button type="button" class="btn-icon" style="width: 32px; height: 32px;" onclick="changeSidePassengers(1)">+</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <input type="text" id="side-name" class="form-control" placeholder="Your Name" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Mobile (WhatsApp)</label>
+              <input type="tel" id="side-phone" class="form-control" placeholder="10-digit mobile" required />
+            </div>
+
+            <div style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px; padding: 12px; margin: 16px 0; font-size: 0.84rem;">
+              <div style="display: flex; justify-content: space-between; color: #78350F; margin-bottom: 4px;">
+                <span>Total Amount:</span>
+                <strong id="side-calc-total">₹0</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; color: #15803D; font-weight: 700;">
+                <span>Token to Lock Slot:</span>
+                <strong id="side-calc-token">₹2,000</strong>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" style="padding: 14px;">
+              <i class="fa-solid fa-bolt"></i> Book Slot with Token
+            </button>
+
+            <button type="button" class="btn btn-secondary btn-block" onclick="chatSideWhatsApp()" style="margin-top: 10px; background: #DCFCE7; color: #166534; border-color: #86EFAC;">
+              <i class="fa-brands fa-whatsapp"></i> Chat with Trip Captain
+            </button>
+
+          </form>
+
+          <div style="margin-top: 18px; text-align: center; font-size: 0.78rem; color: #64748B;">
+            <i class="fa-solid fa-lock" style="color: #10B981;"></i> 100% Risk Free Booking • Free date transfer
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Mobile Sticky Bottom Booking Bar -->
+  <div class="mobile-booking-bar">
+    <div>
+      <span style="font-size: 0.75rem; color: #64748B; display: block;">Starting from</span>
+      <strong id="mobile-bar-price" style="font-size: 1.25rem; color: #0F172A;">₹18,499</strong>
+    </div>
+    <button class="btn btn-primary btn-sm" onclick="document.querySelector('.sticky-booking-card')?.scrollIntoView({ behavior: 'smooth' })">
+      Book Your Slot
+    </button>
+  </div>
+
+  <!-- Callback Modal -->
+  <div class="modal-backdrop" id="callback-modal">
+    <div class="modal-dialog" style="max-width: 460px;">
+      <button class="modal-close-btn" onclick="closeModal('callback-modal')"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-content-pad" style="text-align: center; padding-top: 36px;">
+        <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 8px;">Request a Callback</h3>
+        <p style="font-size: 0.88rem; color: #64748B; margin-bottom: 20px;">Our travel guru will call you within 15 minutes.</p>
+        <form onsubmit="handleCallbackSubmit(event)" style="text-align: left;">
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" placeholder="10-digit mobile" required pattern="[0-9]{10}" />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Confirm Callback</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Toast -->
+  <div class="social-proof-toast" id="social-toast">
+    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Traveler" class="toast-avatar" id="toast-avatar" />
+    <div class="toast-text">
+      <h6 id="toast-title">Aman V. from Delhi</h6>
+      <p id="toast-text"><span class="toast-badge">just booked</span> Spiti Valley</p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/trips-data.js"></script>
+  <script src="js/main.js"></script>
+  
+  <script>
+    // Trip Detail Controller
+    let currentDetailTrip = null;
+    let sidePassengers = 1;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tripId = urlParams.get('id') || 'spiti-valley-circuit';
+      
+      currentDetailTrip = TRIPS_DATA.find(t => t.id === tripId) || TRIPS_DATA[0];
+      renderTripDetails(currentDetailTrip);
+    });
+
+    function renderTripDetails(trip) {
+      document.title = `${trip.title} | WanderHums`;
+      document.getElementById('trip-breadcrumb-title').textContent = trip.title;
+      document.getElementById('detail-title').textContent = trip.title;
+      document.getElementById('detail-badge').textContent = trip.badge;
+      
+      // Stats
+      document.getElementById('stat-duration').textContent = trip.duration;
+      document.getElementById('stat-pickup').textContent = trip.pickup;
+      document.getElementById('stat-altitude').textContent = trip.altitude;
+      document.getElementById('stat-difficulty').textContent = trip.difficulty;
+      document.getElementById('stat-rating').textContent = `${trip.rating} (${trip.reviewsCount} reviews)`;
+
+      // Gallery
+      const galleryBox = document.getElementById('trip-gallery-container');
+      const galleryImgs = trip.gallery && trip.gallery.length ? trip.gallery : [trip.image, trip.bannerImage];
+      galleryBox.innerHTML = `
+        <div class="trip-gallery-main">
+          <img src="${galleryImgs[0]}" alt="${trip.title}" />
+        </div>
+        <div class="trip-gallery-sub">
+          <img src="${galleryImgs[1] || galleryImgs[0]}" alt="${trip.title}" />
+        </div>
+        <div class="trip-gallery-sub">
+          <img src="${galleryImgs[2] || galleryImgs[0]}" alt="${trip.title}" />
+        </div>
+      `;
+
+      // Highlights
+      document.getElementById('detail-highlights-list').innerHTML = trip.highlights.map(h => `
+        <div style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.92rem; color: #334155;">
+          <i class="fa-solid fa-circle-check" style="color: #10B981; margin-top: 4px;"></i>
+          <span>${h}</span>
+        </div>
+      `).join('');
+
+      // Itinerary
+      document.getElementById('itinerary-accordion-box').innerHTML = trip.itinerary.map((d, idx) => `
+        <div class="day-box ${idx === 0 ? 'open' : ''}">
+          <button class="day-box-header" onclick="toggleDayBox(this)">
+            <div style="display: flex; align-items: center;">
+              <span class="day-tag">Day ${d.day}</span>
+              <span class="day-title-text">${d.title}</span>
+            </div>
+            <i class="fa-solid fa-chevron-down" style="color: var(--primary);"></i>
+          </button>
+          <div class="day-box-content">
+            <p>${d.desc}</p>
+          </div>
+        </div>
+      `).join('');
+
+      // Inclusions & Exclusions
+      document.getElementById('detail-inclusions-list').innerHTML = trip.inclusions.map(i => `
+        <li><i class="fa-solid fa-check" style="color: #10B981; margin-right: 8px;"></i>${i}</li>
+      `).join('');
+
+      document.getElementById('detail-exclusions-list').innerHTML = trip.exclusions.map(e => `
+        <li><i class="fa-solid fa-xmark" style="color: #EF4444; margin-right: 8px;"></i>${e}</li>
+      `).join('');
+
+      // Sidebar Prices
+      document.getElementById('side-price-current').textContent = `₹${trip.price.toLocaleString('en-IN')}`;
+      document.getElementById('side-price-original').textContent = `₹${trip.originalPrice.toLocaleString('en-IN')}`;
+      document.getElementById('side-seats-left').textContent = trip.seatsLeft;
+      document.getElementById('mobile-bar-price').textContent = `₹${trip.price.toLocaleString('en-IN')}`;
+
+      // Batches
+      document.getElementById('side-batch-select').innerHTML = trip.upcomingBatches.map(b => `
+        <option value="${b.date}">${b.date} (${b.status} - ${b.seats} slots left)</option>
+      `).join('');
+
+      updateSideCalculation();
+    }
+
+    function toggleDayBox(btn) {
+      const box = btn.closest('.day-box');
+      box.classList.toggle('open');
+    }
+
+    function expandAllDays() {
+      document.querySelectorAll('.day-box').forEach(b => b.classList.add('open'));
+    }
+
+    function changeSidePassengers(delta) {
+      sidePassengers = Math.max(1, Math.min(10, sidePassengers + delta));
+      document.getElementById('side-passengers-count').textContent = sidePassengers;
+      updateSideCalculation();
+    }
+
+    function updateSideCalculation() {
+      if (!currentDetailTrip) return;
+      const total = currentDetailTrip.price * sidePassengers;
+      const token = Math.min(total, 2000 * sidePassengers);
+      document.getElementById('side-calc-total').textContent = `₹${total.toLocaleString('en-IN')}`;
+      document.getElementById('side-calc-token').textContent = `₹${token.toLocaleString('en-IN')}`;
+    }
+
+    function handleDirectBooking(e) {
+      e.preventDefault();
+      const name = document.getElementById('side-name').value;
+      const phone = document.getElementById('side-phone').value;
+      const batch = document.getElementById('side-batch-select').value;
+
+      showToast({
+        avatar: currentDetailTrip.image,
+        title: "Slot Reserved! 🎒",
+        text: `Thanks ${name}! Your slot for ${currentDetailTrip.title} (${batch}) is provisionally held. Our captain will call ${phone} for token confirmation.`
+      });
+    }
+
+    function chatSideWhatsApp() {
+      const batch = document.getElementById('side-batch-select').value;
+      const text = `Hi WanderHums! 👋 I am checking out the *${encodeURIComponent(currentDetailTrip.title)}* (${batch}). Can you please share the detailed PDF itinerary and seat availability?`;
+      window.open(`https://wa.me/919899771122?text=${text}`, '_blank');
+    }
+  </script>
+</body>
+</html>

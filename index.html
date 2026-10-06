@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WanderHums | India's Coolest Travel Community - Backpacking & Weekend Trips</title>
+  <meta name="description" content="Join WanderHums for unforgettable backpacking road trips, weekend getaways, and international group tours. Travel with like-minded explorers across Spiti, Ladakh, Meghalaya, Bali and beyond!" />
+  <meta name="keywords" content="WanderHums, WanderOn, backpacking trips, weekend getaways, Spiti Valley, Ladakh tour, Meghalaya road trip, group tours, solo travel india" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎒</text></svg>" />
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 CDN for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- =========================================================================
+       Top Announcement Bar
+       ========================================================================= -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-promo">
+        <span>⚡ Early Bird Discount: Flat ₹2,000 OFF on all 2026 batches! Use code:</span>
+        <span class="top-promo-code">WANDERHUMS2026</span>
+      </div>
+      <div class="top-actions">
+        <a href="tel:+919899771122" class="top-link">
+          <i class="fa-solid fa-phone"></i> +91 9899 771122
+        </a>
+        <a href="https://wa.me/919899771122?text=Hi%20WanderHums!%20I%20want%20to%20know%20about%20upcoming%20trips" target="_blank" class="top-link">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Support
+        </a>
+        <div class="rating-pill-top">
+          <i class="fa-solid fa-star"></i> 4.9/5 (18,400+ Reviews)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       Sticky Main Navigation Header
+       ========================================================================= -->
+  <header class="site-header">
+    
+    <!-- Tier 1: Top White Row (Logo + Utility Links + Phone Pill) -->
+    <div class="header-top-row">
+      <div class="container header-top-inner">
+        
+        <!-- Left: Logo -->
+        <a href="index.html" class="header-logo-link" aria-label="WanderHums Home">
+          <img src="assets/wanderhums-brand-logo.png" alt="WanderHums" class="header-logo-img" />
+        </a>
+
+        <!-- Right: Utility Links & Phone Pill CTA -->
+        <div class="header-top-right">
+          <ul class="top-menu-links">
+            <li>
+              <a href="#trending-trips" class="top-menu-link">
+                Upcoming Trips <i class="fa-regular fa-calendar-days"></i>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" onclick="openCallbackModal()" class="top-menu-link">
+                Corporate Tours
+              </a>
+            </li>
+            <li>
+              <a href="community.html" class="top-menu-link">
+                Blogs
+              </a>
+            </li>
+            <li>
+              <a href="community.html" class="top-menu-link">
+                About Us
+              </a>
+            </li>
+          </ul>
+
+          <!-- Phone Pill CTA (matching screenshot) -->
+          <a href="tel:+918130288566" class="header-phone-pill">
+            <i class="fa-solid fa-phone"></i> <span class="phone-number-full">+91-8130288566</span>
+          </a>
+
+          <!-- Saved Trips (Wishlist) Icon - hidden on desktop, visible on mobile -->
+          <a href="destinations.html?view=wishlist" class="btn-icon wishlist-btn-header" title="Saved Trips">
+            <i class="fa-regular fa-heart"></i>
+            <span class="badge-count wishlist-counter">0</span>
+          </a>
+
+          <!-- Mobile Toggle -->
+          <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Tier 2: Colored Navigation Bar (#01AFD1 Cyan-Blue) -->
+    <div class="header-bottom-bar">
+      <div class="container header-bottom-inner">
+        
+        <!-- International Trips -->
+        <div class="bottom-nav-item">
+          <a href="destinations.html?cat=international" class="bottom-nav-link">
+            <span>International Trips</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="trip-detail.html?id=bali-island-explorer" class="dropdown-link">
+              <span>Bali & Nusa Penida</span>
+              <small>7D/6N</small>
+            </a>
+            <a href="trip-detail.html?id=vietnam-cross-country" class="dropdown-link">
+              <span>Vietnam Highlights</span>
+              <small>8D/7N</small>
+            </a>
+            <a href="destinations.html?cat=international" class="dropdown-link" style="color: #01AFD1; font-weight: 700;">
+              <span>View All International Trips →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- India Trips -->
+        <div class="bottom-nav-item">
+          <a href="destinations.html?cat=backpacking" class="bottom-nav-link">
+            <span>India Trips</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="trip-detail.html?id=spiti-valley-circuit" class="dropdown-link">
+              <span>Spiti Valley Circuit</span>
+              <small>9D/8N</small>
+            </a>
+            <a href="trip-detail.html?id=meghalaya-backpacking" class="dropdown-link">
+              <span>Meghalaya Living Roots</span>
+              <small>6D/5N</small>
+            </a>
+            <a href="trip-detail.html?id=kashmir-paradise-circuit" class="dropdown-link">
+              <span>Kashmir Paradise</span>
+              <small>6D/5N</small>
+            </a>
+            <a href="destinations.html?cat=backpacking" class="dropdown-link" style="color: #01AFD1; font-weight: 700;">
+              <span>View All India Trips →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Group Tours -->
+        <div class="bottom-nav-item">
+          <a href="destinations.html" class="bottom-nav-link">
+            <span>Group Tours</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="destinations.html?cat=backpacking" class="dropdown-link">
+              <span>Backpacking Road Trips</span>
+            </a>
+            <a href="destinations.html?cat=bike" class="dropdown-link">
+              <span>Motorbike Expeditions</span>
+            </a>
+            <a href="community.html" class="dropdown-link">
+              <span>Solo Friendly Departures</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Events & Festivals -->
+        <div class="bottom-nav-item">
+          <a href="destinations.html?q=Trek" class="bottom-nav-link">
+            <span>Events & Festivals</span>
+          </a>
+        </div>
+
+        <!-- Weekend Getaways -->
+        <div class="bottom-nav-item">
+          <a href="destinations.html?cat=weekend" class="bottom-nav-link">
+            <span>Weekend Getaways</span>
+          </a>
+          <div class="dropdown-menu">
+            <a href="trip-detail.html?id=kasol-kheerganga-weekend" class="dropdown-link">
+              <span>Kasol & Kheerganga</span>
+              <small>3D/2N</small>
+            </a>
+            <a href="trip-detail.html?id=jibhi-tirthan-weekend" class="dropdown-link">
+              <span>Jibhi & Tirthan Valley</span>
+              <small>3D/2N</small>
+            </a>
+            <a href="trip-detail.html?id=chopta-chandrashila-trek" class="dropdown-link">
+              <span>Chopta Tungnath Trek</span>
+              <small>3D/2N</small>
+            </a>
+          </div>
+        </div>
+
+        <!-- Seasonal Sale Offer -->
+        <div class="bottom-nav-item">
+          <a href="#trending-trips" class="bottom-nav-link">
+            <span>Christmas & New Year Sale</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </header>
+
+  <!-- =========================================================================
+       Hero Section with Search Bar (WanderOn Signature Aesthetic)
+       ========================================================================= -->
+  <section class="hero-section">
+    <div class="container">
+      
+      <div class="hero-badge-pill">
+        <i class="fa-solid fa-fire"></i> INDIA'S COOLEST TRAVEL COMMUNITY 🎒
+      </div>
+
+      <h1 class="hero-title">
+        Don't Just Travel.<br />
+        <span>Create Stories That Last A Lifetime.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Curated road trips, high-altitude backpacking and international tours for travelers who crave real connections, starry campfires, and unforgettable adventures.
+      </p>
+
+      <!-- Interactive Search Widget -->
+      <div class="hero-search-box">
+        <form id="hero-search-form" class="search-form-grid">
+          
+          <!-- Destination Field -->
+          <div class="search-field">
+            <label class="search-label" for="search-dest-input">
+              <i class="fa-solid fa-location-dot"></i> Where to?
+            </label>
+            <input 
+              type="text" 
+              id="search-dest-input" 
+              class="search-input" 
+              placeholder="e.g. Spiti, Ladakh, Meghalaya, Bali..." 
+              autocomplete="off"
+            />
+          </div>
+
+          <!-- Trip Category -->
+          <div class="search-field">
+            <label class="search-label" for="search-type-select">
+              <i class="fa-solid fa-mountain"></i> Trip Type
+            </label>
+            <select id="search-type-select" class="search-select">
+              <option value="all">All Trip Types</option>
+              <option value="backpacking">Backpacking Trips</option>
+              <option value="weekend">Weekend Getaways</option>
+              <option value="international">International Tours</option>
+              <option value="bike">Bike Expeditions</option>
+            </select>
+          </div>
+
+          <!-- Departure Month -->
+          <div class="search-field">
+            <label class="search-label" for="search-month-select">
+              <i class="fa-regular fa-calendar"></i> Month
+            </label>
+            <select id="search-month-select" class="search-select">
+              <option value="">Any Month</option>
+              <option value="apr">April 2026</option>
+              <option value="may">May 2026</option>
+              <option value="jun">June 2026</option>
+              <option value="jul">July 2026</option>
+              <option value="aug">August 2026</option>
+            </select>
+          </div>
+
+          <!-- Search Button -->
+          <div class="search-btn-col">
+            <button type="submit" class="btn btn-primary btn-block">
+              <i class="fa-solid fa-magnifying-glass"></i> Explore Trips
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Quick Search Suggestion Pills -->
+      <div class="search-quick-tags">
+        <span>Trending Searches:</span>
+        <span class="tag-pill" onclick="searchByTag('Spiti')">#SpitiValley</span>
+        <span class="tag-pill" onclick="searchByTag('Meghalaya')">#Meghalaya</span>
+        <span class="tag-pill" onclick="searchByTag('Kasol')">#KasolWeekend</span>
+        <span class="tag-pill" onclick="searchByTag('Ladakh')">#LadakhExpedition</span>
+        <span class="tag-pill" onclick="searchByTag('Bali')">#BaliNusaPenida</span>
+        <span class="tag-pill" onclick="searchByTag('Vietnam')">#VietnamTrip</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Quick Category Circle Bar
+       ========================================================================= -->
+  <section class="categories-section">
+    <div class="container">
+      <div class="category-row">
+        
+        <div class="category-card active" data-category="all">
+          <div class="cat-icon-wrap"><i class="fa-solid fa-earth-americas"></i></div>
+          <span class="cat-name">All Trips</span>
+        </div>
+
+        <div class="category-card" data-category="backpacking">
+          <div class="cat-icon-wrap"><i class="fa-solid fa-person-hiking"></i></div>
+          <span class="cat-name">Backpacking</span>
+        </div>
+
+        <div class="category-card" data-category="weekend">
+          <div class="cat-icon-wrap"><i class="fa-solid fa-bolt"></i></div>
+          <span class="cat-name">Weekend Getaways</span>
+        </div>
+
+        <div class="category-card" data-category="international">
+          <div class="cat-icon-wrap"><i class="fa-solid fa-plane-departure"></i></div>
+          <span class="cat-name">International</span>
+        </div>
+
+        <div class="category-card" data-category="bike">
+          <div class="cat-icon-wrap"><i class="fa-solid fa-motorcycle"></i></div>
+          <span class="cat-name">Bike Expeditions</span>
+        </div>
+
+        <div class="category-card" onclick="searchByTag('Trek')">
+          <div class="cat-icon-wrap"><i class="fa-solid fa-mountain-sun"></i></div>
+          <span class="cat-name">Himalayan Treks</span>
+        </div>
+
+        <div class="category-card" onclick="openCallbackModal()">
+          <div class="cat-icon-wrap"><i class="fa-solid fa-user-group"></i></div>
+          <span class="cat-name">Custom Groups</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Trust Metrics Bar
+       ========================================================================= -->
+  <section class="trust-strip">
+    <div class="container">
+      <div class="trust-grid">
+        
+        <div class="trust-item">
+          <div class="trust-icon"><i class="fa-solid fa-users"></i></div>
+          <div class="trust-text">
+            <h4>50,000+ Explorers</h4>
+            <p>Traveled with WanderHums family</p>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon"><i class="fa-solid fa-star"></i></div>
+          <div class="trust-text">
+            <h4>4.9/5 Rating</h4>
+            <p>18,000+ Google & Tripadvisor reviews</p>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="trust-text">
+            <h4>100% Safe For Solo</h4>
+            <p>65% travelers join solo & feel family</p>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+          <div class="trust-text">
+            <h4>Zero Hidden Costs</h4>
+            <p>Honest inclusions & transparent pricing</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Trending Trips & Upcoming Departures Section
+       ========================================================================= -->
+  <section class="section-py" id="trending-trips">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-pretitle">Handcrafted Adventures</span>
+        <h2 class="section-title">Trending Departures & Group Trips</h2>
+        <p class="section-desc">
+          Hop into our comfortable tempo travellers, cruise across rugged mountain passes, and stargaze around crackling bonfires. Pick your next escape!
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="tabs-nav">
+        <button class="tab-btn active" data-category="all">All Packages</button>
+        <button class="tab-btn" data-category="backpacking">🎒 Backpacking Road Trips</button>
+        <button class="tab-btn" data-category="weekend">⚡ Weekend Getaways</button>
+        <button class="tab-btn" data-category="international">🌴 International Tours</button>
+        <button class="tab-btn" data-category="bike">🏍️ Bike Expeditions</button>
+      </div>
+
+      <!-- Dynamic Trips Grid rendered via JS -->
+      <div class="trips-grid" id="trips-container">
+        <!-- Rendered by js/main.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Top Destinations Explorer
+       ========================================================================= -->
+  <section class="section-py destinations-section">
+    <div class="container">
+      
+      <div class="section-header text-center">
+        <span class="section-pretitle">Popular Regions</span>
+        <h2 class="section-title">Explore by Dream Destinations</h2>
+        <p class="section-desc">
+          From the cold deserts of Spiti to the tropical beaches of Bali, we curate experiences that linger forever.
+        </p>
+      </div>
+
+      <div class="destinations-grid">
+        
+        <div class="dest-card" onclick="searchByTag('Spiti')">
+          <img src="assets/spiti.jpg" alt="Spiti Valley" />
+          <div class="dest-overlay">
+            <h3 class="dest-title">Spiti Valley, Himachal</h3>
+            <span class="dest-trips-count">8 Upcoming Batches • From ₹18,499</span>
+          </div>
+        </div>
+
+        <div class="dest-card" onclick="searchByTag('Meghalaya')">
+          <img src="assets/meghalaya.jpg" alt="Meghalaya" />
+          <div class="dest-overlay">
+            <h3 class="dest-title">Meghalaya</h3>
+            <span class="dest-trips-count">Living Root Bridges & Caves • From ₹19,999</span>
+          </div>
+        </div>
+
+        <div class="dest-card" onclick="searchByTag('Bali')">
+          <img src="assets/bali.jpg" alt="Bali" />
+          <div class="dest-overlay">
+            <h3 class="dest-title">Bali & Nusa Penida</h3>
+            <span class="dest-trips-count">Tropical Group Tour • From ₹36,999</span>
+          </div>
+        </div>
+
+        <div class="dest-card" onclick="searchByTag('Kasol')">
+          <img src="assets/kasol.jpg" alt="Kasol & Parvati Valley" />
+          <div class="dest-overlay">
+            <h3 class="dest-title">Kasol & Kheerganga</h3>
+            <span class="dest-trips-count">Every Weekend Departure • From ₹6,499</span>
+          </div>
+        </div>
+
+        <div class="dest-card" onclick="searchByTag('Ladakh')">
+          <img src="assets/ladakh.jpg" alt="Ladakh" />
+          <div class="dest-overlay">
+            <h3 class="dest-title">Ladakh High Passes</h3>
+            <span class="dest-trips-count">Pangong & Nubra • From ₹32,999</span>
+          </div>
+        </div>
+
+        <div class="dest-card" onclick="searchByTag('Vietnam')">
+          <img src="assets/vietnam.jpg" alt="Vietnam" />
+          <div class="dest-overlay">
+            <h3 class="dest-title">Vietnam Highlights</h3>
+            <span class="dest-trips-count">Hanoi to Da Nang • From ₹44,999</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Why WanderHums? (WanderOn Community Philosophy)
+       ========================================================================= -->
+  <section class="section-py why-section">
+    <div class="container">
+      
+      <div class="section-header text-center">
+        <span class="section-pretitle" style="color: var(--secondary);">The WanderHums Philosophy</span>
+        <h2 class="section-title">Why Travel With Our Community?</h2>
+        <p class="section-desc">
+          We don’t do standard tourist packages. We craft shared experiences where strangers transform into family over hot chai and mountain passes.
+        </p>
+      </div>
+
+      <div class="why-grid">
+        
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-heart"></i></div>
+          <h3>Made for Solo Travelers</h3>
+          <p>Over 65% of our backpackers join solo. From initial icebreakers to late-night campfire games, you’ll never feel like an outsider.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-person-military-pointing"></i></div>
+          <h3>Epic Trip Captains</h3>
+          <p>Not rigid tour guides! Our captains are mountain lovers, certified first-responders, photographers, and guitar players who lead like best buddies.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-shield-virus"></i></div>
+          <h3>100% Female Traveler Safety</h3>
+          <p>Verified stays, vetted local drivers, strict zero-harassment policies, and dedicated female captains ensure complete peace of mind.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-house-chimney-window"></i></div>
+          <h3>Handpicked Unique Stays</h3>
+          <p>No cookie-cutter commercial hotels. We sleep in riverside Swiss tents, heritage stone homestays, and boutique pool villas.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-van-shuttle"></i></div>
+          <h3>Hassle-Free Transit</h3>
+          <p>Comfortable tempo travellers, expert hill drivers, and backup mechanic vehicles so you can enjoy the music without mountain driving stress.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+          <h3>Zero Hidden Costs</h3>
+          <p>Clear, upfront itineraries with permits, stays, and meals clearly defined. Pay only 20% advance token to book your slot.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Real Traveler Reviews & Google Ratings
+       ========================================================================= -->
+  <section class="section-py reviews-section">
+    <div class="container">
+      
+      <div class="google-rating-banner">
+        <div class="google-badge-left">
+          <div class="google-logo-icon">
+            <i class="fa-brands fa-google"></i>
+          </div>
+          <div class="google-score-text">
+            <h4>Google Verified Rating</h4>
+            <div class="stars-cluster">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <strong style="color: var(--dark); margin-left: 6px;">4.9 out of 5.0</strong>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span style="font-weight: 700; color: #1E293B;">Based on 18,400+ Independent Traveler Reviews</span>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <span class="section-pretitle">Real Experiences</span>
+        <h2 class="section-title">Stories From Fellow Wanderers</h2>
+      </div>
+
+      <div class="reviews-grid">
+        
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80" alt="Aakash Sharma" class="review-avatar" />
+            <div class="review-user-info">
+              <h5>Aakash Sharma</h5>
+              <span>New Delhi • Traveled Solo</span>
+            </div>
+          </div>
+          <span class="review-trip-tag">Spiti Valley Circuit (9D/8N)</span>
+          <div class="stars-cluster" style="margin-bottom: 8px;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-quote">
+            "I joined WanderHums as a solo traveler and returned with 14 best friends for life! The trip captain Rohan was phenomenal — managed high altitude arrangements smoothly, kept the tempo alive with his guitar at Chandratal, and made everyone feel like family. 100% authentic community vibe!"
+          </p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" alt="Sneha Mukherjee" class="review-avatar" />
+            <div class="review-user-info">
+              <h5>Sneha Mukherjee</h5>
+              <span>Kolkata • Solo Traveler</span>
+            </div>
+          </div>
+          <span class="review-trip-tag">Meghalaya Backpacking</span>
+          <div class="stars-cluster" style="margin-bottom: 8px;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-quote">
+            "Being a solo female traveler, safety was my topmost concern. WanderHums exceeded all expectations! The stays were clean, cozy, and the trip leaders were so respectful and encouraging. Jumping off the cliff at Dawki and the hike to Rainbow Falls was the best adventure of my life!"
+          </p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80" alt="Rishabh & Priya" class="review-avatar" />
+            <div class="review-user-info">
+              <h5>Rishabh & Priya</h5>
+              <span>Mumbai • Couple</span>
+            </div>
+          </div>
+          <span class="review-trip-tag">Bali & Nusa Penida</span>
+          <div class="stars-cluster" style="margin-bottom: 8px;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-quote">
+            "We took the Bali group tour instead of a boring private package, and it was the BEST decision ever! The crew at WanderHums took care of fast boats, villas, floating breakfasts, and photography. We saved money and made lifelong friends. 10/10 recommended!"
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Instagram Community Grid (#WanderHumsOfInstagram)
+       ========================================================================= -->
+  <section class="section-py insta-section">
+    <div class="container">
+      
+      <div class="section-header text-center">
+        <span class="section-pretitle">#WanderHumsOfInstagram</span>
+        <h2 class="section-title">Life on the Road</h2>
+        <p class="section-desc">
+          Tag @WanderHums on your Instagram reels and stories to be featured on our community board!
+        </p>
+      </div>
+
+      <div class="insta-grid">
+        
+        <div class="insta-item">
+          <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=600&q=80" alt="Bonfire night" />
+          <div class="insta-overlay">
+            <i class="fa-brands fa-instagram"></i>
+            <span>2.4k Likes</span>
+            <small style="margin-top: 4px;">#CampfireJams</small>
+          </div>
+        </div>
+
+        <div class="insta-item">
+          <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=600&q=80" alt="Postcard from Hikkim" />
+          <div class="insta-overlay">
+            <i class="fa-brands fa-instagram"></i>
+            <span>4.1k Likes</span>
+            <small style="margin-top: 4px;">#HighestPostOffice</small>
+          </div>
+        </div>
+
+        <div class="insta-item">
+          <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&q=80" alt="Bali Beach" />
+          <div class="insta-overlay">
+            <i class="fa-brands fa-instagram"></i>
+            <span>3.8k Likes</span>
+            <small style="margin-top: 4px;">#NusaPenida</small>
+          </div>
+        </div>
+
+        <div class="insta-item">
+          <img src="https://images.unsplash.com/photo-1608037521255-a4f6cf9cfaf3?auto=format&fit=crop&w=600&q=80" alt="Meghalaya Living Roots" />
+          <div class="insta-overlay">
+            <i class="fa-brands fa-instagram"></i>
+            <span>1.9k Likes</span>
+            <small style="margin-top: 4px;">#LivingRootBridges</small>
+          </div>
+        </div>
+
+        <div class="insta-item">
+          <img src="https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=600&q=80" alt="Ladakh Royal Enfield" />
+          <div class="insta-overlay">
+            <i class="fa-brands fa-instagram"></i>
+            <span>5.2k Likes</span>
+            <small style="margin-top: 4px;">#KhardungLaConquered</small>
+          </div>
+        </div>
+
+        <div class="insta-item">
+          <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=600&q=80" alt="Ha Long Bay Vietnam" />
+          <div class="insta-overlay">
+            <i class="fa-brands fa-instagram"></i>
+            <span>3.1k Likes</span>
+            <small style="margin-top: 4px;">#HaLongBayCruise</small>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Callback Lead Generation Banner
+       ========================================================================= -->
+  <div class="container">
+    <div class="callback-banner">
+      <div class="callback-inner">
+        <div class="callback-info">
+          <h3>Confused Where To Go? Let Our Travel Gurus Call You!</h3>
+          <p>Leave your phone number and get a personalized itinerary recommendation, batch availability & early bird discounts within 15 minutes.</p>
+        </div>
+        <form class="callback-form-box" onsubmit="handleCallbackSubmit(event)">
+          <input type="tel" class="callback-input" placeholder="Enter your 10-digit mobile number" required pattern="[0-9]{10}" />
+          <button type="submit" class="btn btn-dark">Get Callback</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       FAQs Section (Accordion)
+       ========================================================================= -->
+  <section class="section-py faq-section">
+    <div class="container">
+      
+      <div class="section-header text-center">
+        <span class="section-pretitle">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">
+          Everything you need to know before packing your rucksack and hopping onto your dream trip.
+        </p>
+      </div>
+
+      <div class="faq-container" id="faq-accordion-container">
+        <!-- Rendered by js/main.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Site Footer
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      
+      <div class="footer-top-grid">
+        
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="margin-bottom: 20px;">
+            <img src="assets/logo-clean.png" alt="WanderHums" class="logo-img" style="filter: brightness(1.15);" />
+          </a>
+          <p>
+            WanderHums is India’s premium experiential travel community. We build authentic friendships, organize high-octane road trips, and create stories that echo forever across the Himalayas and beyond.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Destinations Col -->
+        <div class="footer-col">
+          <h4>Top Destinations</h4>
+          <ul class="footer-links">
+            <li><a href="destinations.html?q=Spiti">Spiti Valley Road Trip</a></li>
+            <li><a href="destinations.html?q=Ladakh">Ladakh Bike Expedition</a></li>
+            <li><a href="destinations.html?q=Meghalaya">Meghalaya Living Roots</a></li>
+            <li><a href="destinations.html?q=Kasol">Kasol & Kheerganga</a></li>
+            <li><a href="destinations.html?q=Bali">Bali & Nusa Penida</a></li>
+            <li><a href="destinations.html?q=Vietnam">Vietnam Highlights</a></li>
+          </ul>
+        </div>
+
+        <!-- Trip Types Col -->
+        <div class="footer-col">
+          <h4>Trip Categories</h4>
+          <ul class="footer-links">
+            <li><a href="destinations.html?cat=backpacking">Backpacking Group Trips</a></li>
+            <li><a href="destinations.html?cat=weekend">Weekend Getaways from Delhi</a></li>
+            <li><a href="destinations.html?cat=international">International Escapes</a></li>
+            <li><a href="destinations.html?cat=bike">Motorbike Expeditions</a></li>
+            <li><a href="community.html">Solo Female Friendly Trips</a></li>
+            <li><a href="community.html">Corporate Offsites</a></li>
+          </ul>
+        </div>
+
+        <!-- Support & Office Col -->
+        <div class="footer-col">
+          <h4>24x7 Travel Support</h4>
+          <ul class="footer-links" style="gap: 12px;">
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-phone" style="color: var(--primary); margin-right: 8px;"></i> +91 9899 771122</li>
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-envelope" style="color: var(--primary); margin-right: 8px;"></i> hello@wanderhums.com</li>
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-location-dot" style="color: var(--primary); margin-right: 8px;"></i> DLF Cyber City, Phase 2, Gurugram, Delhi NCR - 122002</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          © 2026 WanderHums Experiential Travel Pvt. Ltd. All Rights Reserved.
+        </div>
+        <div class="payment-badges">
+          <span style="font-size: 0.8rem; margin-right: 8px; color: #94A3B8;">100% Secure Payment:</span>
+          <i class="fa-brands fa-google-pay" title="UPI & GPay"></i>
+          <i class="fa-brands fa-cc-visa" title="Visa"></i>
+          <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+          <i class="fa-solid fa-shield-halved" title="SSL Encrypted" style="color: var(--success);"></i>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       Modal: Itinerary Quick View
+       ========================================================================= -->
+  <div class="modal-backdrop" id="itinerary-modal">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" onclick="closeModal('itinerary-modal')" aria-label="Close Modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="itinerary-modal-body">
+        <!-- Injected via js/main.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       Modal: Book Slot & Price Calculation
+       ========================================================================= -->
+  <div class="modal-backdrop" id="booking-modal">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" onclick="closeModal('booking-modal')" aria-label="Close Modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-content-pad" style="padding-top: 36px;">
+        <span class="card-badge badge-hot" style="position: static; display: inline-block; margin-bottom: 8px;">INSTANT RESERVATION</span>
+        <h3 id="book-trip-title" style="font-size: 1.4rem; font-weight: 800; color: #0F172A; margin-bottom: 6px;">Trip Booking</h3>
+        <p style="color: #64748B; font-size: 0.88rem; margin-bottom: 20px;">Pay only 20% token advance today to lock your seat! Balance before trip.</p>
+
+        <form onsubmit="handleBookingSubmit(event)">
+          
+          <div class="form-group">
+            <label class="form-label" for="book-batch-select">Select Departure Batch Date</label>
+            <select id="book-batch-select" class="form-control" required>
+              <!-- Populated dynamically -->
+            </select>
+          </div>
+
+          <!-- Passenger Count Selector -->
+          <div class="form-group" style="display: flex; align-items: center; justify-content: space-between; background: #F8FAFC; padding: 12px 16px; border-radius: 12px; border: 1px solid #E2E8F0;">
+            <div>
+              <strong style="color: #0F172A; font-size: 0.92rem; display: block;">Number of Backpackers</strong>
+              <small style="color: #64748B;">Same-gender room sharing included</small>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <button type="button" class="btn-icon" style="width: 34px; height: 34px;" onclick="changePassengerCount(-1)">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <span id="passenger-count-display" style="font-size: 1.1rem; font-weight: 800; min-width: 20px; text-align: center;">1</span>
+              <button type="button" class="btn-icon" style="width: 34px; height: 34px;" onclick="changePassengerCount(1)">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="form-group">
+              <label class="form-label" for="book-name">Full Name</label>
+              <input type="text" id="book-name" class="form-control" placeholder="e.g. Rahul Verma" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="book-phone">Mobile (WhatsApp)</label>
+              <input type="tel" id="book-phone" class="form-control" placeholder="10-digit number" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="book-email">Email Address</label>
+            <input type="email" id="book-email" class="form-control" placeholder="rahul@example.com" required />
+          </div>
+
+          <!-- Promo Code Box -->
+          <div class="form-group">
+            <label class="form-label" for="promo-input">Coupon / Promo Code</label>
+            <div style="display: flex; gap: 8px;">
+              <input type="text" id="promo-input" class="form-control" placeholder="WANDERHUMS2026" style="text-transform: uppercase;" />
+              <button type="button" class="btn btn-secondary btn-sm" onclick="applyPromoCode()">Apply</button>
+            </div>
+            <div id="promo-msg" style="font-size: 0.8rem; margin-top: 4px;"></div>
+          </div>
+
+          <!-- Dynamic Price Breakdown Summary -->
+          <div style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 12px; padding: 14px 16px; margin: 20px 0;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 6px; color: #78350F;">
+              <span>Package Total:</span>
+              <strong id="book-base-price">₹0</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 6px; color: #15803D;">
+              <span>Promo Discount:</span>
+              <strong id="book-discount-price">-₹0</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 1.05rem; font-weight: 800; border-top: 1px dashed #FDE68A; padding-top: 8px; color: #0F172A;">
+              <span>Total Payable:</span>
+              <span id="book-total-price" style="color: var(--primary);">₹0</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.82rem; color: #92400E; margin-top: 6px;">
+              <span>Pay Now (Token Advance):</span>
+              <strong id="book-advance-token">₹2,000</strong>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <button type="button" class="btn btn-secondary btn-block" onclick="bookViaWhatsApp()" style="background: #DCFCE7; color: #166534; border-color: #86EFAC;">
+              <i class="fa-brands fa-whatsapp"></i> Book via WhatsApp
+            </button>
+            <button type="submit" class="btn btn-primary btn-block">
+              Confirm Reservation
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       Modal: Request a Callback
+       ========================================================================= -->
+  <div class="modal-backdrop" id="callback-modal">
+    <div class="modal-dialog" style="max-width: 480px;">
+      <button class="modal-close-btn" onclick="closeModal('callback-modal')" aria-label="Close Modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-content-pad" style="padding-top: 36px; text-align: center;">
+        <div style="width: 56px; height: 56px; background: var(--primary-light); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin: 0 auto 16px auto;">
+          <i class="fa-solid fa-headset"></i>
+        </div>
+        <h3 style="font-size: 1.4rem; font-weight: 800; color: #0F172A; margin-bottom: 6px;">Talk to a Travel Guru</h3>
+        <p style="color: #64748B; font-size: 0.88rem; margin-bottom: 24px;">Got questions about packing, solo travel safety, or batch availability? We’ll call you right away!</p>
+
+        <form onsubmit="handleCallbackSubmit(event)" style="text-align: left;">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" class="form-control" placeholder="e.g. Priya Sharma" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number (WhatsApp)</label>
+            <input type="tel" class="form-control" placeholder="10-digit number" required pattern="[0-9]{10}" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Interested In</label>
+            <select class="form-control">
+              <option>Spiti Valley Road Trip</option>
+              <option>Meghalaya Backpacking</option>
+              <option>Kasol & Kheerganga Weekend</option>
+              <option>Bali & Nusa Penida</option>
+              <option>Ladakh Bike Expedition</option>
+              <option>Custom Group / Corporate Trip</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" style="margin-top: 10px;">
+            Request Callback in 15 Mins
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       Floating Widgets
+       ========================================================================= -->
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/919899771122?text=Hi%20WanderHums!%20I%20am%20interested%20in%20upcoming%20group%20trips." 
+     target="_blank" 
+     class="floating-whatsapp" 
+     aria-label="Chat on WhatsApp">
+    <div class="whatsapp-pulse"></div>
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Social Proof Live Toast -->
+  <div class="social-proof-toast" id="social-toast">
+    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Traveler" class="toast-avatar" id="toast-avatar" />
+    <div class="toast-text">
+      <h6 id="toast-title">Aman V. from Delhi</h6>
+      <p id="toast-text"><span class="toast-badge">just booked 2 seats</span> for <strong>Spiti Valley</strong></p>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Sticky Navigation -->
+  <nav class="mobile-bottom-nav">
+    <div class="mobile-nav-inner">
+      <a href="index.html" class="mobile-nav-item active">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </a>
+      <a href="destinations.html" class="mobile-nav-item">
+        <i class="fa-solid fa-compass"></i>
+        <span>All Trips</span>
+      </a>
+      <a href="javascript:void(0)" onclick="openCallbackModal()" class="mobile-nav-item">
+        <i class="fa-solid fa-phone"></i>
+        <span>Callback</span>
+      </a>
+      <a href="destinations.html?view=wishlist" class="mobile-nav-item">
+        <i class="fa-solid fa-heart"></i>
+        <span>Wishlist (<span class="wishlist-counter">0</span>)</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Scripts -->
+  <script src="js/trips-data.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
