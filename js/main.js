@@ -387,7 +387,7 @@ window.bookViaWhatsApp = function() {
 
   const text = `Hi WanderHums Team! 🏔️%0A%0AI want to book the *${encodeURIComponent(currentBookingTrip.title)}*%0A- Batch: ${encodeURIComponent(batch)}%0A- Passengers: ${bookingPassengers}%0A- Name: ${encodeURIComponent(name)}%0A- Contact: ${encodeURIComponent(phone)}%0A%0APlease share payment details for the token advance!`;
   
-  window.open(`https://wa.me/919899771122?text=${text}`, '_blank');
+  window.open(`https://wa.me/919999999999?text=${text}`, '_blank');
 };
 
 /* ---------------------------------------------------------
