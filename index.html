@@ -215,6 +215,58 @@
   </header>
 
   <!-- =========================================================================
+       Mobile Side Navigation Drawer
+       ========================================================================= -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop" onclick="closeMobileDrawer()"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="drawer-logo" aria-label="WanderHums Home">
+        <img src="assets/wanderhums-brand-logo.png" alt="WanderHums" />
+      </a>
+      <button class="drawer-close-btn" onclick="closeMobileDrawer()" aria-label="Close Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <div class="mobile-drawer-body">
+      <!-- Quick Contact Actions -->
+      <div class="drawer-contact-card">
+        <a href="tel:+918130288566" class="btn btn-outline-cyan btn-sm btn-block">
+          <i class="fa-solid fa-phone"></i> +91-8130288566
+        </a>
+        <a href="https://wa.me/919899771122?text=Hi%20WanderHums!%20I%20am%20interested%20in%20upcoming%20trips." target="_blank" class="btn btn-whatsapp-solid btn-sm btn-block">
+          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+      </div>
+
+      <!-- Tour Categories -->
+      <div class="drawer-nav-section">
+        <div class="drawer-section-title">Explore Tours</div>
+        <ul class="drawer-links">
+          <li><a href="destinations.html?cat=international"><i class="fa-solid fa-earth-americas"></i> International Trips</a></li>
+          <li><a href="destinations.html?cat=backpacking"><i class="fa-solid fa-mountain"></i> India Road Trips</a></li>
+          <li><a href="destinations.html"><i class="fa-solid fa-users"></i> Group Tours</a></li>
+          <li><a href="destinations.html?cat=weekend"><i class="fa-solid fa-campground"></i> Weekend Getaways</a></li>
+          <li><a href="destinations.html?q=Trek"><i class="fa-solid fa-calendar-check"></i> Events & Festivals</a></li>
+          <li><a href="index.html#trending-trips" class="sale-link" onclick="closeMobileDrawer()"><i class="fa-solid fa-fire"></i> Christmas & New Year Sale</a></li>
+        </ul>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="drawer-nav-section">
+        <div class="drawer-section-title">Community & Company</div>
+        <ul class="drawer-links">
+          <li><a href="#trending-trips" onclick="closeMobileDrawer()"><i class="fa-regular fa-calendar-days"></i> Upcoming Trips</a></li>
+          <li><a href="javascript:void(0)" onclick="closeMobileDrawer(); openCallbackModal();"><i class="fa-solid fa-briefcase"></i> Corporate Tours</a></li>
+          <li><a href="community.html"><i class="fa-solid fa-newspaper"></i> Travel Blogs</a></li>
+          <li><a href="community.html"><i class="fa-solid fa-people-roof"></i> About WanderHums</a></li>
+          <li><a href="destinations.html?view=wishlist"><i class="fa-regular fa-heart"></i> Saved Trips (<span class="wishlist-counter">0</span>)</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
        Hero Section with Search Bar (WanderOn Signature Aesthetic)
        ========================================================================= -->
   <section class="hero-section">
@@ -765,8 +817,8 @@
         
         <!-- Brand Info -->
         <div class="footer-brand">
-          <a href="index.html" class="logo" style="margin-bottom: 20px;">
-            <img src="assets/logo-clean.png" alt="WanderHums" class="logo-img" style="filter: brightness(1.15);" />
+          <a href="index.html" class="footer-logo-link" aria-label="WanderHums Home">
+            <img src="assets/wanderhums-brand-logo.png" alt="WanderHums" class="footer-logo-img" />
           </a>
           <p>
             WanderHums is India’s premium experiential travel community. We build authentic friendships, organize high-octane road trips, and create stories that echo forever across the Himalayas and beyond.

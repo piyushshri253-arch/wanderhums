@@ -556,10 +556,42 @@ function showToast({ avatar, title, text }) {
    --------------------------------------------------------- */
 function initMobileMenu() {
   const toggleBtn = document.getElementById('mobile-menu-toggle');
-  const menu = document.getElementById('mobile-drawer');
-  if (toggleBtn && menu) {
+  const drawer = document.getElementById('mobile-drawer');
+  const backdrop = document.getElementById('mobile-drawer-backdrop');
+
+  if (toggleBtn) {
     toggleBtn.addEventListener('click', () => {
-      menu.classList.toggle('open');
+      openMobileDrawer();
     });
   }
+
+  if (backdrop) {
+    backdrop.addEventListener('click', () => {
+      closeMobileDrawer();
+    });
+  }
+
+  // Close drawer on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMobileDrawer();
+    }
+  });
 }
+
+window.openMobileDrawer = function() {
+  const drawer = document.getElementById('mobile-drawer');
+  const backdrop = document.getElementById('mobile-drawer-backdrop');
+  if (drawer) drawer.classList.add('active');
+  if (backdrop) backdrop.classList.add('active');
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeMobileDrawer = function() {
+  const drawer = document.getElementById('mobile-drawer');
+  const backdrop = document.getElementById('mobile-drawer-backdrop');
+  if (drawer) drawer.classList.remove('active');
+  if (backdrop) backdrop.classList.remove('active');
+  document.body.style.overflow = '';
+};
+

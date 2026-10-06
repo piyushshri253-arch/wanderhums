@@ -332,6 +332,53 @@
 
   </header>
 
+  <!-- Mobile Side Navigation Drawer -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop" onclick="closeMobileDrawer()"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="drawer-logo" aria-label="WanderHums Home">
+        <img src="assets/wanderhums-brand-logo.png" alt="WanderHums" />
+      </a>
+      <button class="drawer-close-btn" onclick="closeMobileDrawer()" aria-label="Close Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <div class="mobile-drawer-body">
+      <div class="drawer-contact-card">
+        <a href="tel:+918130288566" class="btn btn-outline-cyan btn-sm btn-block">
+          <i class="fa-solid fa-phone"></i> +91-8130288566
+        </a>
+        <a href="https://wa.me/919899771122?text=Hi%20WanderHums!%20I%20am%20interested%20in%20upcoming%20trips." target="_blank" class="btn btn-whatsapp-solid btn-sm btn-block">
+          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+      </div>
+
+      <div class="drawer-nav-section">
+        <div class="drawer-section-title">Explore Tours</div>
+        <ul class="drawer-links">
+          <li><a href="destinations.html?cat=international"><i class="fa-solid fa-earth-americas"></i> International Trips</a></li>
+          <li><a href="destinations.html?cat=backpacking"><i class="fa-solid fa-mountain"></i> India Road Trips</a></li>
+          <li><a href="destinations.html"><i class="fa-solid fa-users"></i> Group Tours</a></li>
+          <li><a href="destinations.html?cat=weekend"><i class="fa-solid fa-campground"></i> Weekend Getaways</a></li>
+          <li><a href="destinations.html?q=Trek"><i class="fa-solid fa-calendar-check"></i> Events & Festivals</a></li>
+          <li><a href="index.html#trending-trips" class="sale-link"><i class="fa-solid fa-fire"></i> Christmas & New Year Sale</a></li>
+        </ul>
+      </div>
+
+      <div class="drawer-nav-section">
+        <div class="drawer-section-title">Community & Company</div>
+        <ul class="drawer-links">
+          <li><a href="index.html#trending-trips"><i class="fa-regular fa-calendar-days"></i> Upcoming Trips</a></li>
+          <li><a href="javascript:void(0)" onclick="closeMobileDrawer(); openCallbackModal();"><i class="fa-solid fa-briefcase"></i> Corporate Tours</a></li>
+          <li><a href="community.html"><i class="fa-solid fa-newspaper"></i> Travel Blogs</a></li>
+          <li><a href="community.html"><i class="fa-solid fa-people-roof"></i> About WanderHums</a></li>
+          <li><a href="destinations.html?view=wishlist"><i class="fa-regular fa-heart"></i> Saved Trips (<span class="wishlist-counter">0</span>)</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
   <!-- Trip Hero Section -->
   <section class="trip-hero">
     <div class="container">
@@ -551,6 +598,83 @@
       <p id="toast-text"><span class="toast-badge">just booked</span> Spiti Valley</p>
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      
+      <div class="footer-top-grid">
+        
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link" aria-label="WanderHums Home">
+            <img src="assets/wanderhums-brand-logo.png" alt="WanderHums" class="footer-logo-img" />
+          </a>
+          <p>
+            WanderHums is India’s premium experiential travel community. We build authentic friendships, organize high-octane road trips, and create stories that echo forever across the Himalayas and beyond.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Destinations Col -->
+        <div class="footer-col">
+          <h4>Top Destinations</h4>
+          <ul class="footer-links">
+            <li><a href="destinations.html?q=Spiti">Spiti Valley Road Trip</a></li>
+            <li><a href="destinations.html?q=Ladakh">Ladakh Bike Expedition</a></li>
+            <li><a href="destinations.html?q=Meghalaya">Meghalaya Living Roots</a></li>
+            <li><a href="destinations.html?q=Kasol">Kasol & Kheerganga</a></li>
+            <li><a href="destinations.html?q=Bali">Bali & Nusa Penida</a></li>
+            <li><a href="destinations.html?q=Vietnam">Vietnam Highlights</a></li>
+          </ul>
+        </div>
+
+        <!-- Trip Types Col -->
+        <div class="footer-col">
+          <h4>Trip Categories</h4>
+          <ul class="footer-links">
+            <li><a href="destinations.html?cat=backpacking">Backpacking Group Trips</a></li>
+            <li><a href="destinations.html?cat=weekend">Weekend Getaways from Delhi</a></li>
+            <li><a href="destinations.html?cat=international">International Escapes</a></li>
+            <li><a href="destinations.html?cat=bike">Motorbike Expeditions</a></li>
+            <li><a href="community.html">Solo Female Friendly Trips</a></li>
+            <li><a href="community.html">Corporate Offsites</a></li>
+          </ul>
+        </div>
+
+        <!-- Support & Office Col -->
+        <div class="footer-col">
+          <h4>24x7 Travel Support</h4>
+          <ul class="footer-links" style="gap: 12px;">
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-phone" style="color: var(--primary); margin-right: 8px;"></i> +91 9899 771122</li>
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-envelope" style="color: var(--primary); margin-right: 8px;"></i> hello@wanderhums.com</li>
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-location-dot" style="color: var(--primary); margin-right: 8px;"></i> DLF Cyber City, Phase 2, Gurugram, Delhi NCR - 122002</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          © 2026 WanderHums Experiential Travel Pvt. Ltd. All Rights Reserved.
+        </div>
+        <div class="payment-badges">
+          <span style="font-size: 0.8rem; margin-right: 8px; color: #94A3B8;">100% Secure Payment:</span>
+          <i class="fa-brands fa-google-pay" title="UPI & GPay"></i>
+          <i class="fa-brands fa-cc-visa" title="Visa"></i>
+          <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+          <i class="fa-solid fa-shield-halved" title="SSL Encrypted" style="color: var(--success);"></i>
+        </div>
+      </div>
+
+    </div>
+  </footer>
 
   <!-- Scripts -->
   <script src="js/trips-data.js"></script>

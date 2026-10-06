@@ -262,9 +262,9 @@ img {
   line-height: 1;
 }
 
-/* Wishlist icon on desktop hidden from header top row to keep WanderOn clean aesthetics */
-.header-top-right .wishlist-btn-header {
-  display: none;
+/* Wishlist icon hidden from header top row to keep WanderOn clean aesthetics */
+.wishlist-btn-header {
+  display: none !important;
 }
 
 /* Tier 2: Colored Navigation Bar (#01AFD1 Cyan-Blue) */
@@ -1444,9 +1444,25 @@ img {
   gap: 40px;
   margin-bottom: 50px;
 }
-.footer-brand .logo {
-  color: #fff;
+.footer-brand .footer-logo-link {
+  display: inline-block;
+  background: #FFFFFF;
+  padding: 6px 14px;
+  border-radius: 8px;
   margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+  line-height: 1;
+}
+.footer-brand .footer-logo-link:hover {
+  transform: translateY(-2px);
+}
+.footer-brand .footer-logo-img {
+  height: 36px;
+  width: auto;
+  max-width: 120px;
+  display: block;
+  object-fit: contain;
 }
 .footer-brand p {
   font-size: 0.9rem;
@@ -1789,8 +1805,206 @@ img {
   color: var(--primary);
 }
 
-/* Responsive Breakpoints */
+/* ==========================================================================
+   Mobile Side Navigation Drawer
+   ========================================================================== */
+.mobile-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 38, 61, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 2500;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.mobile-drawer-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: -340px;
+  width: 320px;
+  max-width: 86vw;
+  height: 100%;
+  background: #FFFFFF;
+  z-index: 2600;
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.2);
+  transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.mobile-drawer.active {
+  right: 0;
+}
+
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #ECECEC;
+  background: #F8FAFC;
+}
+.drawer-logo img {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+.drawer-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  color: var(--navy-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.drawer-close-btn:hover {
+  background: #FEE2E2;
+  color: #EF4444;
+}
+
+.mobile-drawer-body {
+  padding: 20px;
+  flex: 1;
+}
+
+.drawer-contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.btn-outline-cyan {
+  border: 1.5px solid #01AFD1;
+  color: #01AFD1;
+  background: transparent;
+  font-weight: 700;
+}
+.btn-outline-cyan:hover {
+  background: #01AFD1;
+  color: #FFFFFF;
+}
+.btn-whatsapp-solid {
+  background: #25D366;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+.btn-whatsapp-solid:hover {
+  background: #1EBE5D;
+  color: #FFFFFF;
+}
+
+.drawer-nav-section {
+  margin-bottom: 24px;
+}
+.drawer-section-title {
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #94A3B8;
+  margin-bottom: 10px;
+  padding-left: 6px;
+}
+.drawer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.drawer-links li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #1E293B;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.drawer-links li a i {
+  width: 22px;
+  color: #01AFD1;
+  font-size: 1rem;
+  text-align: center;
+}
+.drawer-links li a:hover {
+  background: #F0F9FF;
+  color: #01AFD1;
+}
+.drawer-links li a.sale-link {
+  color: #E65100;
+  font-weight: 700;
+  background: #FFF7ED;
+}
+.drawer-links li a.sale-link i {
+  color: #E65100;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints Across Desktop, Tablet & Mobile
+   ========================================================================== */
+
+/* Tablet & Smaller Laptops (769px to 1024px) */
 @media (max-width: 1024px) {
+  .top-bar {
+    display: none;
+  }
+  .top-menu-links {
+    display: none;
+  }
+  .mobile-toggle {
+    display: flex;
+  }
+  .header-top-row {
+    height: 60px;
+  }
+  .header-logo-img {
+    height: 44px;
+    max-height: 46px;
+  }
+  .header-top-right {
+    gap: 14px;
+  }
+  .header-phone-pill {
+    padding: 6px 16px;
+    font-size: 0.86rem;
+  }
+  .header-bottom-bar {
+    height: 42px;
+  }
+  .header-bottom-inner {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    gap: 24px;
+    padding: 0 16px;
+  }
+  .header-bottom-inner::-webkit-scrollbar {
+    display: none;
+  }
+  .bottom-nav-item {
+    height: 42px;
+  }
+  .bottom-nav-link {
+    font-size: 0.88rem;
+  }
   .search-form-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -1817,35 +2031,31 @@ img {
   }
 }
 
+/* Mobile Screens (max-width: 768px) */
 @media (max-width: 768px) {
-  .top-bar {
-    display: none;
-  }
-  .top-menu-links {
-    display: none;
-  }
   .header-top-row {
-    height: 58px;
+    height: 56px;
   }
   .header-logo-img {
-    height: 42px;
-    max-height: 44px;
+    height: 40px;
+    max-height: 42px;
   }
   .header-top-right {
-    gap: 10px;
+    gap: 12px;
   }
   .header-phone-pill {
-    padding: 6px 12px;
-    font-size: 0.8rem;
+    padding: 6px 14px;
+    font-size: 0.82rem;
   }
   .header-bottom-bar {
     height: 40px;
   }
   .header-bottom-inner {
+    gap: 18px;
+    padding: 0 14px;
     overflow-x: auto;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
-    gap: 20px;
   }
   .header-bottom-inner::-webkit-scrollbar {
     display: none;
@@ -1857,11 +2067,9 @@ img {
     font-size: 0.84rem;
   }
   .mobile-toggle {
-    display: flex;
+    width: 38px;
+    height: 38px;
     font-size: 1.25rem;
-    width: 36px;
-    height: 36px;
-    color: var(--navy-deep);
   }
   .search-form-grid {
     grid-template-columns: 1fr;
@@ -1894,6 +2102,16 @@ img {
   }
   .footer-top-grid {
     grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+  }
+  .payment-badges {
+    justify-content: center;
+    flex-wrap: wrap;
   }
   .mobile-bottom-nav {
     display: block;
@@ -1901,30 +2119,91 @@ img {
   body {
     padding-bottom: 60px;
   }
+  .site-footer {
+    padding: 50px 0 95px 0;
+  }
+  .floating-whatsapp {
+    bottom: 75px;
+    right: 16px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem;
+  }
   .social-proof-toast {
-    bottom: 80px;
+    bottom: 135px;
     left: 14px;
     right: 14px;
   }
 }
 
-@media (max-width: 576px) {
+/* Smartphone Screens (max-width: 600px) */
+@media (max-width: 600px) {
   .header-top-inner {
-    padding: 0 4px;
+    padding: 0 12px;
   }
   .header-logo-img {
     height: 38px;
+    max-height: 38px;
+  }
+  .header-top-right {
+    gap: 8px;
   }
   .header-phone-pill {
-    padding: 5px 10px;
+    padding: 6px 12px;
     font-size: 0.78rem;
-    gap: 4px;
+    gap: 5px;
   }
   .header-phone-pill span.phone-number-full {
     display: none;
   }
   .header-phone-pill::after {
     content: "Call";
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+  .mobile-toggle {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+  .header-bottom-bar {
+    height: 38px;
+  }
+  .header-bottom-inner {
+    gap: 16px;
+    padding: 0 12px;
+  }
+  .bottom-nav-item {
+    height: 38px;
+  }
+  .bottom-nav-link {
+    font-size: 0.82rem;
+  }
+  .footer-brand .footer-logo-img {
+    height: 34px;
+  }
+}
+
+/* Small Smart Phones (max-width: 380px) */
+@media (max-width: 380px) {
+  .header-top-inner {
+    padding: 0 8px;
+  }
+  .header-logo-img {
+    height: 32px;
+  }
+  .header-phone-pill {
+    padding: 5px 9px;
+    font-size: 0.74rem;
+  }
+  .mobile-toggle {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+  }
+  .header-bottom-inner {
+    gap: 12px;
+    padding: 0 8px;
   }
 }
 
