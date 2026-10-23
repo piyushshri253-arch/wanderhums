@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initWishlist();
   initSocialProofToasts();
   initMobileMenu();
+  initReviewForm();
 });
 
 /* ---------------------------------------------------------
@@ -594,4 +595,178 @@ window.closeMobileDrawer = function() {
   if (backdrop) backdrop.classList.remove('active');
   document.body.style.overflow = '';
 };
+
+/* ---------------------------------------------------------
+   Interactive Review Form & Wall of Love (WeWravel Feature)
+   --------------------------------------------------------- */
+function initReviewForm() {
+  const tripSelect = document.getElementById('review-trip-select');
+  if (tripSelect && typeof TRIPS_DATA !== 'undefined') {
+    // Sort alphabetically by title
+    const sorted = [...TRIPS_DATA].sort((a, b) => a.title.localeCompare(b.title));
+    sorted.forEach(t => {
+      const opt = document.createElement('option');
+      opt.value = t.title;
+      opt.textContent = `${t.title} (${t.duration})`;
+      tripSelect.appendChild(opt);
+    });
+  }
+
+  // Star rating clicks
+  const starContainer = document.getElementById('star-rating-group');
+  const ratingInput = document.getElementById('review-rating-val');
+  if (starContainer && ratingInput) {
+    const stars = starContainer.querySelectorAll('.star-item');
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        const rating = parseInt(star.dataset.rating, 10);
+        ratingInput.value = rating;
+        stars.forEach(s => {
+          const sRating = parseInt(s.dataset.rating, 10);
+          if (sRating <= rating) {
+            s.classList.add('active');
+            s.classList.remove('fa-regular');
+            s.classList.add('fa-solid');
+          } else {
+            s.classList.remove('active');
+            s.classList.remove('fa-solid');
+            s.classList.add('fa-regular');
+          }
+        });
+      });
+    });
+  }
+
+  // Render any user reviews saved in localStorage
+  renderStoredReviews();
+}
+
+function renderStoredReviews() {
+  const container = document.getElementById('reviews-container');
+  if (!container) return;
+
+  const stored = JSON.parse(localStorage.getItem('wanderhums_user_reviews') || '[]');
+  if (!stored || stored.length === 0) return;
+
+  // Prepend each review
+  stored.forEach(rev => {
+    const starsHtml = Array.from({ length: 5 }, (_, i) => 
+      `<i class="${i < rev.rating ? 'fa-solid' : 'fa-regular'} fa-star"></i>`
+    ).join('');
+
+    const card = document.createElement('div');
+    card.className = 'review-card';
+    card.style.borderColor = 'var(--primary)';
+    card.innerHTML = `
+      <div class="review-header">
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem;">
+          ${rev.name.charAt(0).toUpperCase()}
+        </div>
+        <div class="review-user-info">
+          <h5>${escapeHtml(rev.name)} <span style="font-size: 0.72rem; background: #DCFCE7; color: #166534; padding: 2px 7px; border-radius: 9999px; font-weight: 700; margin-left: 6px;">Verified Backpacker</span></h5>
+          <span>${escapeHtml(rev.city)} • ${rev.date}</span>
+        </div>
+      </div>
+      <span class="review-trip-tag">${escapeHtml(rev.tripTitle)}</span>
+      <div class="stars-cluster" style="margin-bottom: 8px;">
+        ${starsHtml}
+      </div>
+      <p class="review-quote">
+        "${escapeHtml(rev.text)}"
+      </p>
+    `;
+    container.insertBefore(card, container.firstChild);
+  });
+}
+
+window.handleReviewSubmit = function(e) {
+  e.preventDefault();
+  const nameInput = document.getElementById('review-author-name');
+  const cityInput = document.getElementById('review-author-city');
+  const tripSelect = document.getElementById('review-trip-select');
+  const ratingInput = document.getElementById('review-rating-val');
+  const textInput = document.getElementById('review-text-input');
+
+  if (!nameInput || !cityInput || !tripSelect || !textInput) return;
+
+  const name = nameInput.value.trim();
+  const city = cityInput.value.trim();
+  const tripTitle = tripSelect.value;
+  const rating = parseInt(ratingInput?.value || '5', 10);
+  const text = textInput.value.trim();
+
+  if (!name || !city || !tripTitle || !text) {
+    alert('Please fill in all fields to submit your review.');
+    return;
+  }
+
+  const reviewObj = {
+    id: 'rev_' + Date.now(),
+    name,
+    city,
+    tripTitle,
+    rating,
+    text,
+    date: 'Just now'
+  };
+
+  // Save to localStorage
+  const stored = JSON.parse(localStorage.getItem('wanderhums_user_reviews') || '[]');
+  stored.unshift(reviewObj);
+  localStorage.setItem('wanderhums_user_reviews', JSON.stringify(stored));
+
+  // Add card to grid
+  const container = document.getElementById('reviews-container');
+  if (container) {
+    const starsHtml = Array.from({ length: 5 }, (_, i) => 
+      `<i class="${i < rating ? 'fa-solid' : 'fa-regular'} fa-star"></i>`
+    ).join('');
+
+    const card = document.createElement('div');
+    card.className = 'review-card';
+    card.style.borderColor = 'var(--primary)';
+    card.innerHTML = `
+      <div class="review-header">
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem;">
+          ${name.charAt(0).toUpperCase()}
+        </div>
+        <div class="review-user-info">
+          <h5>${escapeHtml(name)} <span style="font-size: 0.72rem; background: #DCFCE7; color: #166534; padding: 2px 7px; border-radius: 9999px; font-weight: 700; margin-left: 6px;">Verified Backpacker</span></h5>
+          <span>${escapeHtml(city)} • Just now</span>
+        </div>
+      </div>
+      <span class="review-trip-tag">${escapeHtml(tripTitle)}</span>
+      <div class="stars-cluster" style="margin-bottom: 8px;">
+        ${starsHtml}
+      </div>
+      <p class="review-quote">
+        "${escapeHtml(text)}"
+      </p>
+    `;
+    container.insertBefore(card, container.firstChild);
+    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // Reset form
+  document.getElementById('leave-review-form')?.reset();
+  if (ratingInput) ratingInput.value = '5';
+  const stars = document.querySelectorAll('#star-rating-group .star-item');
+  stars.forEach(s => {
+    s.classList.add('active', 'fa-solid');
+    s.classList.remove('fa-regular');
+  });
+
+  alert(`🎉 Thank you, ${name}! Your review for "${tripTitle}" has been submitted and added to our traveler community wall!`);
+};
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 

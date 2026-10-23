@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trip Gallery | Glimpses of Our Successful Journeys - WanderHums</title>
+  <meta name="description" content="Explore real photos and videos from WanderHums trips across Triund Top, Tosh, Kasol, Spiti Valley, Kedarkantha, and beyond. See our happy travelers in action!" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎒</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .gallery-hero {
+      background: linear-gradient(180deg, rgba(0, 38, 61, 0.85) 0%, rgba(0, 38, 61, 0.98) 100%),
+                  url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80') center/cover;
+      color: #fff;
+      padding: 70px 0 60px 0;
+      text-align: center;
+    }
+    .gallery-filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 36px 0 20px 0;
+    }
+    .gallery-tab-btn {
+      padding: 10px 22px;
+      border-radius: 9999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      background: #fff;
+      color: var(--dark);
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .gallery-tab-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+    .gallery-tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 14px rgba(1, 175, 209, 0.35);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #0F172A;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      group: relative;
+      transition: all 0.35s ease;
+      height: 320px;
+    }
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 38, 61, 0.92) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      color: #fff;
+      transition: var(--transition);
+    }
+    .gallery-item:hover .gallery-overlay {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 38, 61, 0.96) 100%);
+    }
+    .gallery-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(1, 175, 209, 0.25);
+      border: 1px solid rgba(1, 175, 209, 0.5);
+      color: #38BDF8;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      width: fit-content;
+      backdrop-filter: blur(4px);
+    }
+    .gallery-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+    .gallery-meta {
+      font-size: 0.85rem;
+      color: #CBD5E1;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .gallery-zoom-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: var(--transition);
+    }
+    .gallery-item:hover .gallery-zoom-badge {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 15, 25, 0.95);
+      z-index: 99999;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      backdrop-filter: blur(8px);
+    }
+    .lightbox-modal.active {
+      display: flex;
+    }
+    .lightbox-box {
+      position: relative;
+      max-width: 960px;
+      width: 100%;
+      background: #00263D;
+      border: 1px solid rgba(1, 175, 209, 0.3);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    }
+    .lightbox-img {
+      width: 100%;
+      max-height: 65vh;
+      object-fit: cover;
+      display: block;
+    }
+    .lightbox-caption {
+      padding: 20px 24px;
+      background: #00263D;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+    .lightbox-close:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    .lightbox-prev, .lightbox-next {
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      background: rgba(0, 0, 0, 0.65);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: var(--transition);
+    }
+    .lightbox-prev:hover, .lightbox-next:hover {
+      background: var(--primary);
+    }
+    .lightbox-prev { left: 16px; }
+    .lightbox-next { right: 16px; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-promo">
+        <span>⚡ Early Bird Discount: Flat ₹2,000 OFF on all 2026 batches! Use code:</span>
+        <span class="top-promo-code">WANDERHUMS2026</span>
+      </div>
+      <div class="top-actions">
+        <a href="tel:+919999999999" class="top-link"><i class="fa-solid fa-phone"></i> +91 99999 99999</a>
+        <a href="https://wa.me/919999999999" target="_blank" class="top-link"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        <div class="rating-pill-top"><i class="fa-solid fa-star"></i> 4.9/5 (18,400+ Reviews)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header: Signature 2-Tier WanderHums Style -->
+  <header class="site-header">
+    <div class="header-top-row">
+      <div class="container header-top-inner">
+        <a href="index.html" class="header-logo-link" aria-label="WanderHums Home">
+          <img src="assets/wanderhums-brand-logo.png" alt="WanderHums" class="header-logo-img" />
+        </a>
+
+        <div class="header-top-right">
+          <ul class="top-menu-links">
+            <li><a href="index.html#trending-trips" class="top-menu-link">Upcoming Trips <i class="fa-regular fa-calendar-days"></i></a></li>
+            <li><a href="gallery.html" class="top-menu-link active-link" style="color: var(--primary); font-weight: 700;">Gallery <i class="fa-solid fa-images"></i></a></li>
+            <li><a href="about.html" class="top-menu-link">About Us</a></li>
+            <li><a href="community.html" class="top-menu-link">Blogs</a></li>
+            <li><a href="contact.html" class="top-menu-link">Contact Us</a></li>
+          </ul>
+
+          <a href="tel:+919999999999" class="header-phone-pill">
+            <i class="fa-solid fa-phone"></i> <span class="phone-number-full">+91-9999999999</span>
+          </a>
+
+          <a href="destinations.html?view=wishlist" class="btn-icon wishlist-btn-header" title="Saved Trips">
+            <i class="fa-regular fa-heart"></i>
+            <span class="badge-count wishlist-counter">0</span>
+          </a>
+
+          <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tier 2: Colored Navigation Bar -->
+    <div class="header-bottom-bar">
+      <div class="container header-bottom-inner">
+        <div class="bottom-nav-item">
+          <a href="destinations.html?cat=international" class="bottom-nav-link">
+            <span>International Trips</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="trip-detail.html?id=bali-island-explorer" class="dropdown-link">
+              <span>Bali & Nusa Penida</span>
+              <small>7D/6N</small>
+            </a>
+            <a href="trip-detail.html?id=vietnam-cross-country" class="dropdown-link">
+              <span>Vietnam Highlights</span>
+              <small>8D/7N</small>
+            </a>
+            <a href="destinations.html?cat=international" class="dropdown-link" style="color: #01AFD1; font-weight: 700;">
+              <span>View All International Trips →</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="destinations.html?cat=backpacking" class="bottom-nav-link">
+            <span>India Trips</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="trip-detail.html?id=manali-rohtang-kasol-4d" class="dropdown-link">
+              <span>Manali - Rohtang - Kasol</span>
+              <small>4D/3N</small>
+            </a>
+            <a href="trip-detail.html?id=spiti-valley-circuit" class="dropdown-link">
+              <span>Spiti Valley Circuit</span>
+              <small>9D/8N</small>
+            </a>
+            <a href="trip-detail.html?id=chopta-tungnath-chandrashila" class="dropdown-link">
+              <span>Chopta Tungnath Chandrashila</span>
+              <small>3D/2N</small>
+            </a>
+            <a href="destinations.html?cat=backpacking" class="dropdown-link" style="color: #01AFD1; font-weight: 700;">
+              <span>View All India Trips →</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="destinations.html" class="bottom-nav-link">
+            <span>Group Tours</span>
+          </a>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="destinations.html?cat=weekend" class="bottom-nav-link">
+            <span>Weekend Getaways</span>
+          </a>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="gallery.html" class="bottom-nav-link" style="background: rgba(255, 255, 255, 0.15); font-weight: 700;">
+            <span><i class="fa-solid fa-camera-retro"></i> Gallery</span>
+          </a>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="about.html" class="bottom-nav-link">
+            <span>About Us</span>
+          </a>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="contact.html" class="bottom-nav-link">
+            <span>Contact Us</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Side Navigation Drawer -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop" onclick="closeMobileDrawer()"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="drawer-logo" aria-label="WanderHums Home">
+        <img src="assets/wanderhums-brand-logo.png" alt="WanderHums" />
+      </a>
+      <button class="drawer-close-btn" onclick="closeMobileDrawer()" aria-label="Close Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <div class="mobile-drawer-body">
+      <div class="drawer-contact-card">
+        <a href="tel:+919999999999" class="btn btn-outline-cyan btn-sm btn-block">
+          <i class="fa-solid fa-phone"></i> +91-9999999999
+        </a>
+        <a href="https://wa.me/919999999999" target="_blank" class="btn btn-whatsapp-solid btn-sm btn-block">
+          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+      </div>
+
+      <div class="drawer-nav-section">
+        <div class="drawer-section-title">Navigation</div>
+        <ul class="drawer-links">
+          <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="destinations.html"><i class="fa-solid fa-compass"></i> Destinations / Trips</a></li>
+          <li><a href="gallery.html" class="active-link" style="color: var(--primary); font-weight: 700;"><i class="fa-solid fa-images"></i> Trip Gallery</a></li>
+          <li><a href="about.html"><i class="fa-solid fa-people-roof"></i> About WanderHums</a></li>
+          <li><a href="community.html"><i class="fa-solid fa-newspaper"></i> Community & Blogs</a></li>
+          <li><a href="contact.html"><i class="fa-solid fa-headset"></i> Contact Us</a></li>
+          <li><a href="destinations.html?view=wishlist"><i class="fa-regular fa-heart"></i> Saved Trips (<span class="wishlist-counter">0</span>)</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Hero Section -->
+  <section class="gallery-hero">
+    <div class="container">
+      <div class="hero-badge-pill" style="margin-bottom: 14px;">
+        <i class="fa-solid fa-camera"></i> CAPTURED MEMORIES 📸
+      </div>
+      <h1 style="font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; margin-bottom: 14px;">
+        Glimpses of Our Successful Trips
+      </h1>
+      <p style="font-size: 1.05rem; color: #E2E8F0; max-w: 680px; margin: 0 auto; line-height: 1.6;">
+        Real moments, genuine laughs, epic mountain summits, and starry campfire nights captured with our wravellers across India and beyond.
+      </p>
+
+      <!-- Category Filter Tabs -->
+      <div class="gallery-filter-tabs">
+        <button class="gallery-tab-btn active" onclick="filterGallery('all', this)">
+          <i class="fa-solid fa-border-all"></i> All Glimpses
+        </button>
+        <button class="gallery-tab-btn" onclick="filterGallery('triund', this)">
+          <i class="fa-solid fa-mountain"></i> Triund Top
+        </button>
+        <button class="gallery-tab-btn" onclick="filterGallery('mcleod', this)">
+          <i class="fa-solid fa-place-of-worship"></i> Mcleod Ganj
+        </button>
+        <button class="gallery-tab-btn" onclick="filterGallery('tosh', this)">
+          <i class="fa-solid fa-tree"></i> Tosh & Kasol
+        </button>
+        <button class="gallery-tab-btn" onclick="filterGallery('spiti', this)">
+          <i class="fa-solid fa-snowflake"></i> Spiti & High Passes
+        </button>
+        <button class="gallery-tab-btn" onclick="filterGallery('rajasthan', this)">
+          <i class="fa-solid fa-sun"></i> Rajasthan Dunes
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Grid Section -->
+  <section style="padding: 60px 0 80px 0; background: #F8FAFC;">
+    <div class="container">
+      <div class="gallery-grid" id="gallery-container">
+        <!-- Item 1: Triund Top -->
+        <div class="gallery-item" data-category="triund" onclick="openLightbox(0)">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Triund Top" loading="lazy" />
+          <div class="gallery-zoom-badge"><i class="fa-solid fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Himachal Pradesh</span>
+            <h3 class="gallery-title">Triund Top Summit</h3>
+            <div class="gallery-meta">
+              <span><i class="fa-regular fa-calendar"></i> 28 December 2025</span>
+              <span><i class="fa-solid fa-users"></i> Batch of 24</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2: Triund Top Golden Hour -->
+        <div class="gallery-item" data-category="triund" onclick="openLightbox(1)">
+          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Triund Top Golden Hour" loading="lazy" />
+          <div class="gallery-zoom-badge"><i class="fa-solid fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Dhauladhar Ridge</span>
+            <h3 class="gallery-title">Sunset Above The Clouds</h3>
+            <div class="gallery-meta">
+              <span><i class="fa-regular fa-calendar"></i> 28 December 2025</span>
+              <span><i class="fa-solid fa-campground"></i> Ridge Camping</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3: Mcleod Ganj -->
+        <div class="gallery-item" data-category="mcleod" onclick="openLightbox(2)">
+          <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80" alt="Mcleod Ganj" loading="lazy" />
+          <div class="gallery-zoom-badge"><i class="fa-solid fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Dharamshala</span>
+            <h3 class="gallery-title">Mcleod Ganj Monasteries & Cafés</h3>
+            <div class="gallery-meta">
+              <span><i class="fa-regular fa-calendar"></i> 28 December 2025</span>
+              <span><i class="fa-solid fa-mug-hot"></i> Bohemian Vibes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4: Tosh Village -->
+        <div class="gallery-item" data-category="tosh" onclick="openLightbox(3)">
+          <img src="assets/kasol.jpg" alt="Tosh Village" loading="lazy" />
+          <div class="gallery-zoom-badge"><i class="fa-solid fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Parvati Valley</span>
+            <h3 class="gallery-title">Tosh Village Fairy Tale View</h3>
+            <div class="gallery-meta">
+              <span><i class="fa-regular fa-calendar"></i> 09 January 2026</span>
+              <span><i class="fa-solid fa-snowflake"></i> Fresh Snow</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5: Tosh Kutla Meadow -->
+        <div class="gallery-item" data-category="tosh" onclick="openLightbox(4)">
+          <img src="https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=800&q=80" alt="Tosh Kutla" loading="lazy" />
+          <div class="gallery-zoom-badge"><i class="fa-solid fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Kasol - Tosh - Kutla</span>
+            <h3 class="gallery-title">Kutla Meadow Trek</h3>
+            <div class="gallery-meta">
+              <span><i class="fa-regular fa-calendar"></i> 09 January 2026</span>
+              <span><i class="fa-solid fa-fire"></i> Evening Bonfire</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 6: Parvati River Kasol -->
+        <div class="gallery-item" data-category="tosh" onclick="openLightbox(5)">
+          <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80" alt="Kasol Riverside" loading="lazy" />
+          <div class="gallery-zoom-badge"><i class="fa-solid fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Kasol River Camp</span>
+            <h3 class="gallery-title">Parvati Riverside Jam</h3>
+            <div class="gallery-meta">
+              <span><i class="fa-regular fa-calendar"></i> 09 January 2026</span>
+              <span><i class="fa-solid fa-guitar"></i> Acoustic Circle</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 7: Spiti Chandratal Lake -->
+        <div class="gallery-item" data-category="spiti" onclick="openLightbox(6)">
+          <img src="assets/spiti.jpg" alt="Chandratal Lake" loading="lazy" />
+          <div class="gallery-zoom-badge"><i class="fa-solid fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Spiti Valley</span>
+            <h3 class="gallery-title">Chandratal Moon Lake at 14,000 Ft</h3>
+            <div class="gallery-meta">
+              <span><i class="fa-regular fa-calendar"></i> 14 February 2026</span>
+              <span><i class="fa-solid fa-star"></i> Milky Way Camp</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 8: Key Monastery Spiti -->
+        <div class="gallery-item" data-category="spiti" onclick="openLightbox(7)">
+          <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80" alt="Key Monastery" loading="lazy" />
+          <div class="gallery-zoom-badge"><i class="fa-solid fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Kaza, Spiti</span>
+            <h3 class="gallery-title">Key Gompa 1000-Year Monastery</h3>
+            <div class="gallery-meta">
+              <span><i class="fa-regular fa-calendar"></i> 15 February 2026</span>
+              <span><i class="fa-solid fa-mountain"></i> Middle Land</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 9: Sam Sand Dunes Jaisalmer -->
+        <div class="gallery-item" data-category="rajasthan" onclick="openLightbox(8)">
+          <img src="https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?auto=format&fit=crop&w=800&q=80" alt="Jaisalmer Sam Dunes" loading="lazy" />
+          <div class="gallery-zoom-badge"><i class="fa-solid fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Thar Desert</span>
+            <h3 class="gallery-title">Golden Sunset Dune Bashing</h3>
+            <div class="gallery-meta">
+              <span><i class="fa-regular fa-calendar"></i> 22 March 2026</span>
+              <span><i class="fa-solid fa-campground"></i> Royal Camp</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Callout Card -->
+      <div style="background: linear-gradient(135deg, #00263D 0%, #001726 100%); border: 1px solid rgba(1, 175, 209, 0.3); border-radius: 20px; padding: 40px; margin-top: 60px; text-align: center; color: #fff;">
+        <div style="width: 54px; height: 54px; background: rgba(1, 175, 209, 0.2); color: #01AFD1; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 16px auto;">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 8px;">Want Your Photos Featured Here?</h3>
+        <p style="color: #CBD5E1; max-width: 600px; margin: 0 auto 24px auto;">
+          Join any of our upcoming WanderHums group departures, make unforgettable memories, and get clicked by our seasoned trek photographers!
+        </p>
+        <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+          <a href="destinations.html" class="btn btn-primary">
+            Explore All Upcoming Trips <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="index.html#leave-review-section" class="btn btn-secondary">
+            <i class="fa-solid fa-star"></i> Leave a Review & Story
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightbox-modal" onclick="closeLightbox(event)">
+    <div class="lightbox-box" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
+      <button class="lightbox-prev" onclick="changeLightboxImage(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="lightbox-next" onclick="changeLightboxImage(1)"><i class="fa-solid fa-chevron-right"></i></button>
+      <img id="lightbox-img" src="" alt="Enlarged view" class="lightbox-img" />
+      <div class="lightbox-caption">
+        <div>
+          <h4 id="lightbox-title" style="color: #fff; font-size: 1.15rem; font-weight: 800; margin-bottom: 2px;"></h4>
+          <span id="lightbox-tag" style="color: #38BDF8; font-size: 0.82rem; font-weight: 700;"></span>
+        </div>
+        <span id="lightbox-meta" style="color: #94A3B8; font-size: 0.85rem;"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link" aria-label="WanderHums Home">
+            <img src="assets/wanderhums-brand-logo.png" alt="WanderHums" class="footer-logo-img" />
+          </a>
+          <p>
+            WanderHums is India’s premium experiential travel community. We build authentic friendships, organize high-octane road trips, and create stories that echo forever across the Himalayas and beyond.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Top Trips</h4>
+          <ul class="footer-links">
+            <li><a href="trip-detail.html?id=manali-rohtang-kasol-4d">Manali - Rohtang - Kasol</a></li>
+            <li><a href="trip-detail.html?id=jibhi-tirthan-valley">Jibhi - Tirthan Valley</a></li>
+            <li><a href="trip-detail.html?id=chopta-tungnath-chandrashila">Chopta - Tungnath</a></li>
+            <li><a href="trip-detail.html?id=mcleodganj-triund-trek">Mcleodganj - Triund</a></li>
+            <li><a href="trip-detail.html?id=spiti-valley-circuit">Spiti Valley Circuit</a></li>
+            <li><a href="trip-detail.html?id=char-dham-yatra">Char Dham Yatra</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Support</h4>
+          <ul class="footer-links" style="gap: 12px;">
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-phone" style="color: var(--primary); margin-right: 8px;"></i> +91 99999 99999</li>
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-envelope" style="color: var(--primary); margin-right: 8px;"></i> help@wanderhums.com</li>
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-clock" style="color: var(--primary); margin-right: 8px;"></i> Mon – Sun : 9 AM – 9 PM</li>
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-location-dot" style="color: var(--primary); margin-right: 8px;"></i> Demo Business Park, Tower B, Delhi NCR - 110001</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 WanderHums Experiential Travel Pvt. Ltd. All Rights Reserved.</div>
+        <div class="payment-badges">
+          <span style="font-size: 0.8rem; margin-right: 8px; color: #94A3B8;">100% Secure Payment:</span>
+          <i class="fa-brands fa-google-pay" title="UPI & GPay"></i>
+          <i class="fa-brands fa-cc-visa" title="Visa"></i>
+          <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+          <i class="fa-solid fa-shield-halved" title="SSL Encrypted" style="color: var(--success);"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/919999999999?text=Hi%20WanderHums!%20I%20am%20interested%20in%20upcoming%20trips." 
+     target="_blank" 
+     class="floating-whatsapp" 
+     aria-label="Chat on WhatsApp">
+    <div class="whatsapp-pulse"></div>
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Mobile Bottom Sticky Navigation -->
+  <nav class="mobile-bottom-nav">
+    <div class="mobile-nav-inner">
+      <a href="index.html" class="mobile-nav-item">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </a>
+      <a href="destinations.html" class="mobile-nav-item">
+        <i class="fa-solid fa-compass"></i>
+        <span>Trips</span>
+      </a>
+      <a href="gallery.html" class="mobile-nav-item active">
+        <i class="fa-solid fa-camera"></i>
+        <span>Gallery</span>
+      </a>
+      <a href="contact.html" class="mobile-nav-item">
+        <i class="fa-solid fa-headset"></i>
+        <span>Contact</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Scripts -->
+  <script src="js/trips-data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Gallery Filter Logic
+    function filterGallery(category, btn) {
+      document.querySelectorAll('.gallery-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const items = document.querySelectorAll('.gallery-item');
+      items.forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Lightbox Logic
+    const galleryData = [
+      { img: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80', title: 'Triund Top Summit', tag: 'Himachal Pradesh', meta: '28 December 2025 | Batch of 24' },
+      { img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80', title: 'Sunset Above The Clouds', tag: 'Dhauladhar Ridge', meta: '28 December 2025 | Ridge Camping' },
+      { img: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80', title: 'Mcleod Ganj Monasteries & Cafés', tag: 'Dharamshala', meta: '28 December 2025 | Bohemian Vibes' },
+      { img: 'assets/kasol.jpg', title: 'Tosh Village Fairy Tale View', tag: 'Parvati Valley', meta: '09 January 2026 | Fresh Snow' },
+      { img: 'https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=1200&q=80', title: 'Kutla Meadow Trek', tag: 'Kasol - Tosh - Kutla', meta: '09 January 2026 | Evening Bonfire' },
+      { img: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1200&q=80', title: 'Parvati Riverside Jam', tag: 'Kasol River Camp', meta: '09 January 2026 | Acoustic Circle' },
+      { img: 'assets/spiti.jpg', title: 'Chandratal Moon Lake at 14,000 Ft', tag: 'Spiti Valley', meta: '14 February 2026 | Milky Way Camp' },
+      { img: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80', title: 'Key Gompa 1000-Year Monastery', tag: 'Kaza, Spiti', meta: '15 February 2026 | Middle Land' },
+      { img: 'https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?auto=format&fit=crop&w=1200&q=80', title: 'Golden Sunset Dune Bashing', tag: 'Thar Desert', meta: '22 March 2026 | Royal Camp' }
+    ];
+
+    let currentLightboxIdx = 0;
+    function openLightbox(idx) {
+      currentLightboxIdx = idx;
+      updateLightboxContent();
+      document.getElementById('lightbox-modal').classList.add('active');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox-modal').classList.remove('active');
+    }
+    function changeLightboxImage(delta) {
+      currentLightboxIdx = (currentLightboxIdx + delta + galleryData.length) % galleryData.length;
+      updateLightboxContent();
+    }
+    function updateLightboxContent() {
+      const item = galleryData[currentLightboxIdx];
+      document.getElementById('lightbox-img').src = item.img;
+      document.getElementById('lightbox-title').textContent = item.title;
+      document.getElementById('lightbox-tag').textContent = item.tag;
+      document.getElementById('lightbox-meta').textContent = item.meta;
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') changeLightboxImage(-1);
+      if (e.key === 'ArrowRight') changeLightboxImage(1);
+    });
+  </script>
+</body>
+</html>

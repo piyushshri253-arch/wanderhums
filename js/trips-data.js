@@ -1,20 +1,1307 @@
 /**
  * WanderHums - Complete Trip Packages & Itineraries Data
- * Curated in the authentic WanderOn travel community style
+ * Curated in authentic WanderHums travel community style
+ * Incorporates all 16 WeWravel India destinations + Signature expeditions
  */
 
 const TRIPS_DATA = [
+  // 1. Manali - Rohtang - Kasol (3N/4D)
+  {
+    id: "manali-rohtang-kasol-4d",
+    title: "Manali - Rohtang - Kasol (4D/3N)",
+    slug: "manali-rohtang-kasol-4d",
+    category: "backpacking",
+    categoryLabel: "Backpacking Trip",
+    state: "Himachal Pradesh",
+    duration: "3 Nights / 4 Days",
+    daysCount: 4,
+    pickup: "Delhi to Delhi",
+    destination: "Manali, Rohtang & Kasol, Himachal Pradesh",
+    region: "Himachal Pradesh",
+    price: 4999,
+    originalPrice: 7999,
+    emiStarts: "₹850/mo",
+    rating: 4.8,
+    reviewsCount: 1620,
+    badge: "BESTSELLER 🔥",
+    badgeClass: "badge-hot",
+    seatsLeft: 5,
+    altitude: "13,058 Ft (Rohtang Pass)",
+    difficulty: "Easy to Moderate",
+    image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1600&q=80",
+    sharingPrices: {
+      quad: 4999,
+      triple: 5499,
+      dual: 5999
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
+    gallery: [
+      "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80",
+      "assets/kasol.jpg"
+    ],
+    highlights: [
+      "Scenic mountain route crossing Atal Tunnel & Sissu waterfall",
+      "Visit Rohtang Pass snow point & Solang Valley adventures",
+      "Explore Hadimba Devi Temple, Old Manali Cafés & Mall Road",
+      "Kasol riverside campsite, Manikaran Sahib Gurudwara & hot springs",
+      "Campfire, acoustic music & group community fun with WanderHums Captain"
+    ],
+    inclusions: [
+      "Comfortable AC Tempo Traveller / Pushback Volvo (Delhi to Delhi)",
+      "3 Nights stay in premium cozy hotels & riverside Swiss camps",
+      "Wholesome meals: Breakfast & Dinners as per itinerary",
+      "Experienced & energetic WanderHums Trip Captain (Host + Buddy)",
+      "Local sightseeing of Manali, Solang Valley, Atal Tunnel, Sissu & Kasol",
+      "Tolls, state taxes, driver charges & parking included"
+    ],
+    exclusions: [
+      "Lunches & café personal food orders",
+      "Adventure sports tickets (paragliding, river rafting, ziplining)",
+      "Rohtang Pass permit fee (if levied by NGT)",
+      "Personal expenses & anything not mentioned in inclusions"
+    ],
+    upcomingBatches: [
+      { date: "Every Friday Departure", status: "Filling Fast", seats: 4 },
+      { date: "Next Friday Departure", status: "Available", seats: 8 },
+      { date: "Subsequent Friday", status: "Available", seats: 12 }
+    ],
+    itinerary: [
+      {
+        day: 0,
+        title: "Delhi Departure & Overnight Journey",
+        desc: "Assemble at designated pickup spot (Majnu Ka Tila / Kashmere Gate, Delhi) by 7:00 PM. Meet your friendly WanderHums Trip Captain and co-travelers. Board the pushback coach and kick off with music & icebreakers. Dinner halt on the highway (self-paid). Overnight drive towards Himachal.",
+        meals: "No Meals Included"
+      },
+      {
+        day: 1,
+        title: "Manali Arrival & Local Sightseeing",
+        desc: "Reach picturesque Manali in the morning. Check in to the hotel and freshen up with hot Himalayan chai. Visit ancient Hadimba Devi Temple amidst towering deodars, Tibetan Monastery, Club House, and Mall Road. Evening stroll in bohemian Old Manali cafés. Return to hotel for delicious dinner and overnight stay.",
+        meals: "Dinner Included"
+      },
+      {
+        day: 2,
+        title: "Atal Tunnel, Sissu Waterfall & Solang Valley",
+        desc: "Wake up early and have hearty breakfast. Drive through the engineering marvel of Atal Tunnel and enter the rugged Lahaul Valley. Explore breathtaking Sissu waterfall and snow points. Later visit Solang Valley for adventure sports (skiing, zorbing, zipline). Return to hotel by evening for bonfire, music, dinner and games.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Kullu Rafting & Kasol Parvati Valley Campsite",
+        desc: "After breakfast, check out and drive towards Kasol. Stop at Kullu for exhilarating river rafting & paragliding (optional). Arrive in Kasol by afternoon, explore vibrant local flea markets and Israeli bakeries. Check into riverside camp with Parvati river flowing alongside. Evening campfire jams and dinner under the stars.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 4,
+        title: "Manikaran Sahib Gurudwara, Chalal Village & Return Journey",
+        desc: "Wake up to misty river views and breakfast. Visit holy Manikaran Sahib Gurudwara and dip in natural therapeutic hot water springs. Enjoy a scenic 20-minute riverside nature walk to Chalal village. In the evening, board our traveller for overnight return journey to Delhi, reaching by Day 5 morning.",
+        meals: "Breakfast Included"
+      }
+    ]
+  },
+
+  // 2. Manali - Rohtang - Kasol (2N/3D - Weekend Special)
+  {
+    id: "manali-rohtang-kasol-3d",
+    title: "Manali - Rohtang - Kasol (Weekend Special 3D/2N)",
+    slug: "manali-rohtang-kasol-3d",
+    category: "weekend",
+    categoryLabel: "Weekend Getaway",
+    state: "Himachal Pradesh",
+    duration: "2 Nights / 3 Days",
+    daysCount: 3,
+    pickup: "Delhi to Delhi",
+    destination: "Manali, Sissu & Kasol, Himachal Pradesh",
+    region: "Himachal Pradesh",
+    price: 4499,
+    originalPrice: 6999,
+    emiStarts: "₹750/mo",
+    rating: 4.7,
+    reviewsCount: 1140,
+    badge: "WEEKEND HIT ⚡",
+    badgeClass: "badge-deal",
+    seatsLeft: 6,
+    altitude: "10,000 Ft",
+    difficulty: "Easy",
+    image: "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=800&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=1600&q=80",
+    sharingPrices: {
+      quad: 4499,
+      triple: 4999,
+      dual: 5499
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
+    gallery: [
+      "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80"
+    ],
+    highlights: [
+      "Crisp weekend express escape designed for working professionals",
+      "Drive through Atal Tunnel & visit Lahaul Sissu waterfall",
+      "Kasol Parvati River camp with stargazing & bonfire",
+      "Old Manali cafés & Manikaran Sahib hot springs"
+    ],
+    inclusions: [
+      "Transportation in AC pushback traveller (Delhi to Delhi)",
+      "2 Nights stay (1 Night Manali Hotel + 1 Night Kasol Camp)",
+      "4 Meals: 2 Breakfasts and 2 Dinners",
+      "Certified WanderHums Trip Leader & host",
+      "All toll taxes, fuel, driver allowances & parking fees"
+    ],
+    exclusions: ["Lunches & self activities", "Entry fees & adventure passes"],
+    upcomingBatches: [
+      { date: "Every Friday Night Departure", status: "Filling Fast", seats: 6 }
+    ],
+    itinerary: [
+      {
+        day: 0,
+        title: "Friday Night Departure from Delhi",
+        desc: "Meet at Kashmere Gate Metro at 8:00 PM. Overnight journey to Manali with travel games and music.",
+        meals: "No Meals"
+      },
+      {
+        day: 1,
+        title: "Manali Arrival, Atal Tunnel & Sissu",
+        desc: "Morning arrival in Manali. Check in, breakfast, drive through Atal Tunnel to Sissu waterfall. Evening bonfire in Manali.",
+        meals: "Dinner Included"
+      },
+      {
+        day: 2,
+        title: "Kasol Parvati Valley & Campsite Jams",
+        desc: "Check out after breakfast, head to Kasol via Kullu. Explore Kasol market, check in to river camp, campfire night.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Manikaran Sahib & Return to Delhi",
+        desc: "Visit Manikaran hot springs and Gurudwara. Evening departure back to Delhi, reaching by Monday 7 AM.",
+        meals: "Breakfast Included"
+      }
+    ]
+  },
+
+  // 3. Jibhi - Tirthan Valley (2N/3D)
+  {
+    id: "jibhi-tirthan-valley",
+    title: "Jibhi - Tirthan Valley (3D/2N)",
+    slug: "jibhi-tirthan-valley",
+    category: "weekend",
+    categoryLabel: "Hidden Gem",
+    state: "Himachal Pradesh",
+    duration: "2 Nights / 3 Days",
+    daysCount: 3,
+    pickup: "Delhi to Delhi",
+    destination: "Jibhi & Tirthan Valley, Himachal Pradesh",
+    region: "Himachal Pradesh",
+    price: 5499,
+    originalPrice: 8499,
+    emiStarts: "₹920/mo",
+    rating: 4.9,
+    reviewsCount: 980,
+    badge: "NATURE RETREAT 🌲",
+    badgeClass: "badge-hot",
+    seatsLeft: 4,
+    altitude: "10,800 Ft (Jalori Pass)",
+    difficulty: "Easy",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80",
+    sharingPrices: {
+      quad: 5499,
+      triple: 5999,
+      dual: 6499
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
+    gallery: [
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
+    ],
+    highlights: [
+      "Trek to mystical Serolsar Lake through dense oak forests",
+      "Cross iconic Jalori Pass at 10,800 ft with 360-degree Himalayan vistas",
+      "Visit magical Jibhi Wooden Waterfalls & traditional stone cottages",
+      "Trout fishing & pebble-hopping by pristine Tirthan River",
+      "Acoustic jam session and warm bonfire under starry night sky"
+    ],
+    inclusions: [
+      "AC Tempo Traveller transfer from Delhi to Delhi",
+      "2 Nights stay in handpicked riverside wooden cottages / Swiss tents",
+      "4 Meals: 2 Breakfasts and 2 Wholesome Dinners",
+      "Guided trek to Serolsar Lake & Jalori Pass with Trip Leader",
+      "Bonfire nights & group activities",
+      "All tolls, driver charges & parking fees"
+    ],
+    exclusions: ["Lunches and café orders", "Trout fishing permits (optional)"],
+    upcomingBatches: [
+      { date: "Every Friday Departure", status: "Filling Fast", seats: 4 }
+    ],
+    itinerary: [
+      {
+        day: 0,
+        title: "Delhi to Aut / Jibhi Overnight Journey",
+        desc: "Meet at Kashmere Gate Metro at 7:30 PM. Overnight journey across Punjab and into the lush Mandi/Banjar valley.",
+        meals: "No Meals"
+      },
+      {
+        day: 1,
+        title: "Jibhi Arrival & Waterfall Exploration",
+        desc: "Arrive in serene Jibhi. Check in to wooden alpine cottages. Walk to Jibhi Waterfall and explore traditional Himachali architecture. Evening bonfire and dinner.",
+        meals: "Dinner Included"
+      },
+      {
+        day: 2,
+        title: "Jalori Pass & Serolsar Lake Trek",
+        desc: "Drive up to windy Jalori Pass (10,800 ft). Embark on a breathtaking 5 km trek to holy Serolsar Lake & Budhi Nagin Temple. Evening campfire jams and hot dinner.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Choi Waterfall & Tirthan Valley - Return to Delhi",
+        desc: "Morning hike to Choi Waterfall in Great Himalayan National Park ecozone. Chill by Tirthan river. Evening drive back to Delhi, arriving Monday 6 AM.",
+        meals: "Breakfast Included"
+      }
+    ]
+  },
+
+  // 4. Chopta - Tungnath - Chandrashila (2N/3D)
+  {
+    id: "chopta-tungnath-chandrashila",
+    title: "Chopta - Tungnath - Chandrashila (3D/2N)",
+    slug: "chopta-tungnath-chandrashila",
+    category: "backpacking",
+    categoryLabel: "Mountain Trek",
+    state: "Uttarakhand",
+    duration: "2 Nights / 3 Days",
+    daysCount: 3,
+    pickup: "Delhi to Delhi / Rishikesh",
+    destination: "Chopta & Tungnath, Uttarakhand",
+    region: "Uttarakhand",
+    price: 4999,
+    originalPrice: 7999,
+    emiStarts: "₹850/mo",
+    rating: 4.9,
+    reviewsCount: 1350,
+    badge: "HIGHEST SHIVA TEMPLE 🕉️",
+    badgeClass: "badge-hot",
+    seatsLeft: 3,
+    altitude: "13,123 Ft (Chandrashila Peak)",
+    difficulty: "Moderate",
+    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1600&q=80",
+    sharingPrices: {
+      quad: 4999,
+      triple: 5499,
+      dual: 5999
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
+    gallery: [
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
+    ],
+    highlights: [
+      "Summit Chandrashila Peak at 13,123 ft with 360° views of Nanda Devi & Trishul",
+      "Seek blessings at Tungnath - World's Highest Shiva Temple (12,073 ft)",
+      "Explore the emerald reflection of holy Deoria Tal lake",
+      "Witness mesmerizing sunrise over the Garhwal Himalayan peaks",
+      "Alpine meadow (Bugyal) camping with stargazing and warm bonfire"
+    ],
+    inclusions: [
+      "Delhi to Delhi transportation in AC pushback Tempo Traveller",
+      "2 Nights stay in Swiss alpine tents at Chopta meadow",
+      "4 Meals: 2 Breakfasts and 2 Delicious Dinners",
+      "Certified Mountain Guide & WanderHums Trip Captain",
+      "Trek permits, forest entry fees & bonfire sessions"
+    ],
+    exclusions: ["Personal mule charges", "Lunches on the trail"],
+    upcomingBatches: [
+      { date: "Every Friday Departure", status: "Filling Fast", seats: 3 }
+    ],
+    itinerary: [
+      {
+        day: 0,
+        title: "Delhi to Rishikesh & Chopta Overnight Journey",
+        desc: "Assemble at Akshardham Metro / Kashmere Gate at 9:00 PM. Drive along the sacred Ganga and Alaknanda valleys.",
+        meals: "No Meals"
+      },
+      {
+        day: 1,
+        title: "Sari Village & Deoria Tal Trek",
+        desc: "Reach Sari village. Trek 2.5 km to serene Deoria Tal lake with reflection of Chaukhamba peaks. Drive to Chopta campsite. Evening bonfire.",
+        meals: "Dinner Included"
+      },
+      {
+        day: 2,
+        title: "Summit Day: Tungnath Temple & Chandrashila Peak",
+        desc: "Early morning start for the 4.5 km climb to Tungnath (highest Shiva temple). Push forward to Chandrashila summit (13,123 ft) for sunrise. Return to camp for dinner.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Devprayag Sangam & Return to Delhi",
+        desc: "Check out, stop at holy Devprayag (confluence of Bhagirathi and Alaknanda creating Ganga). Evening return to Delhi by late night.",
+        meals: "Breakfast Included"
+      }
+    ]
+  },
+
+  // 5. Mcleodganj - Triund Trek (2N/3D)
+  {
+    id: "mcleodganj-triund-trek",
+    title: "Mcleodganj - Triund Trek (3D/2N)",
+    slug: "mcleodganj-triund-trek",
+    category: "backpacking",
+    categoryLabel: "Weekend Trek",
+    state: "Himachal Pradesh",
+    duration: "2 Nights / 3 Days",
+    daysCount: 3,
+    pickup: "Delhi to Delhi",
+    destination: "Mcleodganj, Dharamshala & Triund, Himachal Pradesh",
+    region: "Himachal Pradesh",
+    price: 5499,
+    originalPrice: 8499,
+    emiStarts: "₹920/mo",
+    rating: 4.8,
+    reviewsCount: 1220,
+    badge: "SCENIC TREK 🏔️",
+    badgeClass: "badge-hot",
+    seatsLeft: 7,
+    altitude: "9,350 Ft (Triund Ridge)",
+    difficulty: "Easy to Moderate",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80",
+    sharingPrices: {
+      quad: 5499,
+      triple: 5999,
+      dual: 6499
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
+    gallery: [
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=800&q=80"
+    ],
+    highlights: [
+      "Trek to Triund Ridge with breathtaking close-up views of Dhauladhar snow walls",
+      "Camp under millions of stars overlooking glittering lights of Kangra Valley",
+      "Visit Dalai Lama Temple, Namgyal Monastery & Bhagsu Waterfall",
+      "Café hopping in bohemian Dharamkot and Tibetan handicraft markets",
+      "Warm campfire with mountain stew and soulful community jam session"
+    ],
+    inclusions: [
+      "Delhi to Delhi transportation in AC Tempo Traveller",
+      "1 Night Hotel Stay in Mcleodganj + 1 Night Camping at Triund / Mana",
+      "4 Meals: 2 Breakfasts and 2 Dinners",
+      "Certified Trek Leader, sleeping bags, mats & tents",
+      "All tolls, parking & driver charges"
+    ],
+    exclusions: ["Lunches and café bills", "Personal porter charges"],
+    upcomingBatches: [
+      { date: "Every Friday Departure", status: "Filling Fast", seats: 5 }
+    ],
+    itinerary: [
+      {
+        day: 0,
+        title: "Delhi to Mcleodganj Overnight Drive",
+        desc: "Meet at Majnu Ka Tila at 7:00 PM. Board AC traveller and enjoy overnight journey into Himachal.",
+        meals: "No Meals"
+      },
+      {
+        day: 1,
+        title: "Mcleodganj Sightseeing & Dharamkot",
+        desc: "Check in to hotel, visit Dalai Lama Temple, Bhagsu waterfall and Shiva Café. Explore vibrant Dharamkot lanes. Evening dinner and rest.",
+        meals: "Dinner Included"
+      },
+      {
+        day: 2,
+        title: "Trek to Triund Top & Ridge Camping",
+        desc: "After breakfast, begin the 9 km trek to Triund. Pass Magic View café. Reach the ridge by afternoon. Witness sunset over Dhauladhars, bonfire & tent stay.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Descent & Return to Delhi",
+        desc: "Catch sunrise over the valley, descend back to Mcleodganj. Free time for shopping and Tibetan momos. Evening departure to Delhi.",
+        meals: "Breakfast Included"
+      }
+    ]
+  },
+
+  // 6. Kasol - Kheerganga Trek (2N/3D)
+  {
+    id: "kasol-kheerganga-trek",
+    title: "Kasol - Kheerganga Trek (3D/2N)",
+    slug: "kasol-kheerganga-trek",
+    category: "backpacking",
+    categoryLabel: "Parvati Valley",
+    state: "Himachal Pradesh",
+    duration: "2 Nights / 3 Days",
+    daysCount: 3,
+    pickup: "Delhi to Delhi",
+    destination: "Kasol, Barshaini & Kheerganga, Himachal Pradesh",
+    region: "Himachal Pradesh",
+    price: 4999,
+    originalPrice: 7999,
+    emiStarts: "₹850/mo",
+    rating: 4.8,
+    reviewsCount: 1490,
+    badge: "HOT SPRINGS ♨️",
+    badgeClass: "badge-hot",
+    seatsLeft: 4,
+    altitude: "9,711 Ft (Kheerganga Top)",
+    difficulty: "Moderate",
+    image: "assets/kasol.jpg",
+    bannerImage: "assets/kasol.jpg",
+    sharingPrices: {
+      quad: 4999,
+      triple: 5499,
+      dual: 5999
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
+    gallery: [
+      "assets/kasol.jpg",
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
+    ],
+    highlights: [
+      "Dip into natural sulfur hot water pool at Kheerganga under open alpine sky",
+      "Scenic trek through apple orchards, pine trails & roaring Rudranag waterfalls",
+      "Stargaze at 10,000 ft with 360-degree views of snow-capped Parvati range",
+      "Explore bohemian Kasol flea markets, Chalal trail & German bakeries",
+      "Riverside bonfire & music jam session with fellow wanderers"
+    ],
+    inclusions: [
+      "AC Tempo Traveller from Delhi to Kasol and back",
+      "1 Night riverside camp/hotel in Kasol + 1 Night alpine camp at Kheerganga",
+      "4 Meals: 2 Breakfasts and 2 Dinners",
+      "Experienced Trek Captain & guide",
+      "Campfire, music & group games"
+    ],
+    exclusions: ["Personal meals during trek", "Porter or locker charges"],
+    upcomingBatches: [
+      { date: "Every Friday Departure", status: "Filling Fast", seats: 4 }
+    ],
+    itinerary: [
+      {
+        day: 0,
+        title: "Delhi to Kasol Overnight Journey",
+        desc: "Meet at Kashmere Gate at 7:00 PM. Icebreakers and overnight drive through Bilaspur and Mandi.",
+        meals: "No Meals"
+      },
+      {
+        day: 1,
+        title: "Kasol Arrival & Chalal Nature Walk",
+        desc: "Check in to Kasol campsite. Walk along Parvati river to rustic Chalal village. Evening chill by Israeli cafés and bonfire.",
+        meals: "Dinner Included"
+      },
+      {
+        day: 2,
+        title: "Trek to Kheerganga via Rudranag",
+        desc: "Drive to Barshaini and trek 12 km to Kheerganga. Pass Rudranag temple and wooden bridges. Take a warm dip in hot spring bath. Night camp under Milky Way.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Descent to Barshaini & Manikaran - Return",
+        desc: "Descend to Barshaini. Visit Manikaran Sahib Gurudwara. Evening departure back to Delhi.",
+        meals: "Breakfast Included"
+      }
+    ]
+  },
+
+  // 7. Kasol - Tosh - Kutla (2N/3D)
+  {
+    id: "kasol-tosh-kutla",
+    title: "Kasol - Tosh - Kutla (3D/2N)",
+    slug: "kasol-tosh-kutla",
+    category: "backpacking",
+    categoryLabel: "Folk Village",
+    state: "Himachal Pradesh",
+    duration: "2 Nights / 3 Days",
+    daysCount: 3,
+    pickup: "Delhi to Delhi",
+    destination: "Kasol, Tosh & Kutla, Himachal Pradesh",
+    region: "Himachal Pradesh",
+    price: 5499,
+    originalPrice: 8499,
+    emiStarts: "₹920/mo",
+    rating: 4.8,
+    reviewsCount: 890,
+    badge: "FAIRY MEADOW 🌸",
+    badgeClass: "badge-hot",
+    seatsLeft: 5,
+    altitude: "9,200 Ft (Kutla)",
+    difficulty: "Easy to Moderate",
+    image: "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=800&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=1600&q=80",
+    sharingPrices: {
+      quad: 5499,
+      triple: 5999,
+      dual: 6499
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
+    gallery: [
+      "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=800&q=80"
+    ],
+    highlights: [
+      "Hike to the fairytale meadow of Kutla tucked above Tosh village",
+      "Stay in scenic mountain homestays overlooking Parvati Glacier peaks",
+      "Explore hippie cafés, wood-carved traditional houses & local culture",
+      "Riverside bonfire jam and warm community vibes"
+    ],
+    inclusions: [
+      "Delhi to Delhi AC Tempo Traveller",
+      "1 Night stay in Kasol + 1 Night cozy wooden homestay in Tosh",
+      "4 Meals: 2 Breakfasts and 2 Dinners",
+      "Guided Kutla hike and village tour with Trip Captain"
+    ],
+    exclusions: ["Personal expenses", "Lunches on travel"],
+    upcomingBatches: [
+      { date: "Every Friday Departure", status: "Filling Fast", seats: 5 }
+    ],
+    itinerary: [
+      {
+        day: 0,
+        title: "Departure from Delhi",
+        desc: "Overnight drive from Delhi to Parvati Valley.",
+        meals: "No Meals"
+      },
+      {
+        day: 1,
+        title: "Kasol & Chalal Exploration",
+        desc: "Explore Kasol market, Chalal trail, overnight camp.",
+        meals: "Dinner Included"
+      },
+      {
+        day: 2,
+        title: "Tosh Village & Kutla Meadow Hike",
+        desc: "Drive to Tosh, hike 3 km to tranquil Kutla meadow. Evening bonfire in Tosh overlooking snow peaks.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Manikaran & Departure",
+        desc: "Morning chai, visit Manikaran Sahib, return drive to Delhi.",
+        meals: "Breakfast Included"
+      }
+    ]
+  },
+
+  // 8. Chakrata - Tigerfalls (1N/2D)
+  {
+    id: "chakrata-tigerfalls",
+    title: "Chakrata - Tigerfalls Weekend (2D/1N)",
+    slug: "chakrata-tigerfalls",
+    category: "weekend",
+    categoryLabel: "Offbeat Uttarakhand",
+    state: "Uttarakhand",
+    duration: "1 Night / 2 Days",
+    daysCount: 2,
+    pickup: "Delhi to Delhi",
+    destination: "Chakrata & Tiger Falls, Uttarakhand",
+    region: "Uttarakhand",
+    price: 4999,
+    originalPrice: 7499,
+    emiStarts: "₹850/mo",
+    rating: 4.7,
+    reviewsCount: 710,
+    badge: "OFFBEAT WATERFALL 🌊",
+    badgeClass: "badge-deal",
+    seatsLeft: 6,
+    altitude: "7,000 Ft",
+    difficulty: "Easy",
+    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80",
+    sharingPrices: {
+      quad: 4999,
+      triple: 5499,
+      dual: 5999
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
+    gallery: [
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
+    ],
+    highlights: [
+      "Swim in the pristine plunge pool of 312-ft Tiger Falls",
+      "Stunning sunset views from Chilmiri Neck overlooking Himalayan ranges",
+      "Explore tranquil deodar forests away from crowded hill stations",
+      "Cottage stay with evening barbecue and campfire"
+    ],
+    inclusions: [
+      "Delhi to Delhi transfer in AC Tempo Traveller",
+      "1 Night stay in comfortable resort / camp",
+      "2 Meals: 1 Breakfast and 1 Dinner",
+      "Sightseeing of Tiger Falls, Chilmiri Neck & Budher caves"
+    ],
+    exclusions: ["Lunches and adventure activities"],
+    upcomingBatches: [
+      { date: "Every Friday Night Departure", status: "Available", seats: 6 }
+    ],
+    itinerary: [
+      {
+        day: 0,
+        title: "Delhi to Chakrata Overnight Journey",
+        desc: "Night drive from Delhi via Meerut and Dehradun.",
+        meals: "No Meals"
+      },
+      {
+        day: 1,
+        title: "Tiger Falls Hike & Chilmiri Sunset",
+        desc: "Reach Chakrata, hike to majestic Tiger Falls. Sunset at Chilmiri Neck. Evening bonfire and music.",
+        meals: "Dinner Included"
+      },
+      {
+        day: 2,
+        title: "Budher Caves & Return to Delhi",
+        desc: "Visit Moila Top and ancient Budher limestone caves. Return drive to Delhi reaching by Sunday night.",
+        meals: "Breakfast Included"
+      }
+    ]
+  },
+
+  // 9. Kanatal - Tehri Lake (3N/4D)
+  {
+    id: "kanatal-tehri-lake",
+    title: "Kanatal - Tehri Lake & Dhanaulti (4D/3N)",
+    slug: "kanatal-tehri-lake",
+    category: "weekend",
+    categoryLabel: "Lakes & Hills",
+    state: "Uttarakhand",
+    duration: "3 Nights / 4 Days",
+    daysCount: 4,
+    pickup: "Delhi to Delhi",
+    destination: "Kanatal, Tehri Dam & Dhanaulti, Uttarakhand",
+    region: "Uttarakhand",
+    price: 5499,
+    originalPrice: 8499,
+    emiStarts: "₹920/mo",
+    rating: 4.8,
+    reviewsCount: 820,
+    badge: "WATER SPORTS 🚤",
+    badgeClass: "badge-hot",
+    seatsLeft: 5,
+    altitude: "8,500 Ft (Surkanda Devi)",
+    difficulty: "Easy",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80",
+    sharingPrices: {
+      quad: 5499,
+      triple: 5999,
+      dual: 6499
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
+    gallery: [
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+    ],
+    highlights: [
+      "Jet skiing, banana boat rides & speed boating on turquoise Tehri Lake",
+      "Panoramic views of Bandarpoonch peaks from Surkanda Devi Temple",
+      "Stroll through fragrant cedar trails of Dhanaulti Eco Park",
+      "Campfire, barbecue snacks and stargazing at luxury Kanatal campsite"
+    ],
+    inclusions: [
+      "Delhi to Delhi AC pushback vehicle",
+      "3 Nights stay in luxury Swiss camps with attached washrooms",
+      "Wholesome Breakfasts & Dinners as per itinerary",
+      "Visit to Tehri Lake, Surkanda Devi, Dhanaulti and Mussoorie viewpoints",
+      "Campfire nights and WanderHums Trip Captain"
+    ],
+    exclusions: ["Water sports tickets at Tehri (self-paid)"],
+    upcomingBatches: [
+      { date: "Every Friday Departure", status: "Filling Fast", seats: 5 }
+    ],
+    itinerary: [
+      {
+        day: 0,
+        title: "Departure from Delhi",
+        desc: "Overnight drive from Delhi towards Rishikesh and Chamba.",
+        meals: "No Meals"
+      },
+      {
+        day: 1,
+        title: "Kanatal Arrival & Camp Leisure",
+        desc: "Check in to hillside camps, nature walk, campfire and dinner.",
+        meals: "Dinner Included"
+      },
+      {
+        day: 2,
+        title: "Surkanda Devi Ropeway & Dhanaulti",
+        desc: "Visit Surkanda Devi Temple atop 8,500 ft peak. Explore Dhanaulti Eco Park deodars. Evening bonfire.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Tehri Lake Water Sports & Dam View",
+        desc: "Full day at Tehri Lake enjoying water sports, floating huts & boat cruise. Return to camp for final celebration dinner.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 4,
+        title: "Return to Delhi via Rishikesh",
+        desc: "Check out, stop by Rishikesh Ram Jhula, arrive in Delhi by late night.",
+        meals: "Breakfast Included"
+      }
+    ]
+  },
+
+  // 10. Udaipur - Mount Abu (4N/5D)
+  {
+    id: "udaipur-mount-abu",
+    title: "Udaipur - Mount Abu Royal Tour (5D/4N)",
+    slug: "udaipur-mount-abu",
+    category: "backpacking",
+    categoryLabel: "Royal Heritage",
+    state: "Rajasthan",
+    duration: "4 Nights / 5 Days",
+    daysCount: 5,
+    pickup: "Delhi to Delhi / Udaipur",
+    destination: "Udaipur & Mount Abu, Rajasthan",
+    region: "Rajasthan",
+    price: 6499,
+    originalPrice: 9999,
+    emiStarts: "₹1,090/mo",
+    rating: 4.8,
+    reviewsCount: 940,
+    badge: "ROYAL HERITAGE 👑",
+    badgeClass: "badge-hot",
+    seatsLeft: 7,
+    altitude: "4,000 Ft (Guru Shikhar)",
+    difficulty: "Easy",
+    image: "https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?auto=format&fit=crop&w=800&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?auto=format&fit=crop&w=1600&q=80",
+    sharingPrices: {
+      quad: 6499,
+      triple: 6999,
+      dual: 7499
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
+    gallery: [
+      "https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?auto=format&fit=crop&w=800&q=80"
+    ],
+    highlights: [
+      "Sunset boat ride on picturesque Lake Pichola overlooking City Palace",
+      "Marvel at 1000-year-old intricate marble carvings of Dilwara Temples",
+      "Stand at Guru Shikhar - Highest peak of the Aravalli Range (5,650 ft)",
+      "Explore Fateh Sagar Lake, Saheliyon Ki Bari & Bagore Ki Haveli folk dance",
+      "Boating at Nakki Lake and romantic sunset at Toad Rock"
+    ],
+    inclusions: [
+      "AC Vehicle transportation throughout the tour",
+      "4 Nights stay in 3-star heritage hotels (2N Udaipur + 2N Mount Abu)",
+      "Wholesome daily Breakfasts and Dinners",
+      "All major sightseeing with trip captain & local guide",
+      "Tolls, state road taxes & parking charges"
+    ],
+    exclusions: ["Monument entrance tickets", "Lake boat rides"],
+    upcomingBatches: [
+      { date: "Every Thursday Departure", status: "Available", seats: 7 }
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Udaipur Arrival & Lake Pichola Sunset",
+        desc: "Arrive in City of Lakes. Check in to heritage hotel. Evening sunset walk by Lake Pichola and Ghats.",
+        meals: "Dinner Included"
+      },
+      {
+        day: 2,
+        title: "City Palace, Saheliyon Ki Bari & Bagore Haveli",
+        desc: "Explore grandiose City Palace, Jagdish Temple, Saheliyon Ki Bari and Dharohar cultural dance show.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Drive to Mount Abu & Nakki Lake",
+        desc: "Scenic drive up the Aravalli hills to Mount Abu. Boating on Nakki Lake and sunset from Toad Rock.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 4,
+        title: "Dilwara Temples & Guru Shikhar Summit",
+        desc: "Visit world-famous Dilwara marble temples and conquer Guru Shikhar summit. Evening market stroll.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 5,
+        title: "Return Journey to Delhi",
+        desc: "Breakfast and departure back to Delhi.",
+        meals: "Breakfast Included"
+      }
+    ]
+  },
+
+  // 11. Jaisalmer - Longewala (4N/5D)
+  {
+    id: "jaisalmer-longewala",
+    title: "Jaisalmer - Sam Dunes & Longewala Border (5D/4N)",
+    slug: "jaisalmer-longewala",
+    category: "backpacking",
+    categoryLabel: "Thar Desert",
+    state: "Rajasthan",
+    duration: "4 Nights / 5 Days",
+    daysCount: 5,
+    pickup: "Delhi to Delhi / Jaisalmer",
+    destination: "Jaisalmer, Sam Sand Dunes & Longewala, Rajasthan",
+    region: "Rajasthan",
+    price: 6999,
+    originalPrice: 10999,
+    emiStarts: "₹1,170/mo",
+    rating: 4.9,
+    reviewsCount: 1110,
+    badge: "DESERT SAFARI 🐪",
+    badgeClass: "badge-hot",
+    seatsLeft: 5,
+    altitude: "Desert Terrain",
+    difficulty: "Easy",
+    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1600&q=80",
+    sharingPrices: {
+      quad: 6999,
+      triple: 7499,
+      dual: 7999
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
+    gallery: [
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
+    ],
+    highlights: [
+      "Thar Desert luxury Swiss camp stay with traditional Kalbelia folk dance & campfire",
+      "Adrenaline-pumping 4x4 Jeep dune bashing & camel safari during golden hour",
+      "Pay homage at historic Longewala War Memorial & Tanot Mata Temple",
+      "Walk the living golden fort of Sonar Qella (Jaisalmer Fort) & Patwon Ki Haveli",
+      "Visit haunted ruins of abandoned Kuldhara village"
+    ],
+    inclusions: [
+      "AC transportation throughout Delhi to Delhi",
+      "2 Nights Hotel in Jaisalmer + 2 Nights Luxury Desert Camp at Sam Dunes",
+      "Daily Breakfast & Authentic Rajasthani Dinners",
+      "Jeep Safari & Camel Ride in sand dunes",
+      "Traditional welcome with Aarti, Tikka, Dhol, Cultural dance & Bonfire"
+    ],
+    exclusions: ["Personal monument tickets & camera fees"],
+    upcomingBatches: [
+      { date: "Every Thursday Departure", status: "Filling Fast", seats: 5 }
+    ],
+    itinerary: [
+      {
+        day: 0,
+        title: "Delhi to Jaisalmer Overnight Drive",
+        desc: "Overnight drive into the heart of Rajasthan.",
+        meals: "No Meals"
+      },
+      {
+        day: 1,
+        title: "Golden City Arrival & Gadisar Lake",
+        desc: "Check in, visit serene Gadisar Lake and local markets.",
+        meals: "Dinner Included"
+      },
+      {
+        day: 2,
+        title: "Sonar Qella Fort & Kuldhara to Sam Dunes",
+        desc: "Tour living Golden Fort and Patwon Ki Haveli. Stop by haunted Kuldhara. Reach Sam Sand Dunes for camel ride, folk music & bonfire.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Longewala Border Post & Tanot Mata Temple",
+        desc: "Drive to India-Pakistan border, inspect captured tanks at Longewala War Memorial and visit Tanot Mata temple.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 4,
+        title: "Jeep Dune Bashing & Desert Sunrise - Return",
+        desc: "Morning desert sunrise, thrilling Jeep safari across sand dunes, check out and return drive to Delhi.",
+        meals: "Breakfast Included"
+      }
+    ]
+  },
+
+  // 12. Kedarkantha Trek (6N/7D)
+  {
+    id: "kedarkantha-trek",
+    title: "Kedarkantha Winter Snow Trek (7D/6N)",
+    slug: "kedarkantha-trek",
+    category: "backpacking",
+    categoryLabel: "Snow Trek",
+    state: "Uttarakhand",
+    duration: "6 Nights / 7 Days",
+    daysCount: 7,
+    pickup: "Dehradun / Delhi to Delhi",
+    destination: "Sankri, Juda Ka Talab & Kedarkantha Peak, Uttarakhand",
+    region: "Uttarakhand",
+    price: 5499,
+    originalPrice: 9499,
+    emiStarts: "₹920/mo",
+    rating: 4.9,
+    reviewsCount: 1720,
+    badge: "CLASSIC WINTER TREK ❄️",
+    badgeClass: "badge-hot",
+    seatsLeft: 4,
+    altitude: "12,500 Ft (Kedarkantha Peak)",
+    difficulty: "Moderate",
+    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1600&q=80",
+    sharingPrices: {
+      quad: 5499,
+      triple: 5999,
+      dual: 6499
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
+    gallery: [
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
+    ],
+    highlights: [
+      "Conquer Kedarkantha Peak at 12,500 ft for jaw-dropping 360° Himalayan sunrise",
+      "Camp on snow by the frozen emerald lake of Juda Ka Talab",
+      "Trek through ancient deodar forests coated in knee-deep winter snow",
+      "Certified mountaineering guides, microspikes, gaiters & high-altitude support"
+    ],
+    inclusions: [
+      "Dehradun to Sankri and return transport in shared vehicle",
+      "All accommodation: Homestay in Sankri + Alpine dome tents on trek",
+      "All nutritious meals (Breakfast, Lunch, Evening Snacks & Dinner) during trek",
+      "Trek equipment: Tents, zero-degree sleeping bags, crampons, gaiters",
+      "Forest permits, safety kits and oxygen cylinder backup"
+    ],
+    exclusions: ["Offloading of personal backpack (optional)"],
+    upcomingBatches: [
+      { date: "Every Saturday Departure", status: "Filling Fast", seats: 4 }
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Dehradun to Sankri Basecamp Drive",
+        desc: "210 km scenic mountain drive through Mussoorie, Mori and along the Tons River to rustic Sankri village.",
+        meals: "Dinner Included"
+      },
+      {
+        day: 2,
+        title: "Sankri to Juda Ka Talab Camp (9,100 ft)",
+        desc: "4 km trek through maple and pine forests. Pitch tents near mystical frozen lake Juda Ka Talab.",
+        meals: "Breakfast, Lunch & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Juda Ka Talab to Kedarkantha Basecamp (11,250 ft)",
+        desc: "Climb through oak ridges to open snow meadow basecamp with direct views of the summit.",
+        meals: "Breakfast, Lunch & Dinner Included"
+      },
+      {
+        day: 4,
+        title: "Summit Day: 12,500 Ft Sunrise & Descend to Hargaon",
+        desc: "Midnight push to the peak. Reach Shiva shrine at summit for majestic sunrise over Swargarohini & Bandarpoonch. Descend to Hargaon.",
+        meals: "Breakfast, Lunch & Dinner Included"
+      },
+      {
+        day: 5,
+        title: "Hargaon to Sankri Village",
+        desc: "Descend 6 km back to Sankri. Hot showers and celebration dinner with local Garhwali folk.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 6,
+        title: "Sankri to Dehradun & Return",
+        desc: "Drive back to Dehradun, catching evening trains/buses back to Delhi.",
+        meals: "Breakfast Included"
+      }
+    ]
+  },
+
+  // 13. Badrinath Yatra (3N/4D)
+  {
+    id: "badrinath-yatra",
+    title: "Badrinath Yatra & Mana Village (4D/3N)",
+    slug: "badrinath-yatra",
+    category: "backpacking",
+    categoryLabel: "Spiritual Yatra",
+    state: "Uttarakhand",
+    duration: "3 Nights / 4 Days",
+    daysCount: 4,
+    pickup: "Haridwar / Rishikesh / Delhi",
+    destination: "Badrinath, Joshimath & Mana, Uttarakhand",
+    region: "Uttarakhand",
+    price: 6999,
+    originalPrice: 10499,
+    emiStarts: "₹1,170/mo",
+    rating: 4.9,
+    reviewsCount: 1540,
+    badge: "SACRED DHAM 🕉️",
+    badgeClass: "badge-hot",
+    seatsLeft: 6,
+    altitude: "10,279 Ft (Badrinath)",
+    difficulty: "Easy",
+    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1600&q=80",
+    sharingPrices: {
+      quad: 6999,
+      triple: 7499,
+      dual: 7999
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
+    gallery: [
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
+    ],
+    highlights: [
+      "VIP Darshan at holy Badrinath Temple nestled between Nar and Narayan peaks",
+      "Dip in Tapt Kund natural hot sulfur spring before prayers",
+      "Visit Mana - The Last Indian Village on Indo-China border",
+      "Explore Vyas Gufa, Ganesh Gufa & roaring Saraswati River at Bhim Pul",
+      "Panoramic views of Neelkanth Peak & Alaknanda riverbed"
+    ],
+    inclusions: [
+      "AC pushback Tempo Traveller from Haridwar/Rishikesh",
+      "3 Nights hotel accommodation (Joshimath / Pipalkoti & Badrinath)",
+      "Daily wholesome vegetarian Breakfasts and Dinners",
+      "Yatra registration assistance & experienced pilgrimage coordinator",
+      "All tolls, driver charges & state permits"
+    ],
+    exclusions: ["Personal puja / special VIP priority slips", "Lunches"],
+    upcomingBatches: [
+      { date: "Every Tuesday & Friday Departure", status: "Filling Fast", seats: 6 }
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Haridwar/Rishikesh to Joshimath via Devprayag & Rudraprayag",
+        desc: "Early morning start. Witness holy sangams at Devprayag, Rudraprayag, and Karnaprayag. Arrive in Joshimath for dinner.",
+        meals: "Dinner Included"
+      },
+      {
+        day: 2,
+        title: "Joshimath to Badrinath & Evening Aarti",
+        desc: "Drive to Badrinath Dham. Take bath in Tapt Kund, attend sacred evening Maha Aarti of Lord Badri Vishal. Overnight stay in Badrinath.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Morning Darshan & Mana Village Exploration",
+        desc: "Morning temple darshan. Visit Mana Village, Vyas Gufa, and Saraswati River gorge at Bhim Pul. Drive back to Joshimath/Pipalkoti.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 4,
+        title: "Return Drive to Rishikesh & Haridwar",
+        desc: "Return drive with stops for Ganga Aarti in Rishikesh. Drop off at railway station/bus terminal.",
+        meals: "Breakfast Included"
+      }
+    ]
+  },
+
+  // 14. Kedarnath Yatra (2N/3D)
+  {
+    id: "kedarnath-yatra",
+    title: "Kedarnath Yatra Special (3D/2N)",
+    slug: "kedarnath-yatra",
+    category: "backpacking",
+    categoryLabel: "Sacred Jyotirlinga",
+    state: "Uttarakhand",
+    duration: "2 Nights / 3 Days",
+    daysCount: 3,
+    pickup: "Haridwar / Rishikesh / Delhi",
+    destination: "Sonprayag, Gaurikund & Kedarnath Dham, Uttarakhand",
+    region: "Uttarakhand",
+    price: 6999,
+    originalPrice: 10999,
+    emiStarts: "₹1,170/mo",
+    rating: 4.9,
+    reviewsCount: 2180,
+    badge: "HOLY JYOTIRLINGA 🕉️",
+    badgeClass: "badge-hot",
+    seatsLeft: 3,
+    altitude: "11,755 Ft (Kedarnath Temple)",
+    difficulty: "Challenging",
+    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1600&q=80",
+    sharingPrices: {
+      quad: 6999,
+      triple: 7499,
+      dual: 7999
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
+    gallery: [
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
+    ],
+    highlights: [
+      "Emotional Darshan at ancient Kedarnath Temple under the majestic Kedar Dome peak",
+      "Attend the soul-stirring evening Sandhya Aarti with hundreds of devotees",
+      "Scenic trek alongside roaring Mandakini river via Jungle Chatti & Lincholi",
+      "Visit sacred Bhairavnath Temple overlooking entire Kedarnath valley",
+      "Complete medical clearance support, oxygen canister assistance & guide"
+    ],
+    inclusions: [
+      "Haridwar/Rishikesh to Sonprayag and back in comfortable traveller",
+      "1 Night stay at Guptkashi/Sonprayag + 1 Night stay at Kedarnath Base (GMVN/Guest House)",
+      "Daily nutritious vegetarian Breakfasts and Dinners",
+      "Uttarakhand Yatra registration support & experienced Trek Lead",
+      "All parking, tolls and driver allowances"
+    ],
+    exclusions: ["Helicopter or horse/pony/palki charges", "Lunches on trek"],
+    upcomingBatches: [
+      { date: "Every Monday & Friday Departure", status: "Filling Fast", seats: 3 }
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Haridwar to Guptkashi / Sonprayag",
+        desc: "Scenic drive through Devprayag and along Mandakini river. Reach Guptkashi, check in and rest before trek.",
+        meals: "Dinner Included"
+      },
+      {
+        day: 2,
+        title: "Gaurikund to Kedarnath Dham Trek (16 km)",
+        desc: "Early morning shuttle to Gaurikund. Trek uphill alongside Mandakini river. Reach Kedarnath by afternoon. Attend magical Sandhya Aarti and overnight stay in Kedarnath.",
+        meals: "Breakfast & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Morning Darshan, Descend & Return",
+        desc: "Early morning Abhishek and temple parikrama. Trek downhill to Gaurikund. Board vehicle and return to Haridwar/Rishikesh by late night.",
+        meals: "Breakfast Included"
+      }
+    ]
+  },
+
+  // 15. Do Dham Yatra (6N/7D)
+  {
+    id: "do-dham-yatra",
+    title: "Do Dham Yatra (Kedarnath & Badrinath) (7D/6N)",
+    slug: "do-dham-yatra",
+    category: "backpacking",
+    categoryLabel: "Sacred Circuit",
+    state: "Uttarakhand",
+    duration: "6 Nights / 7 Days",
+    daysCount: 7,
+    pickup: "Haridwar / Rishikesh",
+    destination: "Kedarnath & Badrinath, Uttarakhand",
+    region: "Uttarakhand",
+    price: 10999,
+    originalPrice: 15999,
+    emiStarts: "₹1,840/mo",
+    rating: 4.9,
+    reviewsCount: 1840,
+    badge: "MOST REVERED 🕉️",
+    badgeClass: "badge-hot",
+    seatsLeft: 4,
+    altitude: "11,755 Ft",
+    difficulty: "Moderate",
+    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1600&q=80",
+    sharingPrices: {
+      quad: 10999,
+      triple: 11999,
+      dual: 12999
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
+    gallery: [
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
+    ],
+    highlights: [
+      "Complete pilgrimage to both sacred shrines of Kedarnath & Badrinath",
+      "Visit Mana Village, Saraswati river origin, Bhim Pul & Vyas Gufa",
+      "Attend both morning and evening Aartis with divine spiritual energy",
+      "Full logistics coordination, verified clean stays & vegetarian sattvic meals"
+    ],
+    inclusions: [
+      "Haridwar to Haridwar AC Tempo Traveller transport",
+      "6 Nights clean hotel & guest house stays across circuit",
+      "Pure vegetarian daily Breakfasts and Dinners",
+      "Experienced pilgrimage guide and registration support",
+      "All driver charges, toll taxes and interstate permits"
+    ],
+    exclusions: ["Helicopter tickets, mule/palki charges", "Lunches"],
+    upcomingBatches: [
+      { date: "Every Wednesday Departure", status: "Filling Fast", seats: 4 }
+    ],
+    itinerary: [
+      { day: 1, title: "Haridwar to Guptkashi", desc: "Drive along Mandakini river.", meals: "Dinner Included" },
+      { day: 2, title: "Guptkashi to Kedarnath Trek", desc: "Ascend to Kedarnath temple, attend Aarti.", meals: "Breakfast & Dinner" },
+      { day: 3, title: "Kedarnath to Guptkashi Descent", desc: "Morning darshan and descent to base.", meals: "Breakfast & Dinner" },
+      { day: 4, title: "Guptkashi to Pipalkoti / Joshimath", desc: "Scenic mountain crossing.", meals: "Breakfast & Dinner" },
+      { day: 5, title: "Badrinath Darshan & Mana Village", desc: "Temple darshan and Mana border village.", meals: "Breakfast & Dinner" },
+      { day: 6, title: "Joshimath to Rudraprayag / Srinagar", desc: "Visit Shankaracharya Math, drive to Srinagar.", meals: "Breakfast & Dinner" },
+      { day: 7, title: "Rishikesh & Haridwar Drop", desc: "Return drop with Ganga Aarti in Rishikesh.", meals: "Breakfast Included" }
+    ]
+  },
+
+  // 16. Char Dham Yatra (11N/12D)
+  {
+    id: "char-dham-yatra",
+    title: "Complete Char Dham Yatra (12D/11N)",
+    slug: "char-dham-yatra",
+    category: "backpacking",
+    categoryLabel: "Ultimate Pilgrimage",
+    state: "Uttarakhand",
+    duration: "11 Nights / 12 Days",
+    daysCount: 12,
+    pickup: "Haridwar / Delhi",
+    destination: "Yamunotri, Gangotri, Kedarnath & Badrinath",
+    region: "Uttarakhand",
+    price: 29999,
+    originalPrice: 42999,
+    emiStarts: "₹3,450/mo",
+    rating: 5.0,
+    reviewsCount: 1250,
+    badge: "MOKSHA CIRCUIT 🕉️",
+    badgeClass: "badge-hot",
+    seatsLeft: 5,
+    altitude: "11,755 Ft",
+    difficulty: "Moderate",
+    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1600&q=80",
+    sharingPrices: {
+      quad: 29999,
+      triple: 32999,
+      dual: 35999
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
+    gallery: [
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
+    ],
+    highlights: [
+      "Complete sacred circumnavigation of Yamunotri, Gangotri, Kedarnath & Badrinath",
+      "Dip in Surya Kund & cook rice prasad at Yamunotri",
+      "Holy Bhagirathi Aarti at picturesque Gangotri Temple",
+      "Darshan at high-altitude Kedarnath Jyotirlinga & Badri Vishal",
+      "Dedicated medical assistance, seasoned pilgrimage coordinators & premium buses"
+    ],
+    inclusions: [
+      "Deluxe pushback bus / Tempo Traveller throughout 12 days",
+      "11 Nights accommodation in verified hotels and guest houses",
+      "All pure vegetarian daily Breakfasts and Dinners",
+      "Char Dham biometric registration & priest liaison assistance",
+      "Tolls, permits, driver costs & parking included"
+    ],
+    exclusions: ["Helicopter passes & mule charges", "Lunches on road"],
+    upcomingBatches: [
+      { date: "Every Sunday & Wednesday Departure", status: "Available", seats: 5 }
+    ],
+    itinerary: [
+      { day: 1, title: "Haridwar to Barkot", desc: "Drive via Mussoorie & Kempty Falls.", meals: "Dinner Included" },
+      { day: 2, title: "Yamunotri Dham Darshan", desc: "Trek to Yamunotri, Surya Kund dip, return to Barkot.", meals: "Breakfast & Dinner" },
+      { day: 3, title: "Barkot to Uttarkashi", desc: "Visit Kashi Vishwanath temple in Uttarkashi.", meals: "Breakfast & Dinner" },
+      { day: 4, title: "Gangotri Dham Darshan", desc: "Drive along Bhagirathi to Gangotri Temple.", meals: "Breakfast & Dinner" },
+      { day: 5, title: "Uttarkashi to Guptkashi", desc: "Scenic mountain transfer to Kedarnath base.", meals: "Breakfast & Dinner" },
+      { day: 6, title: "Guptkashi to Kedarnath Trek", desc: "Ascend to Kedarnath and attend evening Aarti.", meals: "Breakfast & Dinner" },
+      { day: 7, title: "Kedarnath Darshan & Descent", desc: "Morning prayers, descend to Sonprayag/Guptkashi.", meals: "Breakfast & Dinner" },
+      { day: 8, title: "Guptkashi to Pipalkoti", desc: "Drive through Chopta and Mandal valleys.", meals: "Breakfast & Dinner" },
+      { day: 9, title: "Badrinath Dham & Mana Village", desc: "Visit Badri Vishal and Last Village of India.", meals: "Breakfast & Dinner" },
+      { day: 10, title: "Badrinath to Rudraprayag", desc: "Witness holy river confluences on return.", meals: "Breakfast & Dinner" },
+      { day: 11, title: "Rudraprayag to Rishikesh", desc: "Relax by the Ganga and attend Triveni Ghat Aarti.", meals: "Breakfast & Dinner" },
+      { day: 12, title: "Rishikesh to Haridwar Drop", desc: "Tour concludes with blessings and drop at railway station.", meals: "Breakfast Included" }
+    ]
+  },
+
+  // 17. Spiti Valley Circuit (Signature Expedition)
   {
     id: "spiti-valley-circuit",
     title: "Spiti Valley Road Trip - The Middle Land Odyssey",
     slug: "spiti-valley-circuit",
     category: "backpacking",
-    categoryLabel: "Backpacking Trip",
+    categoryLabel: "High-Altitude Road Trip",
+    state: "Himachal Pradesh",
     duration: "9 Days / 8 Nights",
     daysCount: 9,
     pickup: "Delhi to Delhi",
     destination: "Spiti Valley, Himachal Pradesh",
-    region: "Himalayas",
+    region: "Himachal Pradesh",
     price: 18499,
     originalPrice: 24999,
     emiStarts: "₹1,540/mo",
@@ -23,10 +1310,16 @@ const TRIPS_DATA = [
     badge: "BESTSELLER 🔥",
     badgeClass: "badge-hot",
     seatsLeft: 4,
-    altitude: "14,931 Ft",
+    altitude: "14,931 Ft (Kunzum Pass)",
     difficulty: "Moderate",
     image: "assets/spiti.jpg",
     bannerImage: "assets/spiti.jpg",
+    sharingPrices: {
+      quad: 18499,
+      triple: 19999,
+      dual: 21999
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
     gallery: [
       "assets/spiti.jpg",
       "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80",
@@ -60,866 +1353,358 @@ const TRIPS_DATA = [
     upcomingBatches: [
       { date: "18 Apr - 26 Apr 2026", status: "Filling Fast", seats: 3 },
       { date: "25 Apr - 03 May 2026", status: "Available", seats: 7 },
-      { date: "02 May - 10 May 2026", status: "Available", seats: 9 },
-      { date: "09 May - 17 May 2026", status: "Selling Fast", seats: 4 },
-      { date: "16 May - 24 May 2026", status: "Available", seats: 11 },
-      { date: "23 May - 31 May 2026", status: "Available", seats: 8 }
+      { date: "02 May - 10 May 2026", status: "Available", seats: 9 }
     ],
     itinerary: [
-      {
-        day: 1,
-        title: "Delhi to Shimla / Narkanda | Overnight Journey",
-        desc: "Assemble at Majnu Ka Tila / Kashmere Gate at 7:00 PM. Meet your friendly WanderHums Trip Captain and fellow travelers. Kick off with an icebreaker session, music, and embark on an exciting overnight drive towards the gateway of Himachal."
-      },
-      {
-        day: 2,
-        title: "Narkanda to Sangla / Chitkul | The Last Village of India",
-        desc: "Wake up to misty pines. Drive through the Hindustan-Tibet Highway witnessing dramatic gorges of the Sutlej river. Enter the enchanting Kinnaur Valley. Reach Chitkul, the last inhabited village on the Indo-Tibetan border. Enjoy chai by the crystal-clear Baspa River. Overnight stay in Chitkul/Sangla."
-      },
-      {
-        day: 3,
-        title: "Sangla to Kalpa | Roghi Suicide Point & Golden Kinner Kailash",
-        desc: "Start your day with village strolls. Drive up to the serene village of Kalpa, famous for Apple orchards and the majestic view of the sacred Kinner Kailash peak. Visit Roghi village and the breathtaking Suicide Point cliff. Sunset chai overlooking the Himalayan panorama."
-      },
-      {
-        day: 4,
-        title: "Kalpa to Kaza via Nako Lake, Chango & Tabo Monastery",
-        desc: "Cross over the dramatic landscape transition from green mountains to cold barren desert. Stop by the holy Nako Lake and see the 500-year-old Mummy of Sangha Tenzin at Gue village. Visit the UNESCO-celebrated Tabo Monastery, known as the Ajanta of the Himalayas. Arrive in Kaza by evening."
-      },
-      {
-        day: 5,
-        title: "Kaza - Hikkim, Komic, Langza & Key Monastery",
-        desc: "A day of high-altitude world records! Post a physical letter from Hikkim (World’s Highest Post Office at 14,567 ft). Visit Komic (World’s highest motorable village) and the giant Buddha statue watching over Langza village. Later, visit Key Monastery perched majestically atop a conical hill. Group photo session in traditional attire."
-      },
-      {
-        day: 6,
-        title: "Kaza to Chandratal Lake via Kunzum La (14,931 ft)",
-        desc: "Drive towards the crown jewel of Spiti - Chandratal Lake. Conquer the windy Kunzum Pass and seek blessings at Kunzum Mata Temple. Hike down to the crescent-shaped turquoise Chandratal Lake. Check in to cozy Swiss tents. Stargazing at millions of stars and Milky Way galaxy under zero light pollution."
-      },
-      {
-        day: 7,
-        title: "Chandratal to Manali via Batal & Atal Tunnel",
-        desc: "Bumpy, adventurous ride crossing icy water crossings (Chhatru & Batal). Cross the engineering marvel - Atal Tunnel into the lush green Kullu Valley. Check in at our boutique Manali hotel. Celebratory group dinner and party."
-      },
-      {
-        day: 8,
-        title: "Manali Café Hopping & Overnight Bus to Delhi",
-        desc: "Leisure morning to explore Old Manali's bohemian cafes (Dylan's, Café 1947), shop for souvenirs on Mall Road, or relax by the Beas river. Evening board the Volvo/Tempo back to Delhi with a camera full of memories and a heart full of lifelong friends."
-      },
-      {
-        day: 9,
-        title: "Reach Delhi | Bid Adieu to Fellow Backpackers",
-        desc: "Arrive in Delhi by 8:00 AM. Heartfelt hugs, photo exchanges, and promising to meet again on the next WanderHums reunion trip!"
-      }
-    ],
-    featured: true
+      { day: 1, title: "Delhi to Shimla / Narkanda", desc: "Overnight drive to Himachal gateway.", meals: "No Meals" },
+      { day: 2, title: "Narkanda to Sangla / Chitkul", desc: "Visit Chitkul, last village on Indo-Tibet border.", meals: "Breakfast & Dinner" },
+      { day: 3, title: "Sangla to Kalpa", desc: "Roghi Suicide Point and Kinner Kailash view.", meals: "Breakfast & Dinner" },
+      { day: 4, title: "Kalpa to Kaza via Tabo", desc: "Cross Nako Lake and 1000-year Tabo Monastery.", meals: "Breakfast & Dinner" },
+      { day: 5, title: "Kaza - Hikkim, Komic, Langza & Key", desc: "Highest post office and Key Monastery.", meals: "Breakfast & Dinner" },
+      { day: 6, title: "Kaza to Chandratal via Kunzum Pass", desc: "Conquer Kunzum La (14,931 ft) & camp at Moon Lake.", meals: "Breakfast & Dinner" },
+      { day: 7, title: "Chandratal to Manali via Atal Tunnel", desc: "Drive through Atal Tunnel into Manali.", meals: "Breakfast & Dinner" },
+      { day: 8, title: "Manali Leisure & Return to Delhi", desc: "Old Manali cafés and evening return drive.", meals: "Breakfast Included" },
+      { day: 9, title: "Arrival in Delhi", desc: "Morning arrival with bags full of memories.", meals: "Trip Ends" }
+    ]
   },
+
+  // 18. Ladakh Bike & SUV Expedition
+  {
+    id: "ladakh-bike-expedition",
+    title: "Ladakh Bike & SUV Expedition - The High Altitude Crusade",
+    slug: "ladakh-bike-expedition",
+    category: "bike",
+    categoryLabel: "Motorbike Expedition",
+    state: "Ladakh",
+    duration: "10 Days / 9 Nights",
+    daysCount: 10,
+    pickup: "Delhi / Manali to Leh",
+    destination: "Leh, Nubra Valley, Pangong Tso & Hanle, Ladakh",
+    region: "Ladakh",
+    price: 32999,
+    originalPrice: 44999,
+    emiStarts: "₹2,750/mo",
+    rating: 4.9,
+    reviewsCount: 1210,
+    badge: "BUCKET LIST 🏍️",
+    badgeClass: "badge-hot",
+    seatsLeft: 3,
+    altitude: "17,582 Ft (Khardung La)",
+    difficulty: "Moderate to Challenging",
+    image: "assets/ladakh.jpg",
+    bannerImage: "assets/ladakh.jpg",
+    sharingPrices: {
+      quad: 32999,
+      triple: 34999,
+      dual: 37999
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
+    gallery: [
+      "assets/ladakh.jpg",
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
+    ],
+    highlights: [
+      "Ride Royal Enfield Himalayan across the iconic Khardung La & Chang La",
+      "Stargaze at Pangong Tso lake as the turquoise waters change color",
+      "Ride double-humped Bactrian camels in cold white dunes of Hunder, Nubra Valley",
+      "Visit Magnetic Hill, Pathar Sahib Gurudwara & Sangam of Indus & Zanskar",
+      "Backup mechanic, lead rider, backup luggage vehicle & oxygen support"
+    ],
+    inclusions: [
+      "Royal Enfield Himalayan 411cc / 450cc with fuel / SUV seat option",
+      "9 Nights stay in handpicked hotels & luxury Swiss camps with attached baths",
+      "Daily wholesome buffet Breakfasts and Dinners",
+      "Inner Line Permits & Ladakh Ecology Fees",
+      "Marshal pilot rider, professional mechanic & backup vehicle"
+    ],
+    exclusions: ["Personal riding gear (available on rent)", "Lunches"],
+    upcomingBatches: [
+      { date: "Batches Open from June 2026", status: "Filling Fast", seats: 3 }
+    ],
+    itinerary: [
+      { day: 1, title: "Manali to Jispa", desc: "Cross Atal Tunnel into Lahaul.", meals: "Dinner Included" },
+      { day: 2, title: "Jispa to Leh via Baralacha La & Tanglang La", desc: "Epic mountain pass crossing.", meals: "Breakfast & Dinner" },
+      { day: 3, title: "Leh Acclimatization & Local Sights", desc: "Shanti Stupa, Leh Palace, Hall of Fame.", meals: "Breakfast & Dinner" },
+      { day: 4, title: "Leh to Nubra Valley via Khardung La (17,582 ft)", desc: "World famous pass and Hunder sand dunes.", meals: "Breakfast & Dinner" },
+      { day: 5, title: "Turtuk Village Excursion", desc: "Visit Balti village on Indo-Pak border.", meals: "Breakfast & Dinner" },
+      { day: 6, title: "Nubra to Pangong Tso via Shyok River", desc: "Offroading to azure Pangong lake.", meals: "Breakfast & Dinner" },
+      { day: 7, title: "Pangong to Leh via Chang La", desc: "Sunrise by the lake and ride to Leh.", meals: "Breakfast & Dinner" },
+      { day: 8, title: "Leh to Sarchu / Jispa", desc: "Return journey through More Plains.", meals: "Breakfast & Dinner" },
+      { day: 9, title: "Jispa to Manali & Delhi", desc: "Drive back to Manali, overnight bus to Delhi.", meals: "Breakfast Included" },
+      { day: 10, title: "Arrival in Delhi", desc: "Tour concludes with life-long memories.", meals: "Trip Ends" }
+    ]
+  },
+
+  // 19. Meghalaya Backpacking
   {
     id: "meghalaya-backpacking",
     title: "Meghalaya Backpacking - Abode of Clouds & Living Roots",
     slug: "meghalaya-backpacking",
     category: "backpacking",
     categoryLabel: "Backpacking Trip",
-    duration: "6 Days / 5 Nights",
-    daysCount: 6,
+    state: "Meghalaya",
+    duration: "6 Nights / 7 Days",
+    daysCount: 7,
     pickup: "Guwahati to Guwahati",
-    destination: "Shillong, Cherrapunji & Dawki",
-    region: "North East",
+    destination: "Shillong, Cherrapunji, Mawlynnong & Dawki, Meghalaya",
+    region: "Northeast India",
     price: 19999,
-    originalPrice: 26500,
-    emiStarts: "₹1,660/mo",
+    originalPrice: 26999,
+    emiStarts: "₹1,670/mo",
     rating: 4.9,
-    reviewsCount: 980,
-    badge: "TRENDING 🔥",
+    reviewsCount: 880,
+    badge: "COMMUNITY FAVORITE 🌿",
     badgeClass: "badge-hot",
     seatsLeft: 5,
-    altitude: "6,400 Ft",
-    difficulty: "Easy to Moderate",
+    altitude: "4,800 Ft",
+    difficulty: "Moderate",
     image: "assets/meghalaya.jpg",
     bannerImage: "assets/meghalaya.jpg",
+    sharingPrices: {
+      quad: 19999,
+      triple: 21499,
+      dual: 23499
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
     gallery: [
       "assets/meghalaya.jpg",
-      "https://images.unsplash.com/photo-1608037521255-a4f6cf9cfaf3?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1627993079634-1191a3297a7e?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
-    ],
-    highlights: [
-      "Trek to the Double Decker Living Root Bridge in Nongriat",
-      "Swim in the pristine natural turquoise pools of Rainbow Falls",
-      "Boat on the crystal-clear Umngot River at Dawki (Boats seem floating in air)",
-      "Camp under the stars near the Indo-Bangladesh border in Shnongpdeng",
-      "Explore mystical Arwah & Mawsmai limestone caves",
-      "Walk through Mawlynnong - Asia's Cleanest Village"
-    ],
-    inclusions: [
-      "All transfers & sightseeing in Tempo Traveller / SUV from Guwahati",
-      "5 Nights stay in handpicked resorts, homestays & riverside camps",
-      "10 Wholesome Meals: 5 Breakfasts & 5 Dinners",
-      "Certified WanderHums Trip Captain & local Khasi guides",
-      "Cliff jumping, boating & life jackets at Dawki / Shnongpdeng",
-      "All entry permits, cave entries & forest conservation fees"
-    ],
-    exclusions: [
-      "Flight tickets to/from Guwahati",
-      "Personal water sports (scuba/kayaking add-ons)",
-      "Lunches & café bills",
-      "5% GST"
-    ],
-    upcomingBatches: [
-      { date: "11 Apr - 16 Apr 2026", status: "Filling Fast", seats: 2 },
-      { date: "18 Apr - 23 Apr 2026", status: "Available", seats: 6 },
-      { date: "25 Apr - 30 Apr 2026", status: "Available", seats: 9 },
-      { date: "02 May - 07 May 2026", status: "Available", seats: 7 }
-    ],
-    itinerary: [
-      {
-        day: 1,
-        title: "Guwahati to Shillong | Scotland of the East",
-        desc: "Meet the squad at Guwahati Airport by 12:00 PM. Stop by the majestic Umiam Lake (Barapani) for watersports and chill vibes. Arrive in Shillong, check in, and spend the evening wandering through the bustling Police Bazar, tasting local momos and listening to indie live music."
-      },
-      {
-        day: 2,
-        title: "Shillong to Cherrapunji (Sohra) | Chasing Waterfalls & Caves",
-        desc: "Drive to Cherrapunji, one of the wettest places on earth. Marvel at the roaring Nohkalikai Falls (India's tallest plunge waterfall) and Seven Sisters Falls. Head deep inside Arwah Caves to see prehistoric marine fossils embedded in limestone walls. Cozy bonfire night in Sohra."
-      },
-      {
-        day: 3,
-        title: "The Nongriat Trek | Double Decker Living Root Bridge & Rainbow Falls",
-        desc: "Descend 3,500 stone steps through lush rainforest into Tyrna. Cross surreal bio-engineering wonders created by Khasi ancestors: the Double Decker Living Root Bridge. Continue hiking to Rainbow Falls and take a refreshing dip in the azure natural lagoon."
-      },
-      {
-        day: 4,
-        title: "Sohra to Dawki & Shnongpdeng | The Glass River",
-        desc: "Drive down to Shnongpdeng along the Umngot River. Experience boat rides where the water is so crystal clear that boats appear to float in mid-air. Try cliff jumping and zip-lining. Spend the night in riverside luxury tents around a bonfire with barbecue and guitar sessions."
-      },
-      {
-        day: 5,
-        title: "Mawlynnong Cleanest Village & Return to Shillong",
-        desc: "Visit Mawlynnong, recognized as Asia's Cleanest Village. Climb the bamboo treehouses for panoramic views across the Bangladesh plains. Drive back to Shillong for our farewell gala dinner with the crew."
-      },
-      {
-        day: 6,
-        title: "Shillong to Guwahati | Departure with Heartfelt Memories",
-        desc: "Post breakfast, drive back to Guwahati Airport. Drop-off by 3:00 PM. Bid farewell to your newfound travel family until the next epic adventure!"
-      }
-    ],
-    featured: true
-  },
-  {
-    id: "kasol-kheerganga-weekend",
-    title: "Kasol & Kheerganga Trek - Parvati Valley Magic",
-    slug: "kasol-kheerganga-weekend",
-    category: "weekend",
-    categoryLabel: "Weekend Getaway",
-    duration: "3 Days / 2 Nights",
-    daysCount: 3,
-    pickup: "Delhi to Delhi",
-    destination: "Kasol, Tosh & Kheerganga, HP",
-    region: "Himachal",
-    price: 6499,
-    originalPrice: 8999,
-    emiStarts: "₹650/mo",
-    rating: 4.8,
-    reviewsCount: 2210,
-    badge: "WEEKEND SPECIAL ⚡",
-    badgeClass: "badge-special",
-    seatsLeft: 6,
-    altitude: "9,700 Ft",
-    difficulty: "Easy to Moderate",
-    image: "assets/kasol.jpg",
-    bannerImage: "assets/kasol.jpg",
-    gallery: [
-      "assets/kasol.jpg",
-      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
     ],
     highlights: [
-      "Trek to Kheerganga & take a dip in natural hot water sulfur springs",
-      "Stargaze at high-altitude alpine meadows and snow-dusted peaks",
-      "Café hopping in Kasol (Falafel, Shakshuka, Nutella pancakes)",
-      "Explore the rustic fairy-tale village of Tosh / Chalal",
-      "Campfire, acoustic guitar & mountain stories with fellow travelers"
+      "Trek 3,500 stone steps down to the UNESCO Double Decker Living Root Bridge",
+      "Cliff jump and swim in the emerald crystal waters of Wei Sawdong & Krang Shuri",
+      "Boat ride on the transparent Umngot River at Dawki where boats appear floating in air",
+      "Walk the clean bamboo bridges of Mawlynnong (Asia's cleanest village)",
+      "Explore mystical limestone caverns at Mawsmai & Arwah Caves"
     ],
     inclusions: [
-      "AC Pushback Volvo / Tempo Traveller from Delhi to Kasol and back",
-      "1 Night stay in Kasol riverside camp/hotel + 1 Night in Kheerganga meadow camps",
-      "4 Meals: 2 Breakfasts & 2 Dinners",
-      "Experienced trek leaders and local trail guides",
-      "Bonfire and music night",
-      "First aid support"
+      "Guwahati to Guwahati transfer in comfortable Tempo Traveller",
+      "6 Nights stay in boutique homestays and riverside tents",
+      "Breakfasts & Dinners as per itinerary",
+      "Trek guides for Double Decker bridge & Rainbow falls",
+      "Entry fees to all waterfalls, caves & viewpoints"
     ],
-    exclusions: [
-      "Lunches and café bills",
-      "Porter / mule charges for personal baggage",
-      "5% GST"
-    ],
+    exclusions: ["Boating at Dawki / river activities", "Lunches"],
     upcomingBatches: [
-      { date: "Every Friday Departure", status: "Filling Fast", seats: 6 },
-      { date: "10 Apr - 13 Apr 2026", status: "Available", seats: 8 },
-      { date: "17 Apr - 20 Apr 2026", status: "Available", seats: 5 },
-      { date: "24 Apr - 27 Apr 2026", status: "Available", seats: 9 }
+      { date: "Every Saturday Departure", status: "Filling Fast", seats: 5 }
     ],
     itinerary: [
-      {
-        day: 1,
-        title: "Delhi to Kasol | Friday Night Journey",
-        desc: "Meet at Majnu Ka Tila at 6:30 PM. Board luxury AC bus to Kasol with exciting playlist and friendly icebreakers."
-      },
-      {
-        day: 2,
-        title: "Kasol Arrival & Chalal Forest Walk | Riverside Vibes",
-        desc: "Arrive in Kasol by 10 AM. Check in to our riverside campsite by the gushing Parvati River. Walk through the scenic deodar trails to Chalal village. Cafe hopping in the afternoon, followed by a cozy bonfire, music, and delicious dinner."
-      },
-      {
-        day: 3,
-        title: "Trek to Kheerganga | Natural Hot Springs & Camping",
-        desc: "Drive to Barshaini and commence the scenic 12km trek to Kheerganga passing gushing waterfalls and wooden bridges. Arrive at the top and soak into the natural hot water sulfur spring surrounded by snow-capped peaks. Overnight alpine camping under the stars."
-      },
-      {
-        day: 4,
-        title: "Descent to Barshaini, Tosh Stroll & Depart for Delhi",
-        desc: "Morning sunrise over the Parvati range. Trek back down to Barshaini. Visit the rustic village of Tosh for afternoon lunch. Evening board the bus back to Delhi with unforgettable memories. Arrive in Delhi Monday morning 7 AM."
-      }
-    ],
-    featured: true
+      { day: 1, title: "Guwahati to Shillong via Umiam Lake", desc: "Scenic drive into Scotland of East.", meals: "Dinner Included" },
+      { day: 2, title: "Shillong to Cherrapunji (Sohra) via Waterfalls", desc: "Wei Sawdong & Nohkalikai Falls.", meals: "Breakfast & Dinner" },
+      { day: 3, title: "Double Decker Living Root Bridge & Rainbow Falls Trek", desc: "Climb through tropical Khasi jungle.", meals: "Breakfast & Dinner" },
+      { day: 4, title: "Mawsmai Caves & Mawlynnong Cleanest Village", desc: "Living root bridge of Riwai.", meals: "Breakfast & Dinner" },
+      { day: 5, title: "Dawki Glass River & Shnongpdeng Camping", desc: "Riverside camp by Umngot river.", meals: "Breakfast & Dinner" },
+      { day: 6, title: "Krang Shuri Waterfall & Return to Shillong", desc: "Turquoise lagoon dip.", meals: "Breakfast & Dinner" },
+      { day: 7, title: "Shillong to Guwahati Airport Drop", desc: "Drop at airport with fond memories.", meals: "Breakfast Included" }
+    ]
   },
-  {
-    id: "bali-island-explorer",
-    title: "Bali & Nusa Penida Group Tour - The Tropical Odyssey",
-    slug: "bali-island-explorer",
-    category: "international",
-    categoryLabel: "International Tour",
-    duration: "7 Days / 6 Nights",
-    daysCount: 7,
-    pickup: "Denpasar to Denpasar",
-    destination: "Bali & Nusa Penida, Indonesia",
-    region: "Southeast Asia",
-    price: 36999,
-    originalPrice: 47999,
-    emiStarts: "₹3,080/mo",
-    rating: 4.9,
-    reviewsCount: 840,
-    badge: "INTERNATIONAL HIT 🌴",
-    badgeClass: "badge-hot",
-    seatsLeft: 3,
-    altitude: "Sea Level",
-    difficulty: "Easy",
-    image: "assets/bali.jpg",
-    bannerImage: "assets/bali.jpg",
-    gallery: [
-      "assets/bali.jpg",
-      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80"
-    ],
-    highlights: [
-      "Speedboat cruise to Nusa Penida: Kelingking T-Rex Beach & Angel's Billabong",
-      "Iconic Bali Swing & cascading Tegalalang Rice Terraces in Ubud",
-      "Sunset at Uluwatu Cliff Temple & traditional Kecak Fire Dance",
-      "Snorkeling with Manta Rays at Crystal Bay",
-      "Party nights at Canggu & Seminyak beach clubs (Finns Beach Club)",
-      "Traditional Balinese massage & floating breakfast experience"
-    ],
-    inclusions: [
-      "6 Nights 4-Star Boutique Resort & Villa accommodations with swimming pool",
-      "Daily international buffet breakfasts",
-      "Full private AC transport across Bali with English-speaking drivers",
-      "Return fast boat tickets to Nusa Penida Island",
-      "All island entrance fees, parking & monument charges",
-      "Dedicated WanderHums Trip Host throughout the trip"
-    ],
-    exclusions: [
-      "International flights (Our team helps you find the cheapest flights!)",
-      "Indonesian Visa on arrival (approx $35)",
-      "Lunches and dinners not specified",
-      "Personal watersports"
-    ],
-    upcomingBatches: [
-      { date: "15 Apr - 21 Apr 2026", status: "Filling Fast", seats: 3 },
-      { date: "29 Apr - 05 May 2026", status: "Available", seats: 6 },
-      { date: "13 May - 19 May 2026", status: "Available", seats: 8 },
-      { date: "27 May - 02 Jun 2026", status: "Available", seats: 10 }
-    ],
-    itinerary: [
-      {
-        day: 1,
-        title: "Welcome to Bali! | Arrival in Kuta / Seminyak",
-        desc: "Arrive at Ngurah Rai International Airport (Denpasar). Our team greets you with Balinese flower garlands. Check into our chic resort. Unwind by the pool and join the sunset welcome drinks by the beach."
-      },
-      {
-        day: 2,
-        title: "South Bali - Watersports, Uluwatu Temple & Kecak Dance",
-        desc: "Head to Tanjung Benoa for adrenaline water adventures (banana boat, parasailing). In the evening, visit the dramatic 70-meter cliffside Uluwatu Temple and witness the mesmerizing Kecak Fire Dance during sunset. Night party in Seminyak."
-      },
-      {
-        day: 3,
-        title: "Speedboat to Nusa Penida | Kelingking T-Rex & Broken Beach",
-        desc: "Take an exhilarating fast boat to Nusa Penida. Visit the jaw-dropping Kelingking 'T-Rex' viewpoint, Angel's Billabong infinity pool, and Broken Beach. Relax with fresh coconut at Crystal Bay."
-      },
-      {
-        day: 4,
-        title: "Ubud Cultural Heartland - Sacred Monkey Forest & Ubud Market",
-        desc: "Travel to Ubud, the cultural sanctuary. Stroll through the lush Sacred Monkey Forest. Explore Ubud Art Market and royal palace. Evening cafe hopping and shopping artisanal organic keepsakes."
-      },
-      {
-        day: 5,
-        title: "Tegalalang Rice Terraces, Bali Swing & Coffee Plantation",
-        desc: "Fly high over emerald jungle valleys on the world-famous Bali Swing! Walk amidst the centuries-old Tegalalang Rice Terraces. Sample exotic Luwak coffee at a traditional plantation. Refreshing dip at Tegenungan Waterfall."
-      },
-      {
-        day: 6,
-        title: "Canggu Chill, Beach Clubs & Farewell Sunset Dinner",
-        desc: "Head over to the trendy surfers' haven of Canggu. Chill at renowned beach clubs like Finns or Atlas Beach Club. Enjoy music, infinity pools, and a glamorous sunset farewell dinner with the WanderHums squad."
-      },
-      {
-        day: 7,
-        title: "Departure | Sampai Jumpa Bali!",
-        desc: "Enjoy a leisurely floating breakfast. Souvenir shopping for Balinese coffee and woodwork. Airport transfer with cherished memories of an unforgettable tropical escape."
-      }
-    ],
-    featured: true
-  },
-  {
-    id: "vietnam-cross-country",
-    title: "Vietnam Highlights - Hanoi, Ha Long Bay & Da Nang",
-    slug: "vietnam-cross-country",
-    category: "international",
-    categoryLabel: "International Tour",
-    duration: "8 Days / 7 Nights",
-    daysCount: 8,
-    pickup: "Hanoi to Da Nang",
-    destination: "Hanoi, Ha Long Bay, Hoi An & Da Nang",
-    region: "Southeast Asia",
-    price: 44999,
-    originalPrice: 58000,
-    emiStarts: "₹3,750/mo",
-    rating: 4.9,
-    reviewsCount: 650,
-    badge: "BUCKET LIST ⭐",
-    badgeClass: "badge-special",
-    seatsLeft: 5,
-    altitude: "Sea Level",
-    difficulty: "Easy",
-    image: "assets/vietnam.jpg",
-    bannerImage: "assets/vietnam.jpg",
-    gallery: [
-      "assets/vietnam.jpg",
-      "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=800&q=80"
-    ],
-    highlights: [
-      "Overnight luxury cruise across UNESCO Ha Long Bay limestone karsts",
-      "Walk the Golden Giant Hand Bridge in Ba Na Hills, Da Nang",
-      "Lantern boat cruise on the canal in ancient UNESCO town of Hoi An",
-      "Explore Hanoi Train Street and try famous Vietnamese Egg Coffee",
-      "Kayaking inside Sung Sot (Surprise) Cave & Ti Top Island summit",
-      "Coconut basket boat ride in Cam Thanh water coconut forest"
-    ],
-    inclusions: [
-      "7 Nights stays in 4-Star boutique hotels & 1 Night 5-Star Ha Long cruise cabin",
-      "Domestic flight from Hanoi to Da Nang included",
-      "All breakfasts, cruise buffet lunch & cruise sunset dinner",
-      "Private AC coach transfers with English guide and WanderHums Captain",
-      "Ba Na Hills cable car ticket & entry to Golden Bridge",
-      "Ha Long Bay kayaking, cave exploration & squid fishing"
-    ],
-    exclusions: [
-      "International flights (India-Hanoi / Da Nang-India)",
-      "Vietnam E-Visa fee ($25)",
-      "Tips & personal shopping"
-    ],
-    upcomingBatches: [
-      { date: "20 Apr - 27 Apr 2026", status: "Available", seats: 5 },
-      { date: "04 May - 11 May 2026", status: "Available", seats: 7 },
-      { date: "18 May - 25 May 2026", status: "Available", seats: 9 }
-    ],
-    itinerary: [
-      {
-        day: 1,
-        title: "Xin Chào Hanoi! | The Cultural Capital",
-        desc: "Arrive at Noi Bai International Airport in Hanoi. Transfer to hotel in the vibrant Old Quarter. Walk around the historic Hoan Kiem Lake, witness the thrilling Hanoi Train Street, and sip creamy Egg Coffee at Cafe Giang."
-      },
-      {
-        day: 2,
-        title: "Hanoi to Ha Long Bay | 5-Star Cruise & Sunset Kayaking",
-        desc: "Board the luxury cruise ship into Ha Long Bay. Sail through emerald waters surrounded by thousands of towering limestone karsts. Kayak through hidden lagoons, swim at Ti Top Beach, and enjoy sunset cocktails on the top sundeck."
-      },
-      {
-        day: 3,
-        title: "Ha Long Bay to Hanoi & Flight to Da Nang",
-        desc: "Start your morning with Tai Chi on the deck. Explore the monumental Sung Sot Cave. Disembark cruise and transfer to airport for an evening flight to Da Nang. Check into our beachfront hotel."
-      },
-      {
-        day: 4,
-        title: "Ba Na Hills & The Legendary Golden Hand Bridge",
-        desc: "Take the world's longest single-cable car to the cloud-shrouded Ba Na Hills. Walk across the world-famous Golden Bridge held up by colossal stone hands. Visit the French Village and Fantasy Park."
-      },
-      {
-        day: 5,
-        title: "Cam Thanh Coconut Forest & UNESCO Hoi An Ancient Town",
-        desc: "Spin around in traditional bamboo basket boats through coconut waterways with entertaining local boatmen. Afternoon walk in fairy-tale Hoi An. Float glowing paper lanterns down the Thu Bon river."
-      },
-      {
-        day: 6,
-        title: "Hoi An Beach Chill & Tailor Shopping",
-        desc: "Free morning to relax at An Bang Beach, get custom bespoke suits/dresses tailored within 24 hours, or cycle through scenic organic vegetable farms. Evening street food tour tasting Banh Mi and Cao Lau."
-      },
-      {
-        day: 7,
-        title: "Da Nang Highlights - Marble Mountains & Dragon Bridge Fire Show",
-        desc: "Visit the sacred caves of Marble Mountains and the giant Lady Buddha statue. Evening witness the spectacular Dragon Bridge breathe fire and water over the Han River."
-      },
-      {
-        day: 8,
-        title: "Departure from Da Nang | Farewell Vietnam",
-        desc: "Post breakfast, head to Da Nang International Airport for your return flight home. An unforgettable Southeast Asian journey concludes!"
-      }
-    ],
-    featured: true
-  },
-  {
-    id: "ladakh-bike-expedition",
-    title: "Ladakh Bike & SUV Expedition - The High Altitude Crusade",
-    slug: "ladakh-bike-expedition",
-    category: "bike",
-    categoryLabel: "Bike Expedition",
-    duration: "10 Days / 9 Nights",
-    daysCount: 10,
-    pickup: "Delhi to Leh to Delhi",
-    destination: "Leh, Nubra Valley, Pangong Tso & Hanle",
-    region: "Himalayas",
-    price: 32999,
-    originalPrice: 42000,
-    emiStarts: "₹2,750/mo",
-    rating: 4.9,
-    reviewsCount: 1890,
-    badge: "ROAD TRIP LEGEND 🏍️",
-    badgeClass: "badge-special",
-    seatsLeft: 4,
-    altitude: "18,380 Ft",
-    difficulty: "Challenging",
-    image: "assets/ladakh.jpg",
-    bannerImage: "assets/ladakh.jpg",
-    gallery: [
-      "assets/ladakh.jpg",
-      "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80"
-    ],
-    highlights: [
-      "Conquer Khardung La Pass (17,582 ft) - One of the highest motorable roads",
-      "Ride Royal Enfield Himalayan 411cc / 450cc with backup vehicle & mechanic",
-      "Camp beside the color-changing blue waters of Pangong Tso Lake",
-      "Ride double-humped Bactrian camels on Hunder Sand Dunes in Nubra Valley",
-      "Visit Turtuk - India's northernmost Balti village bordering Pakistan",
-      "Magnetic Hill anti-gravity illusion & Pathar Sahib Gurudwara"
-    ],
-    inclusions: [
-      "Royal Enfield Himalayan (with fuel/without fuel options available) OR SUV seat",
-      "Helmets, riding gear essentials & spare parts backup",
-      "Support truck carrying all luggage + professional Enfield mechanic",
-      "9 Nights accommodation (Hotels in Leh + Deluxe Swiss camps in Nubra & Pangong)",
-      "18 Meals: Daily wholesome Breakfasts & Dinners",
-      "WanderHums Road Captain leading the convoy",
-      "Inner Line Permits & Wildlife environmental fees"
-    ],
-    exclusions: [
-      "Flights to/from Leh",
-      "Riding gear security deposit",
-      "Personal medical and personal expenses",
-      "5% GST"
-    ],
-    upcomingBatches: [
-      { date: "10 May - 19 May 2026", status: "Filling Fast", seats: 4 },
-      { date: "24 May - 02 Jun 2026", status: "Available", seats: 8 },
-      { date: "07 Jun - 16 Jun 2026", status: "Available", seats: 12 },
-      { date: "21 Jun - 30 Jun 2026", status: "Available", seats: 9 }
-    ],
-    itinerary: [
-      {
-        day: 1,
-        title: "Arrive in Leh | Acclimatization & Shanti Stupa",
-        desc: "Arrive at Kushok Bakula Rimpochee Airport. Rest full day for vital high-altitude acclimatization. Evening walk up to Shanti Stupa for sunset over Leh valley."
-      },
-      {
-        day: 2,
-        title: "Sham Valley Tour | Magnetic Hill & Confluence",
-        desc: "Test ride your machine! Visit Hall of Fame, Kali Mata Temple, the mysterious Magnetic Hill, and the scenic confluence of Indus and Zanskar rivers (Sangam)."
-      },
-      {
-        day: 3,
-        title: "Leh to Nubra Valley via Khardung La (17,582 Ft)",
-        desc: "The big milestone! Ride across the legendary Khardung La pass. Descend into Nubra Valley. Ride through the white sand dunes of Hunder on double-humped camels."
-      },
-      {
-        day: 4,
-        title: "Excursion to Turtuk - The Balti Borderland",
-        desc: "Ride along the Shyok River to Turtuk, a picturesque village annexed in the 1971 war. Taste fresh apricots, meet friendly locals, and experience unique Balti culture."
-      },
-      {
-        day: 5,
-        title: "Nubra Valley to Pangong Tso via Shyok River",
-        desc: "Adrenaline ride through the rugged riverbeds of Shyok. Reach the world-renowned Pangong Lake at 14,270 ft. Camp along the turquoise shore and stargaze."
-      },
-      {
-        day: 6,
-        title: "Pangong Tso to Leh via Chang La (17,590 Ft)",
-        desc: "Sunrise over Pangong. Ride through Chang La pass, the 3rd highest motorable pass. Stop by Thiksey Monastery and Shey Palace before entering Leh."
-      },
-      {
-        day: 7,
-        title: "Leh - Rest & Café Hopping on Changspa Road",
-        desc: "Chill day in Leh. Enjoy German bakeries, shop for pashmina shawls, prayer wheels, and silver jewelry. Evening campfire and celebration dinner."
-      },
-      {
-        day: 8,
-        title: "Fly Out from Leh | Julley Ladakh!",
-        desc: "Morning airport drop with memories of lifetime brotherhood and high mountain passes conquered!"
-      }
-    ],
-    featured: true
-  },
-  {
-    id: "jibhi-tirthan-weekend",
-    title: "Jibhi & Tirthan Valley - The Hidden Pine Sanctuary",
-    slug: "jibhi-tirthan-weekend",
-    category: "weekend",
-    categoryLabel: "Weekend Getaway",
-    duration: "3 Days / 2 Nights",
-    daysCount: 3,
-    pickup: "Delhi to Delhi",
-    destination: "Jibhi, Jalori Pass & Serolsar Lake, HP",
-    region: "Himachal",
-    price: 6999,
-    originalPrice: 9499,
-    emiStarts: "₹700/mo",
-    rating: 4.8,
-    reviewsCount: 1120,
-    badge: "PEACEFUL ESCAPE 🌲",
-    badgeClass: "badge-special",
-    seatsLeft: 7,
-    altitude: "10,800 Ft",
-    difficulty: "Easy",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80",
-    bannerImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=85",
-    gallery: [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
-    ],
-    highlights: [
-      "Trek to the holy Serolsar Lake through oak forests of Jalori Pass",
-      "Visit the wooden architectural wonder - Chehni Kothi Tower (1500 yrs old)",
-      "Cozy boutique treehouses & stone cottages beside Jibhi waterfall",
-      "Trout fishing & riverside walks in UNESCO Great Himalayan National Park",
-      "Acoustic campfire jams under sparkling Himachal skies"
-    ],
-    inclusions: [
-      "Delhi to Delhi AC transport in Tempo Traveller",
-      "2 Nights stay in authentic wooden riverside cottage/homestay in Jibhi",
-      "4 Wholesome Meals (2 Breakfasts, 2 Dinners)",
-      "Guided trek to Serolsar Lake & Jalori Pass",
-      "WanderHums Trip Captain & bonfire evening"
-    ],
-    exclusions: [
-      "Lunches and café orders",
-      "Chehni Kothi 4x4 local taxi if required",
-      "5% GST"
-    ],
-    upcomingBatches: [
-      { date: "Every Friday Departure", status: "Filling Fast", seats: 7 },
-      { date: "10 Apr - 13 Apr 2026", status: "Available", seats: 5 },
-      { date: "17 Apr - 20 Apr 2026", status: "Available", seats: 9 }
-    ],
-    itinerary: [
-      {
-        day: 1,
-        title: "Delhi to Jibhi | Friday Overnight Drive",
-        desc: "Board our comfortable tempo traveler at Majnu Ka Tila at 7 PM. Enjoy mountain playlist and travel trivia."
-      },
-      {
-        day: 2,
-        title: "Arrive in Jibhi | Jibhi Waterfall & Chehni Kothi",
-        desc: "Check in to wooden cottages surrounded by apple trees. Visit Jibhi waterfall and hike to Chehni Kothi, the highest standing timber structure in Western Himalayas. Bonfire & dinner."
-      },
-      {
-        day: 3,
-        title: "Jalori Pass & Serolsar Lake Trek",
-        desc: "Drive to Jalori Pass (10,800 ft). Embark on a breathtaking 5km forest trek to the sacred Serolsar Lake, dedicated to Budhi Nagin. Return to Jibhi for evening cafe chilling."
-      },
-      {
-        day: 4,
-        title: "Choi Waterfall / Tirthan River Walk & Return to Delhi",
-        desc: "Morning walk along the pristine Tirthan River. Board return coach to Delhi. Reach Delhi Monday morning 6:30 AM."
-      }
-    ],
-    featured: false
-  },
+
+  // 20. Kashmir Backpacking
   {
     id: "kashmir-paradise-circuit",
     title: "Kashmir Backpacking - Gulmarg, Pahalgam & Doodhpathri",
     slug: "kashmir-paradise-circuit",
     category: "backpacking",
-    categoryLabel: "Backpacking Trip",
-    duration: "6 Days / 5 Nights",
-    daysCount: 6,
+    categoryLabel: "Paradise on Earth",
+    state: "Jammu & Kashmir",
+    duration: "7 Days / 6 Nights",
+    daysCount: 7,
     pickup: "Srinagar to Srinagar",
-    destination: "Srinagar, Gulmarg, Pahalgam & Sonamarg",
+    destination: "Srinagar, Gulmarg, Pahalgam & Doodhpathri, Kashmir",
     region: "Kashmir",
     price: 17999,
-    originalPrice: 23999,
+    originalPrice: 24999,
     emiStarts: "₹1,500/mo",
     rating: 4.9,
-    reviewsCount: 1350,
-    badge: "BESTSELLER 🔥",
+    reviewsCount: 1640,
+    badge: "HEAVEN ON EARTH 🏔️",
     badgeClass: "badge-hot",
-    seatsLeft: 5,
-    altitude: "8,825 Ft",
-    difficulty: "Easy",
+    seatsLeft: 6,
+    altitude: "13,780 Ft (Apharwat Peak)",
+    difficulty: "Easy to Moderate",
     image: "assets/kashmir.jpg",
     bannerImage: "assets/kashmir.jpg",
+    sharingPrices: {
+      quad: 17999,
+      triple: 19499,
+      dual: 21499
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
     gallery: [
       "assets/kashmir.jpg",
-      "https://images.unsplash.com/photo-1566837945700-30057527ade0?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
     ],
     highlights: [
-      "Stay in an ornate handcrafted wooden Houseboat on Dal Lake",
-      "Shikara ride at golden sunset with floating markets & Kahwa tea",
-      "World's highest operating Gondola Cable Car Ride in Gulmarg (Phase 1 & 2)",
-      "Pahalgam Betaab Valley, Aru Valley & Chandanwari",
-      "Offbeat pristine meadows of Doodhpathri (Valley of Milk)",
-      "Traditional Kashmiri Wazwan food tasting"
+      "Stay in a traditional carved cedar wooden Houseboat on Dal Lake",
+      "Ride the world's 2nd highest Gondola Cable Car in Gulmarg to Apharwat Peak",
+      "Shikara ride at golden sunset amidst floating lotus gardens",
+      "Explore the untouched alpine meadows of Doodhpathri (Valley of Milk)",
+      "Pahalgam riverside walk along crystal Lidder River and Betaab Valley"
     ],
     inclusions: [
-      "1 Night Deluxe Dal Lake Houseboat + 4 Nights 3/4-Star Hotels",
-      "Srinagar to Srinagar complete transport in private vehicle",
-      "10 Meals: 5 Breakfasts & 5 Kashmiri Dinners",
-      "1-Hour Sunset Shikara Ride on Dal Lake",
-      "WanderHums Trip Leader assistance & local permits"
+      "Srinagar to Srinagar dedicated transport in comfortable Tempo Traveller",
+      "5 Nights 3-star boutique hotel + 1 Night luxury Dal Lake Houseboat",
+      "6 Breakfasts and 6 Wholesome Kashmiri Dinners",
+      "1 Hour Shikara ride on Dal Lake",
+      "Experienced WanderHums Trip Captain"
     ],
-    exclusions: [
-      "Flights to/from Srinagar",
-      "Gulmarg Gondola tickets (Phase 1 & 2)",
-      "Aru/Betaab Valley local union cab / pony ride",
-      "5% GST"
-    ],
+    exclusions: ["Gulmarg Gondola phase 1 & 2 tickets", "Union taxi in Pahalgam (Aru/Betaab)"],
     upcomingBatches: [
-      { date: "12 Apr - 17 Apr 2026", status: "Filling Fast", seats: 3 },
-      { date: "19 Apr - 24 Apr 2026", status: "Available", seats: 7 },
-      { date: "26 Apr - 01 May 2026", status: "Available", seats: 8 }
+      { date: "Every Sunday Departure", status: "Filling Fast", seats: 6 }
     ],
     itinerary: [
-      {
-        day: 1,
-        title: "Arrive in Srinagar | Dal Lake Houseboat Experience",
-        desc: "Pickup from Srinagar Airport. Check in to our royal wooden Houseboat. Evening sunset Shikara ride across floating lotus gardens and char chinar. Traditional welcome with hot saffron Kahwa."
-      },
-      {
-        day: 2,
-        title: "Srinagar to Gulmarg | Meadow of Flowers & Gondola Ride",
-        desc: "Drive to Gulmarg. Take the world-famous Gondola ride up to Apharwat peak for panoramic snow-covered Himalayan peaks. Snow sledging and ski lessons. Overnight hotel stay in Gulmarg/Tangmarg."
-      },
-      {
-        day: 3,
-        title: "Gulmarg to Pahalgam | Valley of Shepherds",
-        desc: "Drive along saffron fields of Pampore and willow bat factories to Pahalgam. Stroll along the roaring Lidder River. Visit Betaab Valley and Aru Valley. Overnight stay in Pahalgam."
-      },
-      {
-        day: 4,
-        title: "Pahalgam to Doodhpathri | Valley of Milk",
-        desc: "Head to the offbeat gem of Kashmir - Doodhpathri. Lush green rolling meadows where fresh streams foam white like milk. Relax with mountain chai and music."
-      },
-      {
-        day: 5,
-        title: "Srinagar Heritage & Mughal Gardens",
-        desc: "Return to Srinagar. Visit Shalimar Bagh, Nishat Bagh, and Hazratbal Shrine. Shopping for walnut wood carvings, pashmina, and dry fruits in Lal Chowk."
-      },
-      {
-        day: 6,
-        title: "Departure from Srinagar",
-        desc: "Breakfast overlooking the mountains and transfer to Srinagar Airport for your return flight."
-      }
-    ],
-    featured: false
+      { day: 1, title: "Srinagar Arrival & Dal Lake Shikara Ride", desc: "Houseboat check in, Shikara ride.", meals: "Dinner Included" },
+      { day: 2, title: "Srinagar to Gulmarg Day Trip", desc: "Gondola ride to snow summit.", meals: "Breakfast & Dinner" },
+      { day: 3, title: "Srinagar to Doodhpathri Hidden Valley", desc: "Valley of Milk meadows.", meals: "Breakfast & Dinner" },
+      { day: 4, title: "Srinagar to Pahalgam Valley of Shepherds", desc: "Saffron fields and Lidder river.", meals: "Breakfast & Dinner" },
+      { day: 5, title: "Pahalgam Betaab, Aru & Chandanwari", desc: "Pine forests and waterfalls.", meals: "Breakfast & Dinner" },
+      { day: 6, title: "Pahalgam to Srinagar Mughal Gardens", desc: "Nishat & Shalimar Bagh.", meals: "Breakfast & Dinner" },
+      { day: 7, title: "Srinagar Airport Drop", desc: "Airport transfer with sweet memories.", meals: "Breakfast Included" }
+    ]
   },
+
+  // 21. Bali & Nusa Penida
   {
-    id: "chopta-chandrashila-trek",
-    title: "Chopta Tungnath & Chandrashila - Highest Shiva Temple",
-    slug: "chopta-chandrashila-trek",
-    category: "weekend",
-    categoryLabel: "Weekend Getaway",
-    duration: "3 Days / 2 Nights",
-    daysCount: 3,
-    pickup: "Delhi to Delhi",
-    destination: "Chopta, Tungnath & Deoriatal, UK",
-    region: "Uttarakhand",
-    price: 6799,
-    originalPrice: 9199,
-    emiStarts: "₹680/mo",
+    id: "bali-island-explorer",
+    title: "Bali & Nusa Penida Group Tour - The Tropical Odyssey",
+    slug: "bali-island-explorer",
+    category: "international",
+    categoryLabel: "International Escape",
+    state: "International",
+    duration: "7 Days / 6 Nights",
+    daysCount: 7,
+    pickup: "Denpasar (Bali) Airport",
+    destination: "Ubud, Nusa Penida, Seminyak & Canggu, Bali",
+    region: "International",
+    price: 36999,
+    originalPrice: 48999,
+    emiStarts: "₹3,080/mo",
     rating: 4.9,
-    reviewsCount: 1540,
-    badge: "MOST POPULAR TREK 🏔️",
+    reviewsCount: 960,
+    badge: "INTERNATIONAL HIT 🌴",
+    badgeClass: "badge-hot",
+    seatsLeft: 4,
+    altitude: "Sea Level",
+    difficulty: "Easy",
+    image: "assets/bali.jpg",
+    bannerImage: "assets/bali.jpg",
+    sharingPrices: {
+      quad: 36999,
+      triple: 38999,
+      dual: 41999
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
+    gallery: [
+      "assets/bali.jpg",
+      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80"
+    ],
+    highlights: [
+      "Iconic T-Rex shaped Kelingking Beach cliff viewpoint on Nusa Penida island",
+      "Swing high over lush jungle canopies on the famous Aloha Bali Swings",
+      "Snorkel with giant Manta Rays in crystal-clear turquoise lagoons",
+      "Catch fiery Kecak fire dance against Indian Ocean sunset at Uluwatu Temple",
+      "Stay in boutique pool villas in Ubud and trendy coastal resorts in Seminyak"
+    ],
+    inclusions: [
+      "All airport transfers and private AC vehicle transportation across Bali",
+      "6 Nights stay in handpicked 4-star boutique resorts & pool villas",
+      "Daily international buffet Breakfasts and curated Dinners",
+      "Speedboat ferry tickets to and from Nusa Penida island",
+      "English-speaking Indonesian guide + WanderHums Indian Tour Leader"
+    ],
+    exclusions: ["International flights from India", "Indonesian Visa on Arrival (approx $35)"],
+    upcomingBatches: [
+      { date: "Every Alternate Saturday", status: "Filling Fast", seats: 4 }
+    ],
+    itinerary: [
+      { day: 1, title: "Arrive at Denpasar Airport & Ubud Transfer", desc: "Welcome to Bali villa.", meals: "Dinner Included" },
+      { day: 2, title: "Ubud Bali Swings, Tegalalang Rice Terraces & Waterfall", desc: "Tropical jungle day.", meals: "Breakfast & Dinner" },
+      { day: 3, title: "Nusa Penida Island Tour (Kelingking & Broken Beach)", desc: "Speedboat to island.", meals: "Breakfast & Dinner" },
+      { day: 4, title: "Snorkeling with Manta Rays & Angel's Billabong", desc: "Lagoon snorkeling.", meals: "Breakfast & Dinner" },
+      { day: 5, title: "Transfer to Seminyak & Beach Clubs", desc: "Sunset beach clubs.", meals: "Breakfast & Dinner" },
+      { day: 6, title: "Uluwatu Temple & Sunset Kecak Fire Dance", desc: "Dramatic cliff sunset.", meals: "Breakfast & Dinner" },
+      { day: 7, title: "Souvenir Shopping & Denpasar Airport Drop", desc: "Flight back to India.", meals: "Breakfast Included" }
+    ]
+  },
+
+  // 22. Vietnam Highlights
+  {
+    id: "vietnam-cross-country",
+    title: "Vietnam Highlights - Hanoi, Ha Long Bay & Da Nang",
+    slug: "vietnam-cross-country",
+    category: "international",
+    categoryLabel: "International Escape",
+    state: "International",
+    duration: "8 Days / 7 Nights",
+    daysCount: 8,
+    pickup: "Hanoi (Noi Bai) Airport",
+    destination: "Hanoi, Ha Long Bay, Da Nang & Hoi An, Vietnam",
+    region: "International",
+    price: 44999,
+    originalPrice: 58999,
+    emiStarts: "₹3,750/mo",
+    rating: 4.9,
+    reviewsCount: 780,
+    badge: "GLOBAL ADVENTURE 🐉",
     badgeClass: "badge-hot",
     seatsLeft: 5,
-    altitude: "13,123 Ft",
-    difficulty: "Moderate",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80",
-    bannerImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=85",
+    altitude: "Sea Level",
+    difficulty: "Easy",
+    image: "assets/vietnam.jpg",
+    bannerImage: "assets/vietnam.jpg",
+    sharingPrices: {
+      quad: 44999,
+      triple: 46999,
+      dual: 49999
+    },
+    peakSeasonNote: "Above mentioned prices are not applicable between 1st May – 30th June and 20th Dec – 5th Jan.",
     gallery: [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
+      "assets/vietnam.jpg",
+      "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80"
     ],
     highlights: [
-      "Pay homage at Tungnath (12,073 ft) - The highest Shiva temple on earth",
-      "Summit Chandrashila Peak (13,123 ft) for 360-degree views of Chaukhamba & Nanda Devi",
-      "Emerald Deoria Tal lake with crystal reflections of snowy peaks",
-      "Camp in alpine meadows of Chopta - Mini Switzerland of India",
-      "Drive along holy Sangams (Devprayag & Rudraprayag)"
+      "Overnight luxury cruise across thousands of limestone karsts in UNESCO Ha Long Bay",
+      "Walk the world-famous Golden Bridge held by giant stone hands at Ba Na Hills",
+      "Kayak through mysterious glowing sea caves and hidden lagoons",
+      "Lantern boat ride in the UNESCO ancient heritage town of Hoi An",
+      "Sample authentic egg coffee & street food in historic Hanoi Old Quarter"
     ],
     inclusions: [
-      "AC Tempo Traveller from Delhi to Chopta and back",
-      "2 Nights Swiss tent stay in Chopta with alpine views",
-      "4 Meals: 2 Breakfasts and 2 Dinners",
-      "Experienced mountaineering trek guides & permits",
-      "Bonfire nights and first aid"
+      "7 Nights 4-star boutique hotel stays + 1 Night luxury Ha Long Bay Cruise cabin",
+      "Daily buffet Breakfasts and special Vietnamese/Indian Dinners",
+      "All domestic inter-city transfers in AC private vehicles",
+      "Ha Long Bay cruise tickets with kayaking and cave excursions",
+      "Ba Na Hills cable car pass & Golden Bridge entry ticket",
+      "Dedicated WanderHums Trip Captain + local English-speaking guide"
     ],
-    exclusions: [
-      "Lunches and trail snacks",
-      "5% GST"
-    ],
+    exclusions: ["International flights from India", "Vietnam E-visa fee ($25)"],
     upcomingBatches: [
-      { date: "Every Friday Departure", status: "Filling Fast", seats: 5 },
-      { date: "10 Apr - 13 Apr 2026", status: "Available", seats: 7 },
-      { date: "17 Apr - 20 Apr 2026", status: "Available", seats: 11 }
+      { date: "Every 2nd & 4th Saturday", status: "Filling Fast", seats: 5 }
     ],
     itinerary: [
-      {
-        day: 1,
-        title: "Delhi to Chopta via Devprayag | Friday Night Departure",
-        desc: "Meet at Akshardham Metro Station at 10 PM. Drive through Rishikesh and witness the holy confluence of Bhagirathi and Alaknanda at Devprayag."
-      },
-      {
-        day: 2,
-        title: "Deoria Tal Trek & Camp at Chopta",
-        desc: "Hike 2.5km to the mirror lake Deoria Tal. Marvel at Chaukhamba peaks reflecting in the water. Drive to Chopta meadows, check into tents, enjoy sunset tea and bonfire."
-      },
-      {
-        day: 3,
-        title: "Summit Day: Tungnath & Chandrashila Peak (13,123 Ft)",
-        desc: "Early 4 AM start. Ascend stone-paved trail through rhododendron trees to Tungnath temple. Continue 1.5km to Chandrashila peak for an epic sunrise over Greater Himalayas. Descend to Chopta."
-      },
-      {
-        day: 4,
-        title: "Rishikesh Café Stop & Arrive in Delhi",
-        desc: "Drive down via Rishikesh. Stop for lunch at Beatles Cafe or Little Buddha. Return to Delhi Monday morning 6 AM."
-      }
-    ],
-    featured: false
+      { day: 1, title: "Hanoi Arrival & Old Quarter Street Food Walk", desc: "Welcome to Hanoi.", meals: "Dinner Included" },
+      { day: 2, title: "Hanoi to Ha Long Bay Luxury Overnight Cruise", desc: "Limestone karsts & kayaking.", meals: "Breakfast, Lunch & Dinner" },
+      { day: 3, title: "Ha Long Bay Sunrise & Flight to Da Nang", desc: "Fly to coastal Da Nang.", meals: "Breakfast & Dinner" },
+      { day: 4, title: "Ba Na Hills & Iconic Golden Bridge Hands", desc: "Cable car up mountain.", meals: "Breakfast & Dinner" },
+      { day: 5, title: "Hoi An Ancient Lantern Town Walking Tour", desc: "Canal boat and lanterns.", meals: "Breakfast & Dinner" },
+      { day: 6, title: "Cam Thanh Coconut Basket Boat Experience", desc: "Spinning basket boats.", meals: "Breakfast & Dinner" },
+      { day: 7, title: "Marble Mountains & My Khe Beach", desc: "Coastal relaxation.", meals: "Breakfast & Dinner" },
+      { day: 8, title: "Da Nang Airport Drop - Tour Concludes", desc: "Fly back to India.", meals: "Breakfast Included" }
+    ]
   }
 ];
 
-// Testimonials data matching WanderOn real traveler feedback
-const TESTIMONIALS_DATA = [
-  {
-    name: "Aakash Sharma",
-    city: "New Delhi",
-    avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80",
-    trip: "Spiti Valley Circuit (9D/8N)",
-    rating: 5,
-    date: "March 2026",
-    review: "I joined WanderHums as a solo traveler and returned with 14 best friends for life! The trip captain Rohan was phenomenal — managed high altitude arrangements smoothly, kept the tempo alive with his guitar sessions at Chandratal, and made sure every single person felt like family. WanderOn style community vibe is 100% real here!"
-  },
-  {
-    name: "Sneha Mukherjee",
-    city: "Kolkata",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
-    trip: "Meghalaya Living Roots Backpacking",
-    rating: 5,
-    date: "February 2026",
-    review: "Being a solo female traveler, safety was my topmost concern. WanderHums exceeded all expectations! The stays were clean, cozy, and the trip leaders were so respectful and encouraging. Jumping off the cliff at Dawki and the hike to Rainbow Falls was the best adventure of my life!"
-  },
-  {
-    name: "Rishabh & Priya",
-    city: "Mumbai",
-    avatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80",
-    trip: "Bali & Nusa Penida Group Tour",
-    rating: 5,
-    date: "January 2026",
-    review: "We took the Bali group tour for our anniversary instead of a boring private package, and it was the BEST decision ever! The crew at WanderHums took care of fast boats, villas, floating breakfasts, and photography. We saved money and made lifelong friends. 10/10 recommended!"
-  },
-  {
-    name: "Vikram Rathore",
-    city: "Bengaluru",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
-    trip: "Ladakh Bike Expedition",
-    rating: 5,
-    date: "September 2025",
-    review: "Riding across Khardung La with WanderHums was a dream come true. The support vehicle, Enfield mechanics, and backup oxygen were on point. When my bike got a minor clutch issue near Shyok, the mechanic fixed it in 15 minutes! Unmatched professionalism."
-  }
-];
+// Helper to look up trip by slug or ID
+function getTripById(idOrSlug) {
+  if (!idOrSlug) return null;
+  return TRIPS_DATA.find(t => t.id === idOrSlug || t.slug === idOrSlug) || null;
+}
 
-// Instagram community photo showcase
-const INSTA_GALLERY = [
-  {
-    img: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=600&q=80",
-    caption: "Bonfire nights under 10,000 stars ✨ #WanderHumsOfInstagram",
-    likes: "2.4k",
-    tag: "@wanderhums_spiti"
-  },
-  {
-    img: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=600&q=80",
-    caption: "Postcards from the highest post office on Earth! 📮",
-    likes: "4.1k",
-    tag: "@wanderhums_hikkim"
-  },
-  {
-    img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&q=80",
-    caption: "Chasing sunsets with the squad at Kelingking Beach 🌴",
-    likes: "3.8k",
-    tag: "@wanderhums_bali"
-  },
-  {
-    img: "https://images.unsplash.com/photo-1608037521255-a4f6cf9cfaf3?auto=format&fit=crop&w=600&q=80",
-    caption: "Living root bridges of Meghalaya 🌿 Nature's architecture!",
-    likes: "1.9k",
-    tag: "@wanderhums_meghalaya"
-  },
-  {
-    img: "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=600&q=80",
-    caption: "High passes, roaring engines & brothers on the road 🏍️",
-    likes: "5.2k",
-    tag: "@wanderhums_ladakh"
-  },
-  {
-    img: "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=600&q=80",
-    caption: "Floating along the emerald waters of Ha Long Bay 🇻🇳",
-    likes: "3.1k",
-    tag: "@wanderhums_vietnam"
-  }
-];
-
-// FAQs Data
-const FAQS_DATA = [
-  {
-    q: "Can I travel solo on WanderHums trips?",
-    a: "Absolutely! More than 65% of our travelers join solo. WanderHums is built specifically to connect solo wanderers. From the moment you hop into our tempo or bus, our friendly trip captains facilitate fun icebreakers, games, and bonfires so strangers instantly become a tight-knit family. We also ensure comfortable same-gender room sharing."
-  },
-  {
-    q: "Is it safe for solo female travelers?",
-    a: "100% YES. Safety of female solo travelers is our highest non-negotiable priority. We assign verified trip captains, conduct background checks on drivers and hotel staff, select well-rated boutique properties with female-friendly amenities, and ensure zero tolerance for any misconduct. Our female traveler community is one of the largest in India!"
-  },
-  {
-    q: "What is the booking process and advance payment?",
-    a: "Booking is seamless! You only need to pay a nominal advance token (₹2,000 for weekend trips, ₹5,000 for backpacking trips, ₹10,000 for international trips) to lock your seat. The balance amount can be paid 7 to 10 days before departure or at the time of boarding. We accept UPI, Net Banking, Credit Cards, and even Offer No-Cost EMI plans!"
-  },
-  {
-    q: "What kind of accommodations are provided?",
-    a: "We steer clear of sterile commercial hotels! Instead, we curate unique, cozy, and atmospheric stays — including alpine Swiss tents with attached washrooms, riverside wooden cottages, apple-orchard heritage homestays, and 4-star boutique resorts with swimming pools for international trips."
-  },
-  {
-    q: "What is WanderHums' cancellation & refund policy?",
-    a: "We understand that plans can change! If you cancel 15+ days before departure, you get an 80% refund or a 100% WanderHums Travel Voucher with 1-year validity (which you can use for ANY future trip). Within 7-14 days, you receive a 50% refund. You can also transfer your slot to a friend free of charge!"
-  },
-  {
-    q: "Who are WanderHums Trip Captains?",
-    a: "Our Trip Captains are not traditional boring tour guides. They are seasoned mountain explorers, guitarists, storytellers, certified wilderness first-responders, and community builders whose only mission is to ensure you have the most exhilarating, safe, and stress-free trip of your life."
-  }
-];
+// Make available in window/global
+if (typeof window !== "undefined") {
+  window.TRIPS_DATA = TRIPS_DATA;
+  window.getTripById = getTripById;
+}
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { TRIPS_DATA, getTripById };
+}

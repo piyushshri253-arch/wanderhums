@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About WanderHums | Why We Started & Our Vision</title>
+  <meta name="description" content="At WanderHums, we believe every journey transforms you. We curate soulful journeys that connect you to nature, new people, and yourself. 20,000+ happy travelers." />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎒</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .about-hero {
+      background: linear-gradient(180deg, rgba(0, 38, 61, 0.88) 0%, rgba(0, 38, 61, 0.98) 100%),
+                  url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1920&q=80') center/cover;
+      color: #fff;
+      padding: 85px 0 75px 0;
+      text-align: center;
+    }
+    .about-stat-card {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .about-stat-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+    .about-stat-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin: 0 auto 16px auto;
+    }
+    .vision-box {
+      background: linear-gradient(135deg, #00263D 0%, #001A29 100%);
+      border: 1px solid rgba(1, 175, 209, 0.35);
+      border-radius: 24px;
+      padding: 50px 40px;
+      color: #fff;
+      text-align: center;
+      margin: 60px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .vision-box::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(1, 175, 209, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .quote-section {
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-radius: 20px;
+      padding: 44px 32px;
+      text-align: center;
+      margin: 50px 0;
+    }
+    .quote-text {
+      font-size: clamp(1.25rem, 3.5vw, 1.7rem);
+      font-style: italic;
+      color: #78350F;
+      font-weight: 500;
+      line-height: 1.6;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+    .why-choose-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .why-card {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 28px;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .why-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+    .why-card-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(1, 175, 209, 0.12);
+      color: var(--primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-promo">
+        <span>⚡ Early Bird Discount: Flat ₹2,000 OFF on all 2026 batches! Use code:</span>
+        <span class="top-promo-code">WANDERHUMS2026</span>
+      </div>
+      <div class="top-actions">
+        <a href="tel:+919999999999" class="top-link"><i class="fa-solid fa-phone"></i> +91 99999 99999</a>
+        <a href="https://wa.me/919999999999" target="_blank" class="top-link"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        <div class="rating-pill-top"><i class="fa-solid fa-star"></i> 4.9/5 (18,400+ Reviews)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header: Signature 2-Tier WanderHums Style -->
+  <header class="site-header">
+    <div class="header-top-row">
+      <div class="container header-top-inner">
+        <a href="index.html" class="header-logo-link" aria-label="WanderHums Home">
+          <img src="assets/wanderhums-brand-logo.png" alt="WanderHums" class="header-logo-img" />
+        </a>
+
+        <div class="header-top-right">
+          <ul class="top-menu-links">
+            <li><a href="index.html#trending-trips" class="top-menu-link">Upcoming Trips <i class="fa-regular fa-calendar-days"></i></a></li>
+            <li><a href="gallery.html" class="top-menu-link">Gallery</a></li>
+            <li><a href="about.html" class="top-menu-link active-link" style="color: var(--primary); font-weight: 700;">About Us</a></li>
+            <li><a href="community.html" class="top-menu-link">Blogs</a></li>
+            <li><a href="contact.html" class="top-menu-link">Contact Us</a></li>
+          </ul>
+
+          <a href="tel:+919999999999" class="header-phone-pill">
+            <i class="fa-solid fa-phone"></i> <span class="phone-number-full">+91-9999999999</span>
+          </a>
+
+          <a href="destinations.html?view=wishlist" class="btn-icon wishlist-btn-header" title="Saved Trips">
+            <i class="fa-regular fa-heart"></i>
+            <span class="badge-count wishlist-counter">0</span>
+          </a>
+
+          <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tier 2: Colored Navigation Bar -->
+    <div class="header-bottom-bar">
+      <div class="container header-bottom-inner">
+        <div class="bottom-nav-item">
+          <a href="destinations.html?cat=international" class="bottom-nav-link">
+            <span>International Trips</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="trip-detail.html?id=bali-island-explorer" class="dropdown-link">
+              <span>Bali & Nusa Penida</span>
+              <small>7D/6N</small>
+            </a>
+            <a href="trip-detail.html?id=vietnam-cross-country" class="dropdown-link">
+              <span>Vietnam Highlights</span>
+              <small>8D/7N</small>
+            </a>
+            <a href="destinations.html?cat=international" class="dropdown-link" style="color: #01AFD1; font-weight: 700;">
+              <span>View All International Trips →</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="destinations.html?cat=backpacking" class="bottom-nav-link">
+            <span>India Trips</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="trip-detail.html?id=manali-rohtang-kasol-4d" class="dropdown-link">
+              <span>Manali - Rohtang - Kasol</span>
+              <small>4D/3N</small>
+            </a>
+            <a href="trip-detail.html?id=spiti-valley-circuit" class="dropdown-link">
+              <span>Spiti Valley Circuit</span>
+              <small>9D/8N</small>
+            </a>
+            <a href="trip-detail.html?id=chopta-tungnath-chandrashila" class="dropdown-link">
+              <span>Chopta Tungnath Chandrashila</span>
+              <small>3D/2N</small>
+            </a>
+            <a href="destinations.html?cat=backpacking" class="dropdown-link" style="color: #01AFD1; font-weight: 700;">
+              <span>View All India Trips →</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="destinations.html" class="bottom-nav-link">
+            <span>Group Tours</span>
+          </a>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="destinations.html?cat=weekend" class="bottom-nav-link">
+            <span>Weekend Getaways</span>
+          </a>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="gallery.html" class="bottom-nav-link">
+            <span>Gallery</span>
+          </a>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="about.html" class="bottom-nav-link" style="background: rgba(255, 255, 255, 0.15); font-weight: 700;">
+            <span>About Us</span>
+          </a>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="contact.html" class="bottom-nav-link">
+            <span>Contact Us</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Side Navigation Drawer -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop" onclick="closeMobileDrawer()"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="drawer-logo" aria-label="WanderHums Home">
+        <img src="assets/wanderhums-brand-logo.png" alt="WanderHums" />
+      </a>
+      <button class="drawer-close-btn" onclick="closeMobileDrawer()" aria-label="Close Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <div class="mobile-drawer-body">
+      <div class="drawer-contact-card">
+        <a href="tel:+919999999999" class="btn btn-outline-cyan btn-sm btn-block">
+          <i class="fa-solid fa-phone"></i> +91-9999999999
+        </a>
+        <a href="https://wa.me/919999999999" target="_blank" class="btn btn-whatsapp-solid btn-sm btn-block">
+          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+      </div>
+
+      <div class="drawer-nav-section">
+        <div class="drawer-section-title">Navigation</div>
+        <ul class="drawer-links">
+          <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="destinations.html"><i class="fa-solid fa-compass"></i> Destinations / Trips</a></li>
+          <li><a href="gallery.html"><i class="fa-solid fa-images"></i> Trip Gallery</a></li>
+          <li><a href="about.html" class="active-link" style="color: var(--primary); font-weight: 700;"><i class="fa-solid fa-people-roof"></i> About WanderHums</a></li>
+          <li><a href="community.html"><i class="fa-solid fa-newspaper"></i> Community & Blogs</a></li>
+          <li><a href="contact.html"><i class="fa-solid fa-headset"></i> Contact Us</a></li>
+          <li><a href="destinations.html?view=wishlist"><i class="fa-regular fa-heart"></i> Saved Trips (<span class="wishlist-counter">0</span>)</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <!-- About Hero -->
+  <section class="about-hero">
+    <div class="container">
+      <div class="hero-badge-pill" style="margin-bottom: 14px;">
+        <i class="fa-solid fa-heart"></i> OUR STORY & PASSION 🌍
+      </div>
+      <h1 style="font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; margin-bottom: 18px;">
+        About <span style="color: #01AFD1;">WanderHums</span>
+      </h1>
+      <p style="font-size: clamp(1.05rem, 2vw, 1.25rem); color: #E2E8F0; max-width: 780px; margin: 0 auto; line-height: 1.65;">
+        At <strong style="color: #38BDF8;">WanderHums</strong>, we believe every journey transforms you. Our trips aren’t commercial packages — they are emotions, friendships, and memories that stay forever.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Narrative & Key Stats -->
+  <section style="padding: 70px 0; background: #fff;">
+    <div class="container">
+      <div style="max-width: 820px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 2.2rem; font-weight: 800; color: #00263D; margin-bottom: 18px;">Why We Started</h2>
+        <p style="font-size: 1.12rem; color: #475569; line-height: 1.8; margin-bottom: 36px;">
+          WanderHums was created with a simple belief — <strong style="color: #00263D;">travel should be soulful.</strong> Not rushed, not shallow, not mechanical. We curate journeys that connect you to nature, new people, and yourself.
+        </p>
+      </div>
+
+      <!-- 3 Key Stats / Highlights -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto;">
+        <div class="about-stat-card">
+          <div class="about-stat-icon"><i class="fa-solid fa-earth-americas"></i></div>
+          <h3 style="font-size: 1.8rem; font-weight: 800; color: #00263D; margin-bottom: 4px;">20,000+</h3>
+          <p style="color: #64748B; font-weight: 600; font-size: 1rem;">Happy Travellers</p>
+        </div>
+
+        <div class="about-stat-card">
+          <div class="about-stat-icon"><i class="fa-solid fa-users"></i></div>
+          <h3 style="font-size: 1.8rem; font-weight: 800; color: #00263D; margin-bottom: 4px;">Experienced</h3>
+          <p style="color: #64748B; font-weight: 600; font-size: 1rem;">Passionate Trip Leaders & Guides</p>
+        </div>
+
+        <div class="about-stat-card">
+          <div class="about-stat-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+          <h3 style="font-size: 1.8rem; font-weight: 800; color: #00263D; margin-bottom: 4px;">Curated</h3>
+          <p style="color: #64748B; font-weight: 600; font-size: 1rem;">Soulful Adventure Experiences</p>
+        </div>
+      </div>
+
+      <!-- Vision Box -->
+      <div class="vision-box">
+        <span style="display: inline-block; padding: 6px 16px; border-radius: 9999px; background: rgba(1, 175, 209, 0.2); border: 1px solid rgba(1, 175, 209, 0.4); color: #38BDF8; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 14px;">
+          THE NORTH STAR
+        </span>
+        <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; margin-bottom: 16px; color: #fff;">
+          Our Vision
+        </h2>
+        <p style="font-size: 1.15rem; color: #CBD5E1; max-width: 750px; margin: 0 auto; line-height: 1.75;">
+          To become India’s most trusted emotion-led travel brand — redefining adventures through friendships, stories, and soulful journeys that resonate for generations.
+        </p>
+      </div>
+
+      <!-- Inspirational Quote -->
+      <div class="quote-section">
+        <div style="font-size: 2rem; color: #D97706; margin-bottom: 12px;"><i class="fa-solid fa-quote-left"></i></div>
+        <p class="quote-text">
+          “In the end… you won’t remember the time you spent working. You will remember the sunsets you saw, the mountains you climbed, and the people you laughed with.”
+        </p>
+        <span style="display: block; margin-top: 14px; font-weight: 700; color: #92400E; font-size: 0.95rem;">
+          — The WanderHums Manifesto
+        </span>
+      </div>
+
+      <!-- Why Choose WanderHums (6 Core Pillars) -->
+      <div style="margin-top: 60px;">
+        <div style="text-align: center; max-width: 650px; margin: 0 auto 36px auto;">
+          <h2 style="font-size: 2.2rem; font-weight: 800; color: #00263D; margin-bottom: 10px;">Why Choose WanderHums?</h2>
+          <p style="color: #64748B; font-size: 1rem;">Travel is emotion — and we make sure your journey feels magical, safe, and unforgettable.</p>
+        </div>
+
+        <div class="why-choose-grid">
+          <div class="why-card">
+            <div class="why-card-icon"><i class="fa-solid fa-user-shield"></i></div>
+            <h4 style="font-size: 1.15rem; font-weight: 800; color: #00263D; margin-bottom: 8px;">Experienced Trip Leaders</h4>
+            <p style="color: #64748B; font-size: 0.92rem; line-height: 1.6;">Certified, friendly & fun leaders who take care of safety, logistics and make every single trip memorable.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-card-icon"><i class="fa-solid fa-compass"></i></div>
+            <h4 style="font-size: 1.15rem; font-weight: 800; color: #00263D; margin-bottom: 8px;">Curated Adventure Experiences</h4>
+            <p style="color: #64748B; font-size: 0.92rem; line-height: 1.6;">Handpicked scenic stays, authentic local food stops, offbeat trails & adventure-packed itineraries.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-card-icon"><i class="fa-solid fa-headset"></i></div>
+            <h4 style="font-size: 1.15rem; font-weight: 800; color: #00263D; margin-bottom: 8px;">24/7 Dedicated Support</h4>
+            <p style="color: #64748B; font-size: 0.92rem; line-height: 1.6;">You’re never alone — our experienced ground team and captains stay connected throughout your journey.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-card-icon"><i class="fa-solid fa-shield-heart"></i></div>
+            <h4 style="font-size: 1.15rem; font-weight: 800; color: #00263D; margin-bottom: 8px;">Safety First Always</h4>
+            <p style="color: #64748B; font-size: 0.92rem; line-height: 1.6;">Verified boutique stays, trained trek leaders, oxygen kits, and strict safety protocols on every departure.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-card-icon"><i class="fa-solid fa-gem"></i></div>
+            <h4 style="font-size: 1.15rem; font-weight: 800; color: #00263D; margin-bottom: 8px;">Premium Feel, Budget Price</h4>
+            <p style="color: #64748B; font-size: 0.92rem; line-height: 1.6;">We deliver boutique-grade experiences, transparent quad/triple/dual sharing pricing without hidden fees.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-card-icon"><i class="fa-solid fa-fire"></i></div>
+            <h4 style="font-size: 1.15rem; font-weight: 800; color: #00263D; margin-bottom: 8px;">Positive Community Vibes</h4>
+            <p style="color: #64748B; font-size: 0.92rem; line-height: 1.6;">Meet friendly like-minded travelers, bond over campfires, and build memories and friendships for life.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section style="padding: 60px 0; background: #F8FAFC;">
+    <div class="container" style="text-align: center;">
+      <h2 style="font-size: 2.2rem; font-weight: 800; color: #00263D; margin-bottom: 12px;">Ready to Begin Your Story?</h2>
+      <p style="color: #64748B; font-size: 1.05rem; max-width: 600px; margin: 0 auto 28px auto;">
+        Join over 20,000+ adventurers who found their tribe with WanderHums. Book your slot today with just ₹2,000 token advance.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+        <a href="destinations.html" class="btn btn-primary">
+          Explore All Destinations <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="contact.html" class="btn btn-secondary">
+          <i class="fa-solid fa-headset"></i> Contact Our Travel Experts
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link" aria-label="WanderHums Home">
+            <img src="assets/wanderhums-brand-logo.png" alt="WanderHums" class="footer-logo-img" />
+          </a>
+          <p>
+            WanderHums is India’s premium experiential travel community. We build authentic friendships, organize high-octane road trips, and create stories that echo forever across the Himalayas and beyond.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Top Trips</h4>
+          <ul class="footer-links">
+            <li><a href="trip-detail.html?id=manali-rohtang-kasol-4d">Manali - Rohtang - Kasol</a></li>
+            <li><a href="trip-detail.html?id=jibhi-tirthan-valley">Jibhi - Tirthan Valley</a></li>
+            <li><a href="trip-detail.html?id=chopta-tungnath-chandrashila">Chopta - Tungnath</a></li>
+            <li><a href="trip-detail.html?id=mcleodganj-triund-trek">Mcleodganj - Triund</a></li>
+            <li><a href="trip-detail.html?id=spiti-valley-circuit">Spiti Valley Circuit</a></li>
+            <li><a href="trip-detail.html?id=char-dham-yatra">Char Dham Yatra</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Support</h4>
+          <ul class="footer-links" style="gap: 12px;">
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-phone" style="color: var(--primary); margin-right: 8px;"></i> +91 99999 99999</li>
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-envelope" style="color: var(--primary); margin-right: 8px;"></i> help@wanderhums.com</li>
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-clock" style="color: var(--primary); margin-right: 8px;"></i> Mon – Sun : 9 AM – 9 PM</li>
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-location-dot" style="color: var(--primary); margin-right: 8px;"></i> Demo Business Park, Tower B, Delhi NCR - 110001</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 WanderHums Experiential Travel Pvt. Ltd. All Rights Reserved.</div>
+        <div class="payment-badges">
+          <span style="font-size: 0.8rem; margin-right: 8px; color: #94A3B8;">100% Secure Payment:</span>
+          <i class="fa-brands fa-google-pay" title="UPI & GPay"></i>
+          <i class="fa-brands fa-cc-visa" title="Visa"></i>
+          <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+          <i class="fa-solid fa-shield-halved" title="SSL Encrypted" style="color: var(--success);"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/919999999999?text=Hi%20WanderHums!%20I%20am%20interested%20in%20upcoming%20trips." 
+     target="_blank" 
+     class="floating-whatsapp" 
+     aria-label="Chat on WhatsApp">
+    <div class="whatsapp-pulse"></div>
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Mobile Bottom Sticky Navigation -->
+  <nav class="mobile-bottom-nav">
+    <div class="mobile-nav-inner">
+      <a href="index.html" class="mobile-nav-item">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </a>
+      <a href="destinations.html" class="mobile-nav-item">
+        <i class="fa-solid fa-compass"></i>
+        <span>Trips</span>
+      </a>
+      <a href="about.html" class="mobile-nav-item active">
+        <i class="fa-solid fa-people-roof"></i>
+        <span>About</span>
+      </a>
+      <a href="contact.html" class="mobile-nav-item">
+        <i class="fa-solid fa-headset"></i>
+        <span>Contact</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Scripts -->
+  <script src="js/trips-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

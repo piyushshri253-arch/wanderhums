@@ -72,6 +72,33 @@
       border-radius: var(--radius-md);
       padding: 14px 20px;
     }
+    .location-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .pill-filter-btn {
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      background: #fff;
+      border: 1px solid var(--border-color);
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .pill-filter-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .pill-filter-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(1, 175, 209, 0.3);
+    }
     @media (max-width: 900px) {
       .catalog-layout {
         grid-template-columns: 1fr;
@@ -112,9 +139,10 @@
         <div class="header-top-right">
           <ul class="top-menu-links">
             <li><a href="index.html#trending-trips" class="top-menu-link">Upcoming Trips <i class="fa-regular fa-calendar-days"></i></a></li>
-            <li><a href="javascript:void(0)" onclick="openCallbackModal()" class="top-menu-link">Corporate Tours</a></li>
+            <li><a href="gallery.html" class="top-menu-link">Gallery</a></li>
+            <li><a href="about.html" class="top-menu-link">About Us</a></li>
             <li><a href="community.html" class="top-menu-link">Blogs</a></li>
-            <li><a href="community.html" class="top-menu-link">About Us</a></li>
+            <li><a href="contact.html" class="top-menu-link">Contact Us</a></li>
           </ul>
 
           <a href="tel:+919999999999" class="header-phone-pill">
@@ -152,42 +180,40 @@
             <span>India Trips</span> <i class="fa-solid fa-chevron-down"></i>
           </a>
           <div class="dropdown-menu">
+            <a href="trip-detail.html?id=manali-rohtang-kasol-4d" class="dropdown-link"><span>Manali - Rohtang - Kasol</span><small>4D/3N</small></a>
             <a href="trip-detail.html?id=spiti-valley-circuit" class="dropdown-link"><span>Spiti Valley Circuit</span><small>9D/8N</small></a>
-            <a href="trip-detail.html?id=meghalaya-backpacking" class="dropdown-link"><span>Meghalaya Living Roots</span><small>6D/5N</small></a>
-            <a href="trip-detail.html?id=kashmir-paradise-circuit" class="dropdown-link"><span>Kashmir Paradise</span><small>6D/5N</small></a>
+            <a href="trip-detail.html?id=chopta-tungnath-chandrashila" class="dropdown-link"><span>Chopta Tungnath Chandrashila</span><small>3D/2N</small></a>
             <a href="destinations.html?cat=backpacking" class="dropdown-link" style="color: #01AFD1; font-weight: 700;"><span>View All India Trips →</span></a>
           </div>
         </div>
 
         <div class="bottom-nav-item">
-          <a href="destinations.html" class="bottom-nav-link">
-            <span>Group Tours</span> <i class="fa-solid fa-chevron-down"></i>
+          <a href="destinations.html" class="bottom-nav-link" style="background: rgba(255, 255, 255, 0.15); font-weight: 700;">
+            <span>Group Tours</span>
           </a>
-          <div class="dropdown-menu">
-            <a href="destinations.html?cat=backpacking" class="dropdown-link"><span>Backpacking Road Trips</span></a>
-            <a href="destinations.html?cat=bike" class="dropdown-link"><span>Motorbike Expeditions</span></a>
-            <a href="community.html" class="dropdown-link"><span>Solo Friendly Departures</span></a>
-          </div>
-        </div>
-
-        <div class="bottom-nav-item">
-          <a href="destinations.html?q=Trek" class="bottom-nav-link"><span>Events & Festivals</span></a>
         </div>
 
         <div class="bottom-nav-item">
           <a href="destinations.html?cat=weekend" class="bottom-nav-link">
             <span>Weekend Getaways</span>
           </a>
-          <div class="dropdown-menu">
-            <a href="trip-detail.html?id=kasol-kheerganga-weekend" class="dropdown-link"><span>Kasol & Kheerganga</span><small>3D/2N</small></a>
-            <a href="trip-detail.html?id=jibhi-tirthan-weekend" class="dropdown-link"><span>Jibhi & Tirthan Valley</span><small>3D/2N</small></a>
-            <a href="trip-detail.html?id=chopta-chandrashila-trek" class="dropdown-link"><span>Chopta Tungnath Trek</span><small>3D/2N</small></a>
-          </div>
         </div>
 
         <div class="bottom-nav-item">
-          <a href="index.html#trending-trips" class="bottom-nav-link">
-            <span>Christmas & New Year Sale</span>
+          <a href="gallery.html" class="bottom-nav-link">
+            <span>Gallery</span>
+          </a>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="about.html" class="bottom-nav-link">
+            <span>About Us</span>
+          </a>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="contact.html" class="bottom-nav-link">
+            <span>Contact Us</span>
           </a>
         </div>
       </div>
@@ -218,24 +244,14 @@
       </div>
 
       <div class="drawer-nav-section">
-        <div class="drawer-section-title">Explore Tours</div>
+        <div class="drawer-section-title">Navigation</div>
         <ul class="drawer-links">
-          <li><a href="destinations.html?cat=international"><i class="fa-solid fa-earth-americas"></i> International Trips</a></li>
-          <li><a href="destinations.html?cat=backpacking"><i class="fa-solid fa-mountain"></i> India Road Trips</a></li>
-          <li><a href="destinations.html"><i class="fa-solid fa-users"></i> Group Tours</a></li>
-          <li><a href="destinations.html?cat=weekend"><i class="fa-solid fa-campground"></i> Weekend Getaways</a></li>
-          <li><a href="destinations.html?q=Trek"><i class="fa-solid fa-calendar-check"></i> Events & Festivals</a></li>
-          <li><a href="index.html#trending-trips" class="sale-link"><i class="fa-solid fa-fire"></i> Christmas & New Year Sale</a></li>
-        </ul>
-      </div>
-
-      <div class="drawer-nav-section">
-        <div class="drawer-section-title">Community & Company</div>
-        <ul class="drawer-links">
-          <li><a href="index.html#trending-trips"><i class="fa-regular fa-calendar-days"></i> Upcoming Trips</a></li>
-          <li><a href="javascript:void(0)" onclick="closeMobileDrawer(); openCallbackModal();"><i class="fa-solid fa-briefcase"></i> Corporate Tours</a></li>
-          <li><a href="community.html"><i class="fa-solid fa-newspaper"></i> Travel Blogs</a></li>
-          <li><a href="community.html"><i class="fa-solid fa-people-roof"></i> About WanderHums</a></li>
+          <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="destinations.html" class="active-link" style="color: var(--primary); font-weight: 700;"><i class="fa-solid fa-compass"></i> Destinations / Trips</a></li>
+          <li><a href="gallery.html"><i class="fa-solid fa-images"></i> Trip Gallery</a></li>
+          <li><a href="about.html"><i class="fa-solid fa-people-roof"></i> About WanderHums</a></li>
+          <li><a href="community.html"><i class="fa-solid fa-newspaper"></i> Community & Blogs</a></li>
+          <li><a href="contact.html"><i class="fa-solid fa-headset"></i> Contact Us</a></li>
           <li><a href="destinations.html?view=wishlist"><i class="fa-regular fa-heart"></i> Saved Trips (<span class="wishlist-counter">0</span>)</a></li>
         </ul>
       </div>
@@ -294,6 +310,26 @@
             <input type="range" id="budget-slider" min="5000" max="50000" step="2000" value="50000" style="width: 100%; accent-color: var(--primary);" oninput="updateBudgetSlider(this.value)" />
           </div>
 
+          <!-- Region / State Filter -->
+          <div class="filter-group">
+            <span class="filter-title">Regions & States</span>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="stateFilter" value="Himachal" onchange="applyCatalogFilters()" /> Himachal Pradesh
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="stateFilter" value="Uttarakhand" onchange="applyCatalogFilters()" /> Uttarakhand
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="stateFilter" value="Rajasthan" onchange="applyCatalogFilters()" /> Rajasthan
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="stateFilter" value="Ladakh" onchange="applyCatalogFilters()" /> Ladakh & Kashmir
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="stateFilter" value="International" onchange="applyCatalogFilters()" /> International
+            </label>
+          </div>
+
           <!-- Duration Filter -->
           <div class="filter-group">
             <span class="filter-title">Duration</span>
@@ -314,6 +350,16 @@
       <!-- Trips Grid Area -->
       <main class="catalog-main">
         
+        <!-- Fast Location Pills (WeWravel signature feature) -->
+        <div class="location-pills-row">
+          <button class="pill-filter-btn active" onclick="filterByLocationPill('', this)">All Locations</button>
+          <button class="pill-filter-btn" onclick="filterByLocationPill('Himachal', this)">Himachal Pradesh</button>
+          <button class="pill-filter-btn" onclick="filterByLocationPill('Uttarakhand', this)">Uttarakhand</button>
+          <button class="pill-filter-btn" onclick="filterByLocationPill('Rajasthan', this)">Rajasthan</button>
+          <button class="pill-filter-btn" onclick="filterByLocationPill('Ladakh', this)">Ladakh & Kashmir</button>
+          <button class="pill-filter-btn" onclick="filterByLocationPill('International', this)">International</button>
+        </div>
+
         <div class="catalog-top-bar">
           <div>
             <span style="color: #64748B; font-size: 0.9rem;">Showing <strong id="results-count" style="color: #0F172A;">0</strong> packages</span>
@@ -434,20 +480,20 @@
           </div>
         </div>
 
-        <!-- Destinations Col -->
+        <!-- Explore Pages Col -->
         <div class="footer-col">
-          <h4>Top Destinations</h4>
+          <h4>Explore</h4>
           <ul class="footer-links">
-            <li><a href="destinations.html?q=Spiti">Spiti Valley Road Trip</a></li>
-            <li><a href="destinations.html?q=Ladakh">Ladakh Bike Expedition</a></li>
-            <li><a href="destinations.html?q=Meghalaya">Meghalaya Living Roots</a></li>
-            <li><a href="destinations.html?q=Kasol">Kasol & Kheerganga</a></li>
-            <li><a href="destinations.html?q=Bali">Bali & Nusa Penida</a></li>
-            <li><a href="destinations.html?q=Vietnam">Vietnam Highlights</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">All Destinations</a></li>
+            <li><a href="gallery.html">Photo & Video Gallery</a></li>
+            <li><a href="about.html">About WanderHums</a></li>
+            <li><a href="community.html">Travel Blogs & Community</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
 
-        <!-- Trip Types Col -->
+        <!-- Trip Categories Col -->
         <div class="footer-col">
           <h4>Trip Categories</h4>
           <ul class="footer-links">
@@ -455,8 +501,8 @@
             <li><a href="destinations.html?cat=weekend">Weekend Getaways from Delhi</a></li>
             <li><a href="destinations.html?cat=international">International Escapes</a></li>
             <li><a href="destinations.html?cat=bike">Motorbike Expeditions</a></li>
-            <li><a href="community.html">Solo Female Friendly Trips</a></li>
-            <li><a href="community.html">Corporate Offsites</a></li>
+            <li><a href="destinations.html?q=Yatra">Spiritual Dham Yatras</a></li>
+            <li><a href="destinations.html?q=Trek">Himalayan Treks</a></li>
           </ul>
         </div>
 
@@ -465,7 +511,8 @@
           <h4>24x7 Travel Support</h4>
           <ul class="footer-links" style="gap: 12px;">
             <li style="color: #E2E8F0;"><i class="fa-solid fa-phone" style="color: var(--primary); margin-right: 8px;"></i> +91 99999 99999</li>
-            <li style="color: #E2E8F0;"><i class="fa-solid fa-envelope" style="color: var(--primary); margin-right: 8px;"></i> hello@wanderhums.com</li>
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-envelope" style="color: var(--primary); margin-right: 8px;"></i> help@wanderhums.com</li>
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-clock" style="color: var(--primary); margin-right: 8px;"></i> Mon – Sun : 9 AM – 9 PM</li>
             <li style="color: #E2E8F0;"><i class="fa-solid fa-location-dot" style="color: var(--primary); margin-right: 8px;"></i> Demo Business Park, Tower B, Delhi NCR - 110001</li>
           </ul>
         </div>
@@ -517,6 +564,15 @@
       applyCatalogFilters();
     });
 
+    let selectedLocationFilter = '';
+
+    function filterByLocationPill(loc, btn) {
+      selectedLocationFilter = loc;
+      document.querySelectorAll('.pill-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyCatalogFilters();
+    }
+
     function updateBudgetSlider(val) {
       document.getElementById('budget-val').textContent = `₹${parseInt(val).toLocaleString('en-IN')}`;
       applyCatalogFilters();
@@ -524,7 +580,12 @@
 
     function clearCatalogFilters() {
       document.getElementById('catalog-search').value = '';
+      selectedLocationFilter = '';
+      document.querySelectorAll('.pill-filter-btn').forEach((b, i) => {
+        b.classList.toggle('active', i === 0);
+      });
       document.querySelectorAll('input[name="catFilter"]').forEach(c => c.checked = false);
+      document.querySelectorAll('input[name="stateFilter"]').forEach(s => s.checked = false);
       document.querySelectorAll('input[name="durationFilter"]').forEach(d => d.checked = false);
       document.getElementById('budget-slider').value = 50000;
       document.getElementById('budget-val').textContent = '₹50,000';
@@ -538,6 +599,7 @@
       const sortVal = document.getElementById('sort-select').value;
 
       const checkedCats = Array.from(document.querySelectorAll('input[name="catFilter"]:checked')).map(c => c.value);
+      const checkedStates = Array.from(document.querySelectorAll('input[name="stateFilter"]:checked')).map(s => s.value.toLowerCase());
       const checkedDurations = Array.from(document.querySelectorAll('input[name="durationFilter"]:checked')).map(d => d.value);
 
       const wishlist = getWishlist();
@@ -550,6 +612,21 @@
           trip.title.toLowerCase().includes(searchVal) ||
           trip.destination.toLowerCase().includes(searchVal) ||
           trip.region.toLowerCase().includes(searchVal);
+
+        // Location Pill (WeWravel style)
+        let matchesPill = true;
+        if (selectedLocationFilter) {
+          const pill = selectedLocationFilter.toLowerCase();
+          const tripLocStr = `${trip.state || ''} ${trip.region || ''} ${trip.destination || ''}`.toLowerCase();
+          matchesPill = tripLocStr.includes(pill);
+        }
+
+        // State Checkboxes
+        let matchesState = true;
+        if (checkedStates.length > 0) {
+          const tripLocStr = `${trip.state || ''} ${trip.region || ''}`.toLowerCase();
+          matchesState = checkedStates.some(st => tripLocStr.includes(st));
+        }
 
         // Category
         const matchesCat = checkedCats.length === 0 || checkedCats.includes(trip.category);
@@ -566,12 +643,13 @@
           if (checkedDurations.includes('long') && trip.daysCount >= 8) matchesDuration = true;
         }
 
-        return matchesQuery && matchesCat && matchesBudget && matchesDuration;
+        return matchesQuery && matchesPill && matchesState && matchesCat && matchesBudget && matchesDuration;
       });
 
       // Sorting
       if (sortVal === 'price-asc') results.sort((a, b) => a.price - b.price);
       else if (sortVal === 'price-desc') results.sort((a, b) => b.price - a.price);
+      else if (sortVal === 'duration') results.sort((a, b) => a.daysCount - b.daysCount);
       else if (sortVal === 'duration') results.sort((a, b) => a.daysCount - b.daysCount);
 
       document.getElementById('results-count').textContent = results.length;

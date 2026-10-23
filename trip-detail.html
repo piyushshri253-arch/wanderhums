@@ -249,9 +249,10 @@
         <div class="header-top-right">
           <ul class="top-menu-links">
             <li><a href="index.html#trending-trips" class="top-menu-link">Upcoming Trips <i class="fa-regular fa-calendar-days"></i></a></li>
-            <li><a href="javascript:void(0)" onclick="openCallbackModal()" class="top-menu-link">Corporate Tours</a></li>
+            <li><a href="gallery.html" class="top-menu-link">Gallery</a></li>
+            <li><a href="about.html" class="top-menu-link">About Us</a></li>
             <li><a href="community.html" class="top-menu-link">Blogs</a></li>
-            <li><a href="community.html" class="top-menu-link">About Us</a></li>
+            <li><a href="contact.html" class="top-menu-link">Contact Us</a></li>
           </ul>
 
           <a href="tel:+919999999999" class="header-phone-pill">
@@ -323,8 +324,20 @@
         </div>
 
         <div class="bottom-nav-item">
-          <a href="index.html#trending-trips" class="bottom-nav-link">
-            <span>Christmas & New Year Sale</span>
+          <a href="gallery.html" class="bottom-nav-link">
+            <span>Gallery</span>
+          </a>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="about.html" class="bottom-nav-link">
+            <span>About Us</span>
+          </a>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="contact.html" class="bottom-nav-link">
+            <span>Contact Us</span>
           </a>
         </div>
       </div>
@@ -355,24 +368,14 @@
       </div>
 
       <div class="drawer-nav-section">
-        <div class="drawer-section-title">Explore Tours</div>
+        <div class="drawer-section-title">Navigation</div>
         <ul class="drawer-links">
-          <li><a href="destinations.html?cat=international"><i class="fa-solid fa-earth-americas"></i> International Trips</a></li>
-          <li><a href="destinations.html?cat=backpacking"><i class="fa-solid fa-mountain"></i> India Road Trips</a></li>
-          <li><a href="destinations.html"><i class="fa-solid fa-users"></i> Group Tours</a></li>
-          <li><a href="destinations.html?cat=weekend"><i class="fa-solid fa-campground"></i> Weekend Getaways</a></li>
-          <li><a href="destinations.html?q=Trek"><i class="fa-solid fa-calendar-check"></i> Events & Festivals</a></li>
-          <li><a href="index.html#trending-trips" class="sale-link"><i class="fa-solid fa-fire"></i> Christmas & New Year Sale</a></li>
-        </ul>
-      </div>
-
-      <div class="drawer-nav-section">
-        <div class="drawer-section-title">Community & Company</div>
-        <ul class="drawer-links">
-          <li><a href="index.html#trending-trips"><i class="fa-regular fa-calendar-days"></i> Upcoming Trips</a></li>
-          <li><a href="javascript:void(0)" onclick="closeMobileDrawer(); openCallbackModal();"><i class="fa-solid fa-briefcase"></i> Corporate Tours</a></li>
-          <li><a href="community.html"><i class="fa-solid fa-newspaper"></i> Travel Blogs</a></li>
-          <li><a href="community.html"><i class="fa-solid fa-people-roof"></i> About WanderHums</a></li>
+          <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="destinations.html"><i class="fa-solid fa-compass"></i> Destinations / Trips</a></li>
+          <li><a href="gallery.html"><i class="fa-solid fa-images"></i> Trip Gallery</a></li>
+          <li><a href="about.html"><i class="fa-solid fa-people-roof"></i> About WanderHums</a></li>
+          <li><a href="community.html"><i class="fa-solid fa-newspaper"></i> Community & Blogs</a></li>
+          <li><a href="contact.html"><i class="fa-solid fa-headset"></i> Contact Us</a></li>
           <li><a href="destinations.html?view=wishlist"><i class="fa-regular fa-heart"></i> Saved Trips (<span class="wishlist-counter">0</span>)</a></li>
         </ul>
       </div>
@@ -423,6 +426,30 @@
       <!-- Left Column: Details & Itinerary -->
       <div class="trip-main-content">
         
+        <!-- Package Cost Breakdown & Sharing Selector (WeWravel Feature) -->
+        <div class="package-cost-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <span style="font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase;">TRANSPARENT PRICING</span>
+              <h3 style="font-size: 1.35rem; font-weight: 800; color: #00263D; margin-top: 2px;">Package Cost Breakdown</h3>
+            </div>
+            <span class="room-sharing-badge"><i class="fa-solid fa-bed"></i> Choose Sharing Plan</span>
+          </div>
+          <p style="font-size: 0.88rem; color: #64748B; margin-bottom: 16px;">
+            Rates per traveler based on room occupancy. Clean, verified hotels & camps with attached washrooms.
+          </p>
+
+          <div class="sharing-options-grid" id="sharing-options-container">
+            <!-- Populated dynamically via JS -->
+          </div>
+
+          <!-- Peak Season Disclaimer Note -->
+          <div class="season-note-alert" id="season-note-box">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span id="season-note-text">Note: Above mentioned prices are not applicable between <strong>1st May – 30th June</strong> and <strong>20th Dec – 5th Jan</strong>.</span>
+          </div>
+        </div>
+
         <!-- Highlights Box -->
         <div style="background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--border-color); padding: 28px; margin-bottom: 30px;">
           <h3 style="font-size: 1.25rem; font-weight: 800; color: #0F172A; margin-bottom: 16px;">🌟 Major Trip Highlights</h3>
@@ -504,6 +531,16 @@
               <label class="form-label">Select Departure Batch</label>
               <select id="side-batch-select" class="form-control" required>
                 <!-- Populated by JS -->
+              </select>
+            </div>
+
+            <!-- Room Sharing Selection -->
+            <div class="form-group">
+              <label class="form-label">Room Sharing Plan</label>
+              <select id="side-sharing-select" class="form-control" onchange="setSharingPlan(this.value)">
+                <option value="quad">Quad Sharing</option>
+                <option value="triple">Triple Sharing</option>
+                <option value="dual">Dual Sharing</option>
               </select>
             </div>
 
@@ -621,20 +658,20 @@
           </div>
         </div>
 
-        <!-- Destinations Col -->
+        <!-- Explore Pages Col -->
         <div class="footer-col">
-          <h4>Top Destinations</h4>
+          <h4>Explore</h4>
           <ul class="footer-links">
-            <li><a href="destinations.html?q=Spiti">Spiti Valley Road Trip</a></li>
-            <li><a href="destinations.html?q=Ladakh">Ladakh Bike Expedition</a></li>
-            <li><a href="destinations.html?q=Meghalaya">Meghalaya Living Roots</a></li>
-            <li><a href="destinations.html?q=Kasol">Kasol & Kheerganga</a></li>
-            <li><a href="destinations.html?q=Bali">Bali & Nusa Penida</a></li>
-            <li><a href="destinations.html?q=Vietnam">Vietnam Highlights</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">All Destinations</a></li>
+            <li><a href="gallery.html">Photo & Video Gallery</a></li>
+            <li><a href="about.html">About WanderHums</a></li>
+            <li><a href="community.html">Travel Blogs & Community</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
 
-        <!-- Trip Types Col -->
+        <!-- Trip Categories Col -->
         <div class="footer-col">
           <h4>Trip Categories</h4>
           <ul class="footer-links">
@@ -642,8 +679,8 @@
             <li><a href="destinations.html?cat=weekend">Weekend Getaways from Delhi</a></li>
             <li><a href="destinations.html?cat=international">International Escapes</a></li>
             <li><a href="destinations.html?cat=bike">Motorbike Expeditions</a></li>
-            <li><a href="community.html">Solo Female Friendly Trips</a></li>
-            <li><a href="community.html">Corporate Offsites</a></li>
+            <li><a href="destinations.html?q=Yatra">Spiritual Dham Yatras</a></li>
+            <li><a href="destinations.html?q=Trek">Himalayan Treks</a></li>
           </ul>
         </div>
 
@@ -652,7 +689,8 @@
           <h4>24x7 Travel Support</h4>
           <ul class="footer-links" style="gap: 12px;">
             <li style="color: #E2E8F0;"><i class="fa-solid fa-phone" style="color: var(--primary); margin-right: 8px;"></i> +91 99999 99999</li>
-            <li style="color: #E2E8F0;"><i class="fa-solid fa-envelope" style="color: var(--primary); margin-right: 8px;"></i> hello@wanderhums.com</li>
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-envelope" style="color: var(--primary); margin-right: 8px;"></i> help@wanderhums.com</li>
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-clock" style="color: var(--primary); margin-right: 8px;"></i> Mon – Sun : 9 AM – 9 PM</li>
             <li style="color: #E2E8F0;"><i class="fa-solid fa-location-dot" style="color: var(--primary); margin-right: 8px;"></i> Demo Business Park, Tower B, Delhi NCR - 110001</li>
           </ul>
         </div>
@@ -684,6 +722,7 @@
     // Trip Detail Controller
     let currentDetailTrip = null;
     let sidePassengers = 1;
+    let selectedSharingPlan = 'quad';
 
     document.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
@@ -692,6 +731,14 @@
       currentDetailTrip = TRIPS_DATA.find(t => t.id === tripId) || TRIPS_DATA[0];
       renderTripDetails(currentDetailTrip);
     });
+
+    function getPriceForCurrentPlan() {
+      if (!currentDetailTrip) return 0;
+      if (currentDetailTrip.sharingPrices && currentDetailTrip.sharingPrices[selectedSharingPlan]) {
+        return currentDetailTrip.sharingPrices[selectedSharingPlan];
+      }
+      return currentDetailTrip.price;
+    }
 
     function renderTripDetails(trip) {
       document.title = `${trip.title} | WanderHums`;
@@ -721,6 +768,9 @@
         </div>
       `;
 
+      // Package Cost Breakdown & Sharing Plan Selector (WeWravel style)
+      renderSharingOptions(trip);
+
       // Highlights
       document.getElementById('detail-highlights-list').innerHTML = trip.highlights.map(h => `
         <div style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.92rem; color: #334155;">
@@ -729,11 +779,11 @@
         </div>
       `).join('');
 
-      // Itinerary
+      // Itinerary with Meals Included tag
       document.getElementById('itinerary-accordion-box').innerHTML = trip.itinerary.map((d, idx) => `
         <div class="day-box ${idx === 0 ? 'open' : ''}">
           <button class="day-box-header" onclick="toggleDayBox(this)">
-            <div style="display: flex; align-items: center;">
+            <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 6px;">
               <span class="day-tag">Day ${d.day}</span>
               <span class="day-title-text">${d.title}</span>
             </div>
@@ -741,6 +791,11 @@
           </button>
           <div class="day-box-content">
             <p>${d.desc}</p>
+            ${d.meals ? `
+              <div class="itinerary-meals-pill">
+                <i class="fa-solid fa-utensils"></i> Meals Included: ${d.meals}
+              </div>
+            ` : ''}
           </div>
         </div>
       `).join('');
@@ -755,15 +810,68 @@
       `).join('');
 
       // Sidebar Prices
-      document.getElementById('side-price-current').textContent = `₹${trip.price.toLocaleString('en-IN')}`;
-      document.getElementById('side-price-original').textContent = `₹${trip.originalPrice.toLocaleString('en-IN')}`;
       document.getElementById('side-seats-left').textContent = trip.seatsLeft;
-      document.getElementById('mobile-bar-price').textContent = `₹${trip.price.toLocaleString('en-IN')}`;
 
       // Batches
       document.getElementById('side-batch-select').innerHTML = trip.upcomingBatches.map(b => `
         <option value="${b.date}">${b.date} (${b.status} - ${b.seats} slots left)</option>
       `).join('');
+
+      updatePricesDisplay();
+    }
+
+    function renderSharingOptions(trip) {
+      const container = document.getElementById('sharing-options-container');
+      const prices = trip.sharingPrices || {
+        quad: trip.price,
+        triple: trip.price + 500,
+        dual: trip.price + 1000
+      };
+
+      container.innerHTML = `
+        <div class="sharing-card ${selectedSharingPlan === 'quad' ? 'active' : ''}" onclick="setSharingPlan('quad')">
+          <span class="sharing-card-badge">Popular</span>
+          <span class="sharing-card-label">Quad Sharing</span>
+          <span class="sharing-card-price">₹${prices.quad.toLocaleString('en-IN')}</span>
+          <small style="color: #64748B; font-size: 0.78rem;">per person</small>
+        </div>
+        <div class="sharing-card ${selectedSharingPlan === 'triple' ? 'active' : ''}" onclick="setSharingPlan('triple')">
+          <span class="sharing-card-label">Triple Sharing</span>
+          <span class="sharing-card-price">₹${prices.triple.toLocaleString('en-IN')}</span>
+          <small style="color: #64748B; font-size: 0.78rem;">per person</small>
+        </div>
+        <div class="sharing-card ${selectedSharingPlan === 'dual' ? 'active' : ''}" onclick="setSharingPlan('dual')">
+          <span class="sharing-card-label">Dual Sharing</span>
+          <span class="sharing-card-price">₹${prices.dual.toLocaleString('en-IN')}</span>
+          <small style="color: #64748B; font-size: 0.78rem;">per person</small>
+        </div>
+      `;
+    }
+
+    function setSharingPlan(plan) {
+      selectedSharingPlan = plan;
+      
+      // Update UI cards
+      document.querySelectorAll('.sharing-card').forEach(c => c.classList.remove('active'));
+      const activeCard = Array.from(document.querySelectorAll('.sharing-card')).find(c => 
+        c.querySelector('.sharing-card-label')?.textContent.toLowerCase().includes(plan)
+      );
+      if (activeCard) activeCard.classList.add('active');
+
+      // Update dropdown in sidebar
+      const sideSelect = document.getElementById('side-sharing-select');
+      if (sideSelect) sideSelect.value = plan;
+
+      updatePricesDisplay();
+    }
+
+    function updatePricesDisplay() {
+      const planPrice = getPriceForCurrentPlan();
+      const origPrice = currentDetailTrip.originalPrice || Math.round(planPrice * 1.35);
+
+      document.getElementById('side-price-current').textContent = `₹${planPrice.toLocaleString('en-IN')}`;
+      document.getElementById('side-price-original').textContent = `₹${origPrice.toLocaleString('en-IN')}`;
+      document.getElementById('mobile-bar-price').textContent = `₹${planPrice.toLocaleString('en-IN')}`;
 
       updateSideCalculation();
     }
@@ -785,7 +893,8 @@
 
     function updateSideCalculation() {
       if (!currentDetailTrip) return;
-      const total = currentDetailTrip.price * sidePassengers;
+      const planPrice = getPriceForCurrentPlan();
+      const total = planPrice * sidePassengers;
       const token = Math.min(total, 2000 * sidePassengers);
       document.getElementById('side-calc-total').textContent = `₹${total.toLocaleString('en-IN')}`;
       document.getElementById('side-calc-token').textContent = `₹${token.toLocaleString('en-IN')}`;
@@ -796,17 +905,19 @@
       const name = document.getElementById('side-name').value;
       const phone = document.getElementById('side-phone').value;
       const batch = document.getElementById('side-batch-select').value;
+      const plan = selectedSharingPlan.toUpperCase();
 
       showToast({
         avatar: currentDetailTrip.image,
         title: "Slot Reserved! 🎒",
-        text: `Thanks ${name}! Your slot for ${currentDetailTrip.title} (${batch}) is provisionally held. Our captain will call ${phone} for token confirmation.`
+        text: `Thanks ${name}! Your slot for ${currentDetailTrip.title} (${plan} Sharing, ${batch}) is provisionally held. Our captain will call ${phone} for confirmation.`
       });
     }
 
     function chatSideWhatsApp() {
       const batch = document.getElementById('side-batch-select').value;
-      const text = `Hi WanderHums! 👋 I am checking out the *${encodeURIComponent(currentDetailTrip.title)}* (${batch}). Can you please share the detailed PDF itinerary and seat availability?`;
+      const plan = selectedSharingPlan.toUpperCase();
+      const text = `Hi WanderHums! 👋 I am checking out the *${encodeURIComponent(currentDetailTrip.title)}* (${plan} Sharing, ${batch}). Can you please share the detailed itinerary and seat availability?`;
       window.open(`https://wa.me/919999999999?text=${text}`, '_blank');
     }
   </script>

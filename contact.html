@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Get In Touch With WanderHums Experts</title>
+  <meta name="description" content="Have questions about upcoming trips, batch dates, or customized tours? Reach out to WanderHums travel gurus via phone, WhatsApp, or email. Working hours: Mon-Sun 9AM-9PM." />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎒</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .contact-hero {
+      background: linear-gradient(180deg, rgba(0, 38, 61, 0.88) 0%, rgba(0, 38, 61, 0.98) 100%),
+                  url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') center/cover;
+      color: #fff;
+      padding: 80px 0 70px 0;
+      text-align: center;
+    }
+    .contact-grid-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 36px;
+      margin-top: 40px;
+    }
+    @media (max-width: 900px) {
+      .contact-grid-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    .info-tile {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .info-tile:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+    .info-tile-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: rgba(1, 175, 209, 0.12);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+    }
+    .contact-form-card {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: var(--shadow-md);
+    }
+    .map-frame-box {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      margin-top: 50px;
+      height: 380px;
+    }
+    .map-frame-box iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-promo">
+        <span>⚡ Early Bird Discount: Flat ₹2,000 OFF on all 2026 batches! Use code:</span>
+        <span class="top-promo-code">WANDERHUMS2026</span>
+      </div>
+      <div class="top-actions">
+        <a href="tel:+919999999999" class="top-link"><i class="fa-solid fa-phone"></i> +91 99999 99999</a>
+        <a href="https://wa.me/919999999999" target="_blank" class="top-link"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        <div class="rating-pill-top"><i class="fa-solid fa-star"></i> 4.9/5 (18,400+ Reviews)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header: Signature 2-Tier WanderHums Style -->
+  <header class="site-header">
+    <div class="header-top-row">
+      <div class="container header-top-inner">
+        <a href="index.html" class="header-logo-link" aria-label="WanderHums Home">
+          <img src="assets/wanderhums-brand-logo.png" alt="WanderHums" class="header-logo-img" />
+        </a>
+
+        <div class="header-top-right">
+          <ul class="top-menu-links">
+            <li><a href="index.html#trending-trips" class="top-menu-link">Upcoming Trips <i class="fa-regular fa-calendar-days"></i></a></li>
+            <li><a href="gallery.html" class="top-menu-link">Gallery</a></li>
+            <li><a href="about.html" class="top-menu-link">About Us</a></li>
+            <li><a href="community.html" class="top-menu-link">Blogs</a></li>
+            <li><a href="contact.html" class="top-menu-link active-link" style="color: var(--primary); font-weight: 700;">Contact Us</a></li>
+          </ul>
+
+          <a href="tel:+919999999999" class="header-phone-pill">
+            <i class="fa-solid fa-phone"></i> <span class="phone-number-full">+91-9999999999</span>
+          </a>
+
+          <a href="destinations.html?view=wishlist" class="btn-icon wishlist-btn-header" title="Saved Trips">
+            <i class="fa-regular fa-heart"></i>
+            <span class="badge-count wishlist-counter">0</span>
+          </a>
+
+          <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tier 2: Navigation Bar -->
+    <div class="header-bottom-bar">
+      <div class="container header-bottom-inner">
+        <div class="bottom-nav-item">
+          <a href="destinations.html?cat=international" class="bottom-nav-link">
+            <span>International Trips</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="trip-detail.html?id=bali-island-explorer" class="dropdown-link">
+              <span>Bali & Nusa Penida</span>
+              <small>7D/6N</small>
+            </a>
+            <a href="trip-detail.html?id=vietnam-cross-country" class="dropdown-link">
+              <span>Vietnam Highlights</span>
+              <small>8D/7N</small>
+            </a>
+            <a href="destinations.html?cat=international" class="dropdown-link" style="color: #01AFD1; font-weight: 700;">
+              <span>View All International Trips →</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="destinations.html?cat=backpacking" class="bottom-nav-link">
+            <span>India Trips</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="trip-detail.html?id=manali-rohtang-kasol-4d" class="dropdown-link">
+              <span>Manali - Rohtang - Kasol</span>
+              <small>4D/3N</small>
+            </a>
+            <a href="trip-detail.html?id=spiti-valley-circuit" class="dropdown-link">
+              <span>Spiti Valley Circuit</span>
+              <small>9D/8N</small>
+            </a>
+            <a href="trip-detail.html?id=chopta-tungnath-chandrashila" class="dropdown-link">
+              <span>Chopta Tungnath Chandrashila</span>
+              <small>3D/2N</small>
+            </a>
+            <a href="destinations.html?cat=backpacking" class="dropdown-link" style="color: #01AFD1; font-weight: 700;">
+              <span>View All India Trips →</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="destinations.html" class="bottom-nav-link">
+            <span>Group Tours</span>
+          </a>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="destinations.html?cat=weekend" class="bottom-nav-link">
+            <span>Weekend Getaways</span>
+          </a>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="gallery.html" class="bottom-nav-link">
+            <span>Gallery</span>
+          </a>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="about.html" class="bottom-nav-link">
+            <span>About Us</span>
+          </a>
+        </div>
+
+        <div class="bottom-nav-item">
+          <a href="contact.html" class="bottom-nav-link" style="background: rgba(255, 255, 255, 0.15); font-weight: 700;">
+            <span>Contact Us</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Side Navigation Drawer -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop" onclick="closeMobileDrawer()"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="drawer-logo" aria-label="WanderHums Home">
+        <img src="assets/wanderhums-brand-logo.png" alt="WanderHums" />
+      </a>
+      <button class="drawer-close-btn" onclick="closeMobileDrawer()" aria-label="Close Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <div class="mobile-drawer-body">
+      <div class="drawer-contact-card">
+        <a href="tel:+919999999999" class="btn btn-outline-cyan btn-sm btn-block">
+          <i class="fa-solid fa-phone"></i> +91-9999999999
+        </a>
+        <a href="https://wa.me/919999999999" target="_blank" class="btn btn-whatsapp-solid btn-sm btn-block">
+          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+      </div>
+
+      <div class="drawer-nav-section">
+        <div class="drawer-section-title">Navigation</div>
+        <ul class="drawer-links">
+          <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="destinations.html"><i class="fa-solid fa-compass"></i> Destinations / Trips</a></li>
+          <li><a href="gallery.html"><i class="fa-solid fa-images"></i> Trip Gallery</a></li>
+          <li><a href="about.html"><i class="fa-solid fa-people-roof"></i> About WanderHums</a></li>
+          <li><a href="community.html"><i class="fa-solid fa-newspaper"></i> Community & Blogs</a></li>
+          <li><a href="contact.html" class="active-link" style="color: var(--primary); font-weight: 700;"><i class="fa-solid fa-headset"></i> Contact Us</a></li>
+          <li><a href="destinations.html?view=wishlist"><i class="fa-regular fa-heart"></i> Saved Trips (<span class="wishlist-counter">0</span>)</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Hero Section -->
+  <section class="contact-hero">
+    <div class="container">
+      <div class="hero-badge-pill" style="margin-bottom: 14px;">
+        <i class="fa-solid fa-headset"></i> WE'RE HERE TO HELP 🤝
+      </div>
+      <h1 style="font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; margin-bottom: 16px;">
+        Contact Us
+      </h1>
+      <p style="font-size: clamp(1rem, 2vw, 1.2rem); color: #E2E8F0; max-width: 680px; margin: 0 auto; line-height: 1.6;">
+        We're here to help you plan your next unforgettable journey. Reach out to our friendly travel gurus!
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Grid Section -->
+  <section style="padding: 70px 0 80px 0; background: #F8FAFC;">
+    <div class="container">
+      <div class="contact-grid-layout">
+        
+        <!-- Left: Contact Details Cards -->
+        <div>
+          <h2 style="font-size: 1.8rem; font-weight: 800; color: #00263D; margin-bottom: 24px;">
+            Get In Touch Directly
+          </h2>
+
+          <!-- Our Office -->
+          <div class="info-tile">
+            <div class="info-tile-icon"><i class="fa-solid fa-building"></i></div>
+            <div>
+              <h4 style="font-size: 1.05rem; font-weight: 800; color: #00263D; margin-bottom: 4px;">Our Office</h4>
+              <p style="color: #64748B; font-size: 0.92rem; line-height: 1.5; margin-bottom: 6px;">
+                WanderHums Travel Community HQ<br />
+                Demo Business Park, Tower B, Delhi NCR - 110001
+              </p>
+              <a href="https://maps.google.com/?q=Delhi+NCR" target="_blank" style="color: var(--primary); font-weight: 700; font-size: 0.85rem;">
+                View on Google Maps <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Phone / Support -->
+          <div class="info-tile">
+            <div class="info-tile-icon"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <h4 style="font-size: 1.05rem; font-weight: 800; color: #00263D; margin-bottom: 4px;">Phone / Support</h4>
+              <p style="color: #64748B; font-size: 0.92rem; margin-bottom: 6px;">Instant support for departures & queries</p>
+              <a href="tel:+919999999999" style="font-size: 1.15rem; font-weight: 800; color: var(--primary);">
+                +91 99999 99999
+              </a>
+            </div>
+          </div>
+
+          <!-- WhatsApp Us -->
+          <div class="info-tile">
+            <div class="info-tile-icon" style="background: rgba(37, 211, 102, 0.15); color: #25D366;">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div>
+              <h4 style="font-size: 1.05rem; font-weight: 800; color: #00263D; margin-bottom: 4px;">WhatsApp Us</h4>
+              <p style="color: #64748B; font-size: 0.92rem; margin-bottom: 6px;">Fastest replies & batch PDF itineraries</p>
+              <a href="https://wa.me/919999999999?text=Hi%20WanderHums!%20I%20want%20to%20plan%20a%20trip." target="_blank" class="btn btn-sm btn-whatsapp-solid" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px;">
+                Chat Now <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="info-tile">
+            <div class="info-tile-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <h4 style="font-size: 1.05rem; font-weight: 800; color: #00263D; margin-bottom: 4px;">Email</h4>
+              <p style="color: #64748B; font-size: 0.92rem; margin-bottom: 6px;">For group bookings & corporate inquiries</p>
+              <a href="mailto:help@wanderhums.com" style="color: var(--primary); font-weight: 700; font-size: 1rem;">
+                help@wanderhums.com
+              </a>
+            </div>
+          </div>
+
+          <!-- Working Hours -->
+          <div class="info-tile" style="background: #F0FDF4; border-color: #BBF7D0;">
+            <div class="info-tile-icon" style="background: #DCFCE7; color: #16A34A;">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <div>
+              <h4 style="font-size: 1.05rem; font-weight: 800; color: #166534; margin-bottom: 4px;">Working Hours</h4>
+              <p style="color: #15803D; font-weight: 700; font-size: 1.05rem; margin-bottom: 2px;">
+                Mon – Sun : 9 AM – 9 PM
+              </p>
+              <small style="color: #166534;">Open 7 days a week including holidays!</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Send a Message Form -->
+        <div class="contact-form-card">
+          <div style="margin-bottom: 24px;">
+            <h3 style="font-size: 1.7rem; font-weight: 800; color: #00263D; margin-bottom: 6px;">Send a Message</h3>
+            <p style="color: #64748B; font-size: 0.95rem;">Fill out this quick form and our trip captain will get back to you shortly.</p>
+          </div>
+
+          <form id="contact-message-form" onsubmit="handleContactMessage(event)">
+            <div class="form-group">
+              <label class="form-label" for="contact-name">Your Name *</label>
+              <input type="text" id="contact-name" class="form-control" placeholder="e.g. Rahul Sharma" required />
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label class="form-label" for="contact-phone">Phone Number (WhatsApp) *</label>
+                <input type="tel" id="contact-phone" class="form-control" placeholder="10-digit number" required pattern="[0-9]{10}" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contact-email">Email Address *</label>
+                <input type="email" id="contact-email" class="form-control" placeholder="rahul@example.com" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-destination">Interested Destination</label>
+              <select id="contact-destination" class="form-control">
+                <option value="Manali - Rohtang - Kasol">Manali - Rohtang - Kasol (4D/3N)</option>
+                <option value="Jibhi - Tirthan Valley">Jibhi - Tirthan Valley (3D/2N)</option>
+                <option value="Chopta - Tungnath - Chandrashila">Chopta - Tungnath - Chandrashila</option>
+                <option value="Mcleodganj - Triund Trek">Mcleodganj - Triund Trek</option>
+                <option value="Kasol - Kheerganga Trek">Kasol - Kheerganga Trek</option>
+                <option value="Kasol - Tosh - Kutla">Kasol - Tosh - Kutla</option>
+                <option value="Kedarkantha Winter Trek">Kedarkantha Winter Trek</option>
+                <option value="Jaisalmer - Sam Dunes">Jaisalmer - Longewala & Dunes</option>
+                <option value="Udaipur - Mount Abu">Udaipur - Mount Abu</option>
+                <option value="Badrinath / Kedarnath Yatra">Kedarnath / Badrinath Yatra</option>
+                <option value="Char Dham Yatra">Complete Char Dham Yatra</option>
+                <option value="Spiti Valley Road Trip">Spiti Valley Road Trip</option>
+                <option value="Ladakh Bike Expedition">Ladakh Bike Expedition</option>
+                <option value="Bali / Vietnam Tour">Bali & Vietnam Tours</option>
+                <option value="Custom Group / Corporate Trip">Custom Group / Corporate Tour</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-msg">Message *</label>
+              <textarea id="contact-msg" class="form-control" rows="4" placeholder="Tell us about your tentative dates, number of travelers, or any specific requirements..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" style="padding: 14px; font-size: 1.05rem;">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+
+          <!-- Success Alert Box (hidden initially) -->
+          <div id="contact-success-box" style="display: none; background: #DCFCE7; border: 1px solid #86EFAC; color: #166534; padding: 18px; border-radius: 12px; margin-top: 20px; text-align: center;">
+            <i class="fa-solid fa-circle-check" style="font-size: 1.5rem; margin-bottom: 6px; display: block;"></i>
+            <h4 style="font-weight: 800; font-size: 1.1rem; margin-bottom: 4px;">Message Received!</h4>
+            <p style="font-size: 0.92rem; margin: 0;">Thanks! Our trip captain will call you on WhatsApp within 15 minutes.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Google Maps Embed -->
+      <div class="map-frame-box">
+        <iframe 
+          title="WanderHums Office Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.83923192776!2d77.06889754725782!3d28.52758200617607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1715000000000!5m2!1sen!2sin" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link" aria-label="WanderHums Home">
+            <img src="assets/wanderhums-brand-logo.png" alt="WanderHums" class="footer-logo-img" />
+          </a>
+          <p>
+            WanderHums is India’s premium experiential travel community. We build authentic friendships, organize high-octane road trips, and create stories that echo forever across the Himalayas and beyond.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Top Trips</h4>
+          <ul class="footer-links">
+            <li><a href="trip-detail.html?id=manali-rohtang-kasol-4d">Manali - Rohtang - Kasol</a></li>
+            <li><a href="trip-detail.html?id=jibhi-tirthan-valley">Jibhi - Tirthan Valley</a></li>
+            <li><a href="trip-detail.html?id=chopta-tungnath-chandrashila">Chopta - Tungnath</a></li>
+            <li><a href="trip-detail.html?id=mcleodganj-triund-trek">Mcleodganj - Triund</a></li>
+            <li><a href="trip-detail.html?id=spiti-valley-circuit">Spiti Valley Circuit</a></li>
+            <li><a href="trip-detail.html?id=char-dham-yatra">Char Dham Yatra</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Support</h4>
+          <ul class="footer-links" style="gap: 12px;">
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-phone" style="color: var(--primary); margin-right: 8px;"></i> +91 99999 99999</li>
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-envelope" style="color: var(--primary); margin-right: 8px;"></i> help@wanderhums.com</li>
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-clock" style="color: var(--primary); margin-right: 8px;"></i> Mon – Sun : 9 AM – 9 PM</li>
+            <li style="color: #E2E8F0;"><i class="fa-solid fa-location-dot" style="color: var(--primary); margin-right: 8px;"></i> Demo Business Park, Tower B, Delhi NCR - 110001</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 WanderHums Experiential Travel Pvt. Ltd. All Rights Reserved.</div>
+        <div class="payment-badges">
+          <span style="font-size: 0.8rem; margin-right: 8px; color: #94A3B8;">100% Secure Payment:</span>
+          <i class="fa-brands fa-google-pay" title="UPI & GPay"></i>
+          <i class="fa-brands fa-cc-visa" title="Visa"></i>
+          <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+          <i class="fa-solid fa-shield-halved" title="SSL Encrypted" style="color: var(--success);"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/919999999999?text=Hi%20WanderHums!%20I%20am%20interested%20in%20upcoming%20trips." 
+     target="_blank" 
+     class="floating-whatsapp" 
+     aria-label="Chat on WhatsApp">
+    <div class="whatsapp-pulse"></div>
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Mobile Bottom Sticky Navigation -->
+  <nav class="mobile-bottom-nav">
+    <div class="mobile-nav-inner">
+      <a href="index.html" class="mobile-nav-item">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </a>
+      <a href="destinations.html" class="mobile-nav-item">
+        <i class="fa-solid fa-compass"></i>
+        <span>Trips</span>
+      </a>
+      <a href="gallery.html" class="mobile-nav-item">
+        <i class="fa-solid fa-camera"></i>
+        <span>Gallery</span>
+      </a>
+      <a href="contact.html" class="mobile-nav-item active">
+        <i class="fa-solid fa-headset"></i>
+        <span>Contact</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Scripts -->
+  <script src="js/trips-data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function handleContactMessage(e) {
+      e.preventDefault();
+      const name = document.getElementById('contact-name').value;
+      const phone = document.getElementById('contact-phone').value;
+      const destination = document.getElementById('contact-destination').value;
+      
+      document.getElementById('contact-message-form').style.display = 'none';
+      document.getElementById('contact-success-box').style.display = 'block';
+
+      if (window.showToast) {
+        window.showToast(`Thank you ${name}! Message sent for ${destination}. We'll call you shortly.`);
+      }
+    }
+  </script>
+</body>
+</html>

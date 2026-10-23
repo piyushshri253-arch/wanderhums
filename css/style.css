@@ -2202,8 +2202,147 @@ img {
     font-size: 1.1rem;
   }
   .header-bottom-inner {
+}
+
+/* ==========================================================================
+   WeWravel Content Integration: Package Cost Breakdown, Sharing & Season Note
+   ========================================================================== */
+.package-cost-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  padding: 26px;
+  margin-bottom: 30px;
+  box-shadow: var(--shadow-sm);
+}
+.room-sharing-badge {
+  background: rgba(1, 175, 209, 0.12);
+  color: var(--primary);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.sharing-options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 18px 0;
+}
+@media (max-width: 650px) {
+  .sharing-options-grid {
+    grid-template-columns: 1fr;
     gap: 12px;
-    padding: 0 8px;
   }
 }
+.sharing-card {
+  background: #F8FAFC;
+  border: 2px solid var(--border-color);
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+}
+.sharing-card:hover {
+  border-color: var(--primary);
+  background: #F0FDF4;
+  transform: translateY(-2px);
+}
+.sharing-card.active {
+  border-color: var(--primary);
+  background: #E0F2FE;
+  box-shadow: 0 4px 12px rgba(1, 175, 209, 0.2);
+}
+.sharing-card-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #475569;
+  display: block;
+  margin-bottom: 4px;
+}
+.sharing-card.active .sharing-card-label {
+  color: var(--primary);
+}
+.sharing-card-price {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #00263D;
+  display: block;
+}
+.sharing-card-badge {
+  position: absolute;
+  top: -9px;
+  right: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+.season-note-alert {
+  background: #FFFBEB;
+  border: 1px solid #FDE68A;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #92400E;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+.season-note-alert i {
+  color: #D97706;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.itinerary-meals-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  color: #065F46;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  margin-top: 10px;
+}
+
+/* ==========================================================================
+   Review Submission & Why Choose Us Components
+   ========================================================================== */
+.review-form-card {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: var(--shadow-md);
+  max-width: 680px;
+  margin: 0 auto;
+}
+.star-rating-select {
+  display: flex;
+  gap: 8px;
+  font-size: 1.6rem;
+  color: #CBD5E1;
+  cursor: pointer;
+}
+.star-rating-select .star-item {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.star-rating-select .star-item:hover,
+.star-rating-select .star-item.active {
+  color: #F59E0B;
+  transform: scale(1.15);
+}
+
 
