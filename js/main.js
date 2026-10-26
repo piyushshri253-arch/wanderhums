@@ -596,6 +596,24 @@ window.closeMobileDrawer = function() {
   document.body.style.overflow = '';
 };
 
+window.toggleDrawerAccordion = function(btn) {
+  const item = btn.closest('.drawer-accordion-item');
+  if (!item) return;
+  const wasActive = item.classList.contains('active');
+  
+  // Close other open accordions in drawer for clean UX
+  document.querySelectorAll('.drawer-accordion-item').forEach(i => {
+    if (i !== item) i.classList.remove('active');
+  });
+
+  if (!wasActive) {
+    item.classList.add('active');
+  } else {
+    item.classList.remove('active');
+  }
+};
+
+
 /* ---------------------------------------------------------
    Interactive Review Form & Wall of Love (WeWravel Feature)
    --------------------------------------------------------- */

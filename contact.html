@@ -231,26 +231,131 @@
     </div>
     
     <div class="mobile-drawer-body">
+      <!-- Quick Contact Actions -->
       <div class="drawer-contact-card">
-        <a href="tel:+919999999999" class="btn btn-outline-cyan btn-sm btn-block">
+        <a href="tel:+919999999999" class="btn-outline-cyan">
           <i class="fa-solid fa-phone"></i> +91-9999999999
         </a>
-        <a href="https://wa.me/919999999999" target="_blank" class="btn btn-whatsapp-solid btn-sm btn-block">
-          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        <a href="https://wa.me/919999999999?text=Hi%20WanderHums!%20I%20am%20interested%20in%20upcoming%20trips." target="_blank" class="btn-whatsapp-solid">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
         </a>
       </div>
 
+      <!-- Navigation Links with Accordion Dropdowns -->
       <div class="drawer-nav-section">
-        <div class="drawer-section-title">Navigation</div>
-        <ul class="drawer-links">
-          <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-          <li><a href="destinations.html"><i class="fa-solid fa-compass"></i> Destinations / Trips</a></li>
-          <li><a href="gallery.html"><i class="fa-solid fa-images"></i> Trip Gallery</a></li>
-          <li><a href="about.html"><i class="fa-solid fa-people-roof"></i> About WanderHums</a></li>
-          <li><a href="community.html"><i class="fa-solid fa-newspaper"></i> Community & Blogs</a></li>
-          <li><a href="contact.html" class="active-link" style="color: var(--primary); font-weight: 700;"><i class="fa-solid fa-headset"></i> Contact Us</a></li>
-          <li><a href="destinations.html?view=wishlist"><i class="fa-regular fa-heart"></i> Saved Trips (<span class="wishlist-counter">0</span>)</a></li>
-        </ul>
+        <div class="drawer-section-title">Explore Tours & Destinations</div>
+        <div class="drawer-accordion-list">
+          
+          <!-- Accordion: International Trips -->
+          <div class="drawer-accordion-item">
+            <button class="drawer-accordion-btn" type="button" onclick="toggleDrawerAccordion(this)">
+              <span class="drawer-btn-left">
+                <i class="fa-solid fa-earth-americas"></i>
+                <span>International Trips</span>
+              </span>
+              <i class="fa-solid fa-chevron-down drawer-chevron"></i>
+            </button>
+            <div class="drawer-submenu">
+              <a href="trip-detail.html?id=bali-island-explorer" class="drawer-sublink">
+                <span>Bali & Nusa Penida</span>
+                <span class="sublink-tag">7D/6N</span>
+              </a>
+              <a href="trip-detail.html?id=vietnam-cross-country" class="drawer-sublink">
+                <span>Vietnam Highlights</span>
+                <span class="sublink-tag">8D/7N</span>
+              </a>
+              <a href="destinations.html?cat=international" class="drawer-sublink drawer-sublink-all">
+                <span>View All International Trips →</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Accordion: India Road Trips -->
+          <div class="drawer-accordion-item">
+            <button class="drawer-accordion-btn" type="button" onclick="toggleDrawerAccordion(this)">
+              <span class="drawer-btn-left">
+                <i class="fa-solid fa-mountain"></i>
+                <span>India Road Trips</span>
+              </span>
+              <i class="fa-solid fa-chevron-down drawer-chevron"></i>
+            </button>
+            <div class="drawer-submenu">
+              <a href="trip-detail.html?id=manali-rohtang-kasol-4d" class="drawer-sublink">
+                <span>Manali - Rohtang - Kasol</span>
+                <span class="sublink-tag">4D/3N</span>
+              </a>
+              <a href="trip-detail.html?id=spiti-valley-circuit" class="drawer-sublink">
+                <span>Spiti Valley Circuit</span>
+                <span class="sublink-tag">9D/8N</span>
+              </a>
+              <a href="trip-detail.html?id=chopta-tungnath-chandrashila" class="drawer-sublink">
+                <span>Chopta Tungnath Chandrashila</span>
+                <span class="sublink-tag">3D/2N</span>
+              </a>
+              <a href="trip-detail.html?id=jibhi-tirthan-valley" class="drawer-sublink">
+                <span>Jibhi & Tirthan Valley</span>
+                <span class="sublink-tag">3D/2N</span>
+              </a>
+              <a href="destinations.html?cat=backpacking" class="drawer-sublink drawer-sublink-all">
+                <span>View All India Trips →</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Accordion: Weekend Getaways -->
+          <div class="drawer-accordion-item">
+            <button class="drawer-accordion-btn" type="button" onclick="toggleDrawerAccordion(this)">
+              <span class="drawer-btn-left">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Weekend Getaways</span>
+              </span>
+              <i class="fa-solid fa-chevron-down drawer-chevron"></i>
+            </button>
+            <div class="drawer-submenu">
+              <a href="trip-detail.html?id=manali-rohtang-kasol-3d" class="drawer-sublink">
+                <span>Manali Rohtang Weekend</span>
+                <span class="sublink-tag">3D/2N</span>
+              </a>
+              <a href="trip-detail.html?id=jibhi-tirthan-valley" class="drawer-sublink">
+                <span>Jibhi & Tirthan Valley</span>
+                <span class="sublink-tag">3D/2N</span>
+              </a>
+              <a href="trip-detail.html?id=chopta-tungnath-chandrashila" class="drawer-sublink">
+                <span>Chopta Tungnath Trek</span>
+                <span class="sublink-tag">3D/2N</span>
+              </a>
+              <a href="destinations.html?cat=weekend" class="drawer-sublink drawer-sublink-all">
+                <span>View All Weekend Getaways →</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Direct Links -->
+          <a href="destinations.html" class="drawer-direct-link">
+            <i class="fa-solid fa-compass"></i>
+            <span>All Trips & Tours</span>
+          </a>
+          <a href="gallery.html" class="drawer-direct-link">
+            <i class="fa-solid fa-images"></i>
+            <span>Photo & Video Gallery</span>
+          </a>
+          <a href="about.html" class="drawer-direct-link">
+            <i class="fa-solid fa-people-roof"></i>
+            <span>About WanderHums</span>
+          </a>
+          <a href="community.html" class="drawer-direct-link">
+            <i class="fa-solid fa-newspaper"></i>
+            <span>Travel Blogs & Stories</span>
+          </a>
+          <a href="contact.html" class="drawer-direct-link active" style="color: var(--primary); font-weight: 700;">
+            <i class="fa-solid fa-headset"></i>
+            <span>Contact Us</span>
+          </a>
+          <a href="destinations.html?view=wishlist" class="drawer-direct-link">
+            <i class="fa-regular fa-heart"></i>
+            <span>Saved Trips (<span class="wishlist-counter">0</span>)</span>
+          </a>
+        </div>
       </div>
     </div>
   </aside>
