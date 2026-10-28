@@ -4,16 +4,58 @@
  * Callback Requests, Wishlist, and Social Proof Notifications
  */
 
+// Global Mobile Drawer Handlers (Available immediately)
+window.openMobileDrawer = function() {
+  const drawer = document.getElementById('mobile-drawer');
+  const backdrop = document.getElementById('mobile-drawer-backdrop');
+  if (drawer) drawer.classList.add('active');
+  if (backdrop) backdrop.classList.add('active');
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeMobileDrawer = function() {
+  const drawer = document.getElementById('mobile-drawer');
+  const backdrop = document.getElementById('mobile-drawer-backdrop');
+  if (drawer) drawer.classList.remove('active');
+  if (backdrop) backdrop.classList.remove('active');
+  document.body.style.overflow = '';
+};
+
+window.toggleDrawerAccordion = function(btn) {
+  const item = btn.closest('.drawer-accordion-item');
+  if (!item) return;
+  const wasActive = item.classList.contains('active');
+  
+  // Close other open accordions in drawer for clean UX
+  document.querySelectorAll('.drawer-accordion-item').forEach(i => {
+    if (i !== item) i.classList.remove('active');
+  });
+
+  if (!wasActive) {
+    item.classList.add('active');
+  } else {
+    item.classList.remove('active');
+  }
+};
+
+function safeInit(name, fn) {
+  try {
+    if (typeof fn === 'function') fn();
+  } catch (err) {
+    console.error(`[WanderHums] Error in ${name}:`, err);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  initNavbarScroll();
-  initTripsRendering();
-  initHeroSearch();
-  initFaqAccordion();
-  initModals();
-  initWishlist();
-  initSocialProofToasts();
-  initMobileMenu();
-  initReviewForm();
+  safeInit('initMobileMenu', initMobileMenu);
+  safeInit('initNavbarScroll', initNavbarScroll);
+  safeInit('initTripsRendering', initTripsRendering);
+  safeInit('initHeroSearch', initHeroSearch);
+  safeInit('initFaqAccordion', initFaqAccordion);
+  safeInit('initModals', initModals);
+  safeInit('initWishlist', initWishlist);
+  safeInit('initSocialProofToasts', initSocialProofToasts);
+  safeInit('initReviewForm', initReviewForm);
 });
 
 /* ---------------------------------------------------------
@@ -388,7 +430,7 @@ window.bookViaWhatsApp = function() {
 
   const text = `Hi WanderHums Team! 🏔️%0A%0AI want to book the *${encodeURIComponent(currentBookingTrip.title)}*%0A- Batch: ${encodeURIComponent(batch)}%0A- Passengers: ${bookingPassengers}%0A- Name: ${encodeURIComponent(name)}%0A- Contact: ${encodeURIComponent(phone)}%0A%0APlease share payment details for the token advance!`;
   
-  window.open(`https://wa.me/919999999999?text=${text}`, '_blank');
+  window.open(`https://wa.me/917303900541?text=${text}`, '_blank');
 };
 
 /* ---------------------------------------------------------
@@ -481,9 +523,15 @@ function initFaqAccordion() {
   const faqContainer = document.getElementById('faq-accordion-container');
   if (!faqContainer) return;
 
-  faqContainer.innerHTML = FAQS_DATA.map((item, idx) => `
+  const faqs = (typeof FAQS_DATA !== 'undefined' && Array.isArray(FAQS_DATA))
+    ? FAQS_DATA
+    : (typeof window !== 'undefined' && Array.isArray(window.FAQS_DATA) ? window.FAQS_DATA : []);
+
+  if (faqs.length === 0) return;
+
+  faqContainer.innerHTML = faqs.map((item, idx) => `
     <div class="faq-item ${idx === 0 ? 'active' : ''}">
-      <button class="faq-question" onclick="toggleFaq(this)">
+      <button class="faq-question" type="button" onclick="toggleFaq(this)">
         <span>${item.q}</span>
         <i class="fa-solid fa-chevron-down"></i>
       </button>
@@ -496,6 +544,7 @@ function initFaqAccordion() {
 
 window.toggleFaq = function(button) {
   const item = button.closest('.faq-item');
+  if (!item) return;
   const wasActive = item.classList.contains('active');
   
   // Close all
@@ -556,15 +605,16 @@ function showToast({ avatar, title, text }) {
    Mobile Drawer & Menu
    --------------------------------------------------------- */
 function initMobileMenu() {
-  const toggleBtn = document.getElementById('mobile-menu-toggle');
-  const drawer = document.getElementById('mobile-drawer');
+  const toggleBtns = document.querySelectorAll('.mobile-toggle, #mobile-menu-toggle');
   const backdrop = document.getElementById('mobile-drawer-backdrop');
 
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', () => {
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       openMobileDrawer();
     });
-  }
+  });
 
   if (backdrop) {
     backdrop.addEventListener('click', () => {
@@ -579,40 +629,6 @@ function initMobileMenu() {
     }
   });
 }
-
-window.openMobileDrawer = function() {
-  const drawer = document.getElementById('mobile-drawer');
-  const backdrop = document.getElementById('mobile-drawer-backdrop');
-  if (drawer) drawer.classList.add('active');
-  if (backdrop) backdrop.classList.add('active');
-  document.body.style.overflow = 'hidden';
-};
-
-window.closeMobileDrawer = function() {
-  const drawer = document.getElementById('mobile-drawer');
-  const backdrop = document.getElementById('mobile-drawer-backdrop');
-  if (drawer) drawer.classList.remove('active');
-  if (backdrop) backdrop.classList.remove('active');
-  document.body.style.overflow = '';
-};
-
-window.toggleDrawerAccordion = function(btn) {
-  const item = btn.closest('.drawer-accordion-item');
-  if (!item) return;
-  const wasActive = item.classList.contains('active');
-  
-  // Close other open accordions in drawer for clean UX
-  document.querySelectorAll('.drawer-accordion-item').forEach(i => {
-    if (i !== item) i.classList.remove('active');
-  });
-
-  if (!wasActive) {
-    item.classList.add('active');
-  } else {
-    item.classList.remove('active');
-  }
-};
-
 
 /* ---------------------------------------------------------
    Interactive Review Form & Wall of Love (WeWravel Feature)

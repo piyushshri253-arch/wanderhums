@@ -1694,6 +1694,34 @@ const TRIPS_DATA = [
   }
 ];
 
+// FAQs Data
+const FAQS_DATA = [
+  {
+    q: "Can I travel solo on WanderHums trips?",
+    a: "Absolutely! More than 65% of our travelers join solo. WanderHums is built specifically to connect solo wanderers. From the moment you hop into our tempo or bus, our friendly trip captains facilitate fun icebreakers, games, and bonfires so strangers instantly become a tight-knit family. We also ensure comfortable same-gender room sharing."
+  },
+  {
+    q: "Is it safe for solo female travelers?",
+    a: "100% YES. Safety of female solo travelers is our highest non-negotiable priority. We assign verified trip captains, conduct background checks on drivers and hotel staff, select well-rated boutique properties with female-friendly amenities, and ensure zero tolerance for any misconduct. Our female traveler community is one of the largest in India!"
+  },
+  {
+    q: "What is the booking process and advance payment?",
+    a: "Booking is seamless! You only need to pay a nominal advance token (₹2,000 for weekend trips, ₹5,000 for backpacking trips, ₹10,000 for international trips) to lock your seat. The balance amount can be paid 7 to 10 days before departure or at the time of boarding. We accept UPI, Net Banking, Credit Cards, and even Offer No-Cost EMI plans!"
+  },
+  {
+    q: "What kind of accommodations are provided?",
+    a: "We steer clear of sterile commercial hotels! Instead, we curate unique, cozy, and atmospheric stays — including alpine Swiss tents with attached washrooms, riverside wooden cottages, apple-orchard heritage homestays, and 4-star boutique resorts with swimming pools for international trips."
+  },
+  {
+    q: "What is WanderHums' cancellation & refund policy?",
+    a: "We understand that plans can change! If you cancel 15+ days before departure, you get an 80% refund or a 100% WanderHums Travel Voucher with 1-year validity (which you can use for ANY future trip). Within 7-14 days, you receive a 50% refund. You can also transfer your slot to a friend free of charge!"
+  },
+  {
+    q: "Who are WanderHums Trip Captains?",
+    a: "Our Trip Captains are not traditional boring tour guides. They are seasoned mountain explorers, guitarists, storytellers, certified wilderness first-responders, and community builders whose only mission is to ensure you have the most exhilarating, safe, and stress-free trip of your life."
+  }
+];
+
 // Helper to look up trip by slug or ID
 function getTripById(idOrSlug) {
   if (!idOrSlug) return null;
@@ -1703,8 +1731,9 @@ function getTripById(idOrSlug) {
 // Make available in window/global
 if (typeof window !== "undefined") {
   window.TRIPS_DATA = TRIPS_DATA;
+  window.FAQS_DATA = FAQS_DATA;
   window.getTripById = getTripById;
 }
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { TRIPS_DATA, getTripById };
+  module.exports = { TRIPS_DATA, FAQS_DATA, getTripById };
 }
