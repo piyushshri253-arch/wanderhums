@@ -203,35 +203,53 @@ img {
 .header-top-right {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 20px;
 }
-.top-menu-links {
+
+/* Header Social Media Icons (Top Row) */
+.header-social-links {
   display: flex;
   align-items: center;
-  gap: 26px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  gap: 9px;
 }
-.top-menu-link {
-  font-size: 14.5px;
-  font-weight: 500;
-  color: #222222;
+.header-social-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  color: #475569;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  line-height: 1;
-  white-space: nowrap;
-  transition: color 0.2s ease;
+  justify-content: center;
+  font-size: 13.5px;
+  transition: all 0.22s ease;
   text-decoration: none;
 }
-.top-menu-link:hover {
-  color: #01AFD1;
+.header-social-icon:hover {
+  transform: translateY(-2px);
+  color: #FFFFFF;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
-.top-menu-link i {
-  color: #01AFD1;
-  font-size: 14.5px;
-  line-height: 1;
+.header-social-icon.social-fb:hover {
+  background: #1877F2;
+  border-color: #1877F2;
+}
+.header-social-icon.social-insta:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  border-color: #d6249f;
+}
+.header-social-icon.social-yt:hover {
+  background: #FF0000;
+  border-color: #FF0000;
+}
+.header-social-icon.social-in:hover {
+  background: #0A66C2;
+  border-color: #0A66C2;
+}
+
+.top-menu-links {
+  display: none;
 }
 
 /* Phone Pill CTA Button (Exact match with WanderOn screenshot) */
@@ -2085,6 +2103,73 @@ img {
   border-color: #BAE6FD;
 }
 
+/* Drawer Social Card */
+.drawer-social-card {
+  margin-top: 22px;
+  padding: 16px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  text-align: center;
+}
+.drawer-social-title {
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #64748B;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+.drawer-social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.drawer-social-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  color: #334155;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.drawer-social-icon.social-fb:hover, .drawer-social-icon.social-fb:active {
+  background: #1877F2; color: #fff; border-color: #1877F2;
+}
+.drawer-social-icon.social-insta:hover, .drawer-social-icon.social-insta:active {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  color: #fff; border-color: #d6249f;
+}
+.drawer-social-icon.social-yt:hover, .drawer-social-icon.social-yt:active {
+  background: #FF0000; color: #fff; border-color: #FF0000;
+}
+.drawer-social-icon.social-in:hover, .drawer-social-icon.social-in:active {
+  background: #0A66C2; color: #fff; border-color: #0A66C2;
+}
+
+/* WeWravel Style Slogan Badge */
+.hero-quote-slogan {
+  display: inline-block;
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 600;
+  color: #FFF275;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  padding: 6px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 242, 117, 0.35);
+  margin: 0 auto 20px auto;
+  letter-spacing: 0.3px;
+}
+
 /* ==========================================================================
    Responsive Breakpoints Across Desktop, Tablet & Mobile Screens
    ========================================================================== */
@@ -2094,8 +2179,9 @@ img {
   .top-bar {
     display: none;
   }
-  .top-menu-links {
-    display: none;
+  .top-menu-links,
+  .header-social-links {
+    display: none !important;
   }
   .mobile-toggle {
     display: flex;
