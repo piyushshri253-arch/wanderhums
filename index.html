@@ -361,72 +361,14 @@
         Curated weekend road trips from Delhi, scenic Himalayan backpacking, and boutique group adventures. Travel with like-minded youth, cozy bonfires, and unforgettable stories.
       </p>
 
-      <!-- Interactive Search Widget -->
-      <div class="hero-search-box">
-        <form id="hero-search-form" class="search-form-grid">
-          
-          <!-- Destination Field -->
-          <div class="search-field">
-            <label class="search-label" for="search-dest-input">
-              <i class="fa-solid fa-location-dot"></i> Where to?
-            </label>
-            <input 
-              type="text" 
-              id="search-dest-input" 
-              class="search-input" 
-              placeholder="e.g. Spiti, Ladakh, Meghalaya, Bali..." 
-              autocomplete="off"
-            />
-          </div>
-
-          <!-- Trip Category -->
-          <div class="search-field">
-            <label class="search-label" for="search-type-select">
-              <i class="fa-solid fa-mountain"></i> Trip Type
-            </label>
-            <select id="search-type-select" class="search-select">
-              <option value="all">All Trip Types</option>
-              <option value="backpacking">Backpacking Trips</option>
-              <option value="weekend">Weekend Getaways</option>
-              <option value="international">International Tours</option>
-              <option value="bike">Bike Expeditions</option>
-            </select>
-          </div>
-
-          <!-- Departure Month -->
-          <div class="search-field">
-            <label class="search-label" for="search-month-select">
-              <i class="fa-regular fa-calendar"></i> Month
-            </label>
-            <select id="search-month-select" class="search-select">
-              <option value="">Any Month</option>
-              <option value="apr">April 2026</option>
-              <option value="may">May 2026</option>
-              <option value="jun">June 2026</option>
-              <option value="jul">July 2026</option>
-              <option value="aug">August 2026</option>
-            </select>
-          </div>
-
-          <!-- Search Button -->
-          <div class="search-btn-col">
-            <button type="submit" class="btn btn-primary btn-block">
-              <i class="fa-solid fa-magnifying-glass"></i> Explore Trips
-            </button>
-          </div>
-
-        </form>
-      </div>
-
-      <!-- Quick Search Suggestion Pills -->
-      <div class="search-quick-tags">
-        <span>Trending Searches:</span>
-        <span class="tag-pill" onclick="searchByTag('Spiti')">#SpitiValley</span>
-        <span class="tag-pill" onclick="searchByTag('Meghalaya')">#Meghalaya</span>
-        <span class="tag-pill" onclick="searchByTag('Kasol')">#KasolWeekend</span>
-        <span class="tag-pill" onclick="searchByTag('Ladakh')">#LadakhExpedition</span>
-        <span class="tag-pill" onclick="searchByTag('Bali')">#BaliNusaPenida</span>
-        <span class="tag-pill" onclick="searchByTag('Vietnam')">#VietnamTrip</span>
+      <!-- Hero Action Buttons (Clean & Sleek WeWravel Style) -->
+      <div class="hero-cta-group" style="margin-top: 30px; display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap;">
+        <a href="#trending-trips" class="btn btn-primary" style="padding: 14px 34px; font-size: 1.05rem; font-weight: 700; border-radius: 999px; box-shadow: 0 10px 25px rgba(255, 122, 0, 0.4);">
+          <i class="fa-solid fa-compass"></i> Explore Upcoming Trips
+        </a>
+        <a href="https://wa.me/917303900541?text=Hi%20WanderHums!%20I%20want%20to%20plan%20a%20trip." target="_blank" class="btn-whatsapp-solid" style="padding: 14px 28px; font-size: 1.05rem; font-weight: 700; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        </a>
       </div>
 
     </div>

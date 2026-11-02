@@ -220,8 +220,16 @@ window.resetFilters = function() {
 };
 
 /* ---------------------------------------------------------
-   Hero Search Widget
+   Hero Search & Filter Shortcuts
    --------------------------------------------------------- */
+window.searchByTag = function(keyword) {
+  const destInput = document.getElementById('search-dest-input');
+  if (destInput) destInput.value = keyword;
+  currentSearchQuery = keyword;
+  renderTrips();
+  document.getElementById('trending-trips')?.scrollIntoView({ behavior: 'smooth' });
+};
+
 function initHeroSearch() {
   const form = document.getElementById('hero-search-form');
   if (!form) return;
@@ -243,15 +251,6 @@ function initHeroSearch() {
     renderTrips();
     document.getElementById('trending-trips')?.scrollIntoView({ behavior: 'smooth' });
   });
-
-  // Quick tag clicks
-  window.searchByTag = function(keyword) {
-    const destInput = document.getElementById('search-dest-input');
-    if (destInput) destInput.value = keyword;
-    currentSearchQuery = keyword;
-    renderTrips();
-    document.getElementById('trending-trips')?.scrollIntoView({ behavior: 'smooth' });
-  };
 }
 
 /* ---------------------------------------------------------
