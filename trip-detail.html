@@ -831,7 +831,7 @@
       <!-- Bottom Bar -->
       <div class="footer-bottom">
         <div>
-          © 2026 WanderHums Experiential Travel Pvt. Ltd. All Rights Reserved.
+          © 2026 WanderHums Experiential Travel Pvt. Ltd. All Rights Reserved. • <a href="admin.html" style="color: #64748B; font-size: 0.78rem; text-decoration: none;"><i class="fa-solid fa-lock" style="font-size: 0.72rem;"></i> Admin Portal</a>
         </div>
         <div class="payment-badges">
           <span style="font-size: 0.8rem; margin-right: 8px; color: #94A3B8;">100% Secure Payment:</span>
@@ -847,6 +847,7 @@
 
   <!-- Scripts -->
   <script src="js/trips-data.js"></script>
+  <script src="js/leads-manager.js"></script>
   <script src="js/main.js"></script>
   
   <script>
@@ -1037,11 +1038,25 @@
       const phone = document.getElementById('side-phone').value;
       const batch = document.getElementById('side-batch-select').value;
       const plan = selectedSharingPlan.toUpperCase();
+      const tripTitle = currentDetailTrip ? currentDetailTrip.title : 'Trip';
+
+      if (window.WanderLeads) {
+        window.WanderLeads.saveLead({
+          name: name,
+          phone: phone,
+          email: '',
+          destination: tripTitle,
+          batch: batch,
+          passengers: `${plan} Sharing (${typeof sideNumPassengers !== 'undefined' ? sideNumPassengers : 1} Pax)`,
+          source: 'Trip Detail Page Form',
+          message: `Direct provisional booking request for ${tripTitle} (${batch}, ${plan} sharing).`
+        });
+      }
 
       showToast({
         avatar: currentDetailTrip.image,
         title: "Slot Reserved! 🎒",
-        text: `Thanks ${name}! Your slot for ${currentDetailTrip.title} (${plan} Sharing, ${batch}) is provisionally held. Our captain will call ${phone} for confirmation.`
+        text: `Thanks ${name}! Your slot for ${tripTitle} (${plan} Sharing, ${batch}) is provisionally held. Our captain will call ${phone} for confirmation.`
       });
     }
 

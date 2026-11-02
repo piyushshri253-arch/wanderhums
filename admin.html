@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin & Leads Management Portal — WanderHums</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-clean.png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- SheetJS for Native Excel (.xlsx) Export -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+  <style>
+    :root {
+      --primary: #00BCD4;
+      --primary-dark: #0097A7;
+      --navy: #00263D;
+      --navy-dark: #001A29;
+      --accent: #FF5722;
+      --bg-page: #F1F5F9;
+      --bg-card: #FFFFFF;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --info: #3B82F6;
+      --danger: #EF4444;
+      --radius: 12px;
+      --shadow: 0 4px 20px -2px rgba(0, 38, 61, 0.08);
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* -------------------------------------------------------------
+       LOGIN VIEW (Gatekeeper)
+       ------------------------------------------------------------- */
+    #login-view {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+      background: radial-gradient(circle at top right, #003657 0%, var(--navy-dark) 100%);
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 440px;
+      background: #FFFFFF;
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+      padding: 40px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+
+    .login-logo {
+      height: 48px;
+      margin-bottom: 20px;
+      object-fit: contain;
+    }
+
+    .login-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      background: rgba(0, 188, 212, 0.12);
+      color: var(--navy);
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+
+    .login-title {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .login-subtitle {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      text-align: left;
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94A3B8;
+      font-size: 1rem;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 13px 14px 13px 42px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      transition: all 0.2s ease;
+      background: #F8FAFC;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 4px rgba(0, 188, 212, 0.15);
+    }
+
+    .password-toggle-btn {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #94A3B8;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 14px;
+      background: var(--navy);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+      margin-top: 10px;
+    }
+
+    .btn-login:hover {
+      background: #003657;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px -5px rgba(0, 38, 61, 0.3);
+    }
+
+    .login-error {
+      display: none;
+      background: #FEE2E2;
+      border: 1px solid #FCA5A5;
+      color: #991B1B;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      margin-bottom: 18px;
+      text-align: left;
+    }
+
+    .credentials-hint {
+      margin-top: 24px;
+      padding: 12px;
+      background: #F8FAFC;
+      border: 1px dashed #CBD5E1;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: left;
+    }
+
+    /* -------------------------------------------------------------
+       ADMIN DASHBOARD VIEW
+       ------------------------------------------------------------- */
+    #dashboard-view {
+      display: none;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Dashboard Header */
+    .admin-nav {
+      background: var(--navy);
+      color: #FFFFFF;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-brand-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-logo {
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .nav-tag {
+      background: rgba(0, 188, 212, 0.2);
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(0, 188, 212, 0.4);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-nav {
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-nav-outline {
+      background: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+    }
+
+    .btn-nav-outline:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-nav-danger {
+      background: rgba(239, 68, 68, 0.15);
+      color: #FCA5A5;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .btn-nav-danger:hover {
+      background: #EF4444;
+      color: #FFFFFF;
+    }
+
+    /* Main Container */
+    .dashboard-content {
+      flex: 1;
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 28px 24px 60px 24px;
+    }
+
+    /* Top Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--primary);
+    }
+
+    .stat-card.card-new::after { background: var(--success); }
+    .stat-card.card-contacted::after { background: var(--warning); }
+    .stat-card.card-converted::after { background: #8B5CF6; }
+
+    .stat-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: #F8FAFC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--navy);
+    }
+
+    .stat-info h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+
+    .stat-info p {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* Action & Filter Toolbar */
+    .toolbar-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .search-filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .search-box {
+      position: relative;
+      min-width: 240px;
+      flex: 1;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      background: #F8FAFC;
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: #FFFFFF;
+    }
+
+    .search-box i {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94A3B8;
+    }
+
+    .filter-select {
+      padding: 10px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-family: inherit;
+      background: #F8FAFC;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    .filter-select:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Primary Export Button */
+    .btn-export-excel {
+      background: #107C41; /* Official Microsoft Excel Green */
+      color: #FFFFFF;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(16, 124, 65, 0.25);
+    }
+
+    .btn-export-excel:hover {
+      background: #0B5C30;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(16, 124, 65, 0.35);
+    }
+
+    .btn-add-lead {
+      background: var(--navy);
+      color: #FFFFFF;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-add-lead:hover {
+      background: #003657;
+    }
+
+    /* Leads Table Container */
+    .table-container {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      overflow-x: auto;
+    }
+
+    .leads-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+
+    .leads-table thead {
+      background: #F8FAFC;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    .leads-table th {
+      padding: 14px 16px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .leads-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #F1F5F9;
+      vertical-align: middle;
+    }
+
+    .leads-table tbody tr:hover {
+      background-color: #F8FAFC;
+    }
+
+    /* Status Badges */
+    .badge-status {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+
+    .status-new {
+      background: #DCFCE7;
+      color: #166534;
+      border: 1px solid #86EFAC;
+    }
+
+    .status-contacted {
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #FCD34D;
+    }
+
+    .status-follow-up {
+      background: #DBEAFE;
+      color: #1E40AF;
+      border: 1px solid #93C5FD;
+    }
+
+    .status-converted {
+      background: #F3E8FF;
+      color: #6B21A8;
+      border: 1px solid #D8B4FE;
+    }
+
+    .status-cancelled {
+      background: #F1F5F9;
+      color: #64748B;
+      border: 1px solid #CBD5E1;
+    }
+
+    /* Contact Action Buttons */
+    .action-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-wa {
+      background: rgba(37, 211, 102, 0.12);
+      color: #15803D;
+      border: 1px solid rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-wa:hover {
+      background: #25D366;
+      color: #FFFFFF;
+    }
+
+    .btn-tel {
+      background: rgba(0, 188, 212, 0.12);
+      color: #007A8A;
+      border: 1px solid rgba(0, 188, 212, 0.3);
+    }
+
+    .btn-tel:hover {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .btn-del {
+      background: none;
+      border: none;
+      color: #94A3B8;
+      cursor: pointer;
+      font-size: 0.95rem;
+      padding: 6px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .btn-del:hover {
+      color: #EF4444;
+      background: #FEE2E2;
+    }
+
+    .status-select-inline {
+      padding: 4px 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #FFFFFF;
+      cursor: pointer;
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+    }
+
+    .empty-state i {
+      font-size: 3rem;
+      color: #CBD5E1;
+      margin-bottom: 12px;
+    }
+
+    /* Modals */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 26, 41, 0.7);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-box {
+      background: #FFFFFF;
+      width: 100%;
+      max-width: 520px;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      position: relative;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .modal-title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      color: #94A3B8;
+      cursor: pointer;
+    }
+
+    .modal-close:hover {
+      color: var(--danger);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .toolbar-card {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .search-filter-group {
+        width: 100%;
+      }
+      .toolbar-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       1. SECURE LOGIN VIEW (GATEKEEPER)
+       ================================--------------------------- -->
+  <div id="login-view">
+    <div class="login-card">
+      <img src="assets/wanderhums-brand-logo.png" alt="WanderHums Logo" class="login-logo" onerror="this.src='assets/logo-clean.png'" />
+      <br />
+      <span class="login-badge"><i class="fa-solid fa-shield-halved"></i> 256-bit Encrypted Portal</span>
+      <h1 class="login-title">Admin CRM Login</h1>
+      <p class="login-subtitle">Secure lead management & customer database for WanderHums.</p>
+
+      <!-- Error Box -->
+      <div id="login-error-box" class="login-error"></div>
+
+      <form id="admin-login-form" onsubmit="handleLoginSubmit(event)">
+        <div class="form-group">
+          <label class="form-label" for="login-user">Admin Email / ID</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-user-shield input-icon"></i>
+            <input type="text" id="login-user" class="form-input" placeholder="admin@wanderhums.com" required autocomplete="username" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="login-pass">Master Password</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-lock input-icon"></i>
+            <input type="password" id="login-pass" class="form-input" placeholder="••••••••••••" required autocomplete="current-password" />
+            <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('login-pass', this)">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-login" id="btn-login-submit">
+          <i class="fa-solid fa-right-to-bracket"></i> Login to Leads Panel
+        </button>
+      </form>
+
+      <!-- Credentials Hint Box for Authorized Owners -->
+      <div class="credentials-hint">
+        <strong><i class="fa-solid fa-circle-info" style="color: var(--primary);"></i> Default Access Credentials:</strong><br />
+        • <strong>ID:</strong> <code>admin@wanderhums.com</code> (or <code>wanderadmin</code>)<br />
+        • <strong>Password:</strong> <code>WanderHums@2026!</code><br />
+        <small style="color: #64748B;">You can change this password anytime from inside the admin settings.</small>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       2. ADMIN DASHBOARD VIEW (AUTHENTICATED)
+       ================================--------------------------- -->
+  <div id="dashboard-view">
+    
+    <!-- Top Navigation -->
+    <header class="admin-nav">
+      <div class="nav-brand-group">
+        <a href="index.html" target="_blank" title="View Live Website">
+          <img src="assets/wanderhums-brand-logo.png" alt="WanderHums" class="nav-logo" onerror="this.src='assets/logo-clean.png'" />
+        </a>
+        <span class="nav-tag"><i class="fa-solid fa-shield-halved"></i> Leads Panel v2.0</span>
+      </div>
+
+      <div class="nav-actions">
+        <a href="index.html" target="_blank" class="btn-nav btn-nav-outline" title="Open Website">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> <span class="hide-mobile">Live Website</span>
+        </a>
+        <button onclick="openChangePasswordModal()" class="btn-nav btn-nav-outline" title="Change Password">
+          <i class="fa-solid fa-key"></i> <span class="hide-mobile">Security</span>
+        </button>
+        <button onclick="handleLogout()" class="btn-nav btn-nav-danger" title="Logout">
+          <i class="fa-solid fa-power-off"></i> <span>Logout</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Content Area -->
+    <main class="dashboard-content">
+      
+      <!-- Top Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-users-viewfinder"></i></div>
+          <div class="stat-info">
+            <h3 id="stat-total-leads">0</h3>
+            <p>Total Leads Captured</p>
+          </div>
+        </div>
+
+        <div class="stat-card card-new">
+          <div class="stat-icon" style="color: var(--success);"><i class="fa-solid fa-bell"></i></div>
+          <div class="stat-info">
+            <h3 id="stat-new-leads" style="color: var(--success);">0</h3>
+            <p>New / Uncontacted</p>
+          </div>
+        </div>
+
+        <div class="stat-card card-contacted">
+          <div class="stat-icon" style="color: var(--warning);"><i class="fa-solid fa-headset"></i></div>
+          <div class="stat-info">
+            <h3 id="stat-contacted-leads" style="color: var(--warning);">0</h3>
+            <p>In Follow-up / Calling</p>
+          </div>
+        </div>
+
+        <div class="stat-card card-converted">
+          <div class="stat-icon" style="color: #8B5CF6;"><i class="fa-solid fa-champagne-glasses"></i></div>
+          <div class="stat-info">
+            <h3 id="stat-converted-leads" style="color: #8B5CF6;">0</h3>
+            <p>Booked & Converted</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toolbar: Search, Filters & Excel Export -->
+      <div class="toolbar-card">
+        <div class="search-filter-group">
+          <!-- Search -->
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="leads-search-input" placeholder="Search by name, phone, email, trip..." oninput="handleFilterChange()" />
+          </div>
+
+          <!-- Status Filter -->
+          <select id="filter-status-select" class="filter-select" onchange="handleFilterChange()">
+            <option value="ALL">All Statuses</option>
+            <option value="New">🟢 New Leads</option>
+            <option value="Contacted">🟡 Contacted</option>
+            <option value="Follow-up">🔵 Follow-up</option>
+            <option value="Converted">🟣 Converted</option>
+            <option value="Cancelled">⚪ Cancelled</option>
+          </select>
+
+          <!-- Destination Filter -->
+          <select id="filter-destination-select" class="filter-select" onchange="handleFilterChange()">
+            <option value="ALL">All Trips</option>
+          </select>
+        </div>
+
+        <div class="toolbar-actions">
+          <!-- 1-Click Excel Export Button -->
+          <button class="btn-export-excel" onclick="triggerExcelExport()" title="Download Excel (.xlsx) Spreadsheet">
+            <i class="fa-solid fa-file-excel"></i> Export to Excel (.xlsx)
+          </button>
+
+          <button class="btn-add-lead" onclick="openAddLeadModal()" title="Add Lead Manually">
+            <i class="fa-solid fa-user-plus"></i> Add Lead
+          </button>
+        </div>
+      </div>
+
+      <!-- Leads Data Table -->
+      <div class="table-container">
+        <table class="leads-table">
+          <thead>
+            <tr>
+              <th>Lead ID & Date</th>
+              <th>Traveler Details</th>
+              <th>Destination / Trip</th>
+              <th>Group & Departure</th>
+              <th>Source & Message</th>
+              <th>Lead Status</th>
+              <th style="text-align: right;">Quick Actions</th>
+            </tr>
+          </thead>
+          <tbody id="leads-table-body">
+            <!-- Populated via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+
+  <!-- ============================================================
+       3. MODALS (Add Lead & Change Password)
+       ================================--------------------------- -->
+  <!-- Add Lead Modal -->
+  <div id="add-lead-modal" class="modal-backdrop">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title"><i class="fa-solid fa-user-plus" style="color: var(--primary);"></i> Add Manual Lead</h3>
+        <button class="modal-close" onclick="closeModal('add-lead-modal')">&times;</button>
+      </div>
+      <form onsubmit="handleManualLeadSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Traveler Name *</label>
+          <input type="text" id="manual-name" class="form-input" style="padding-left: 14px;" required placeholder="e.g. Aryan Mehra" />
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="form-group">
+            <label class="form-label">Phone (WhatsApp) *</label>
+            <input type="tel" id="manual-phone" class="form-input" style="padding-left: 14px;" required placeholder="10-digit mobile" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" id="manual-email" class="form-input" style="padding-left: 14px;" placeholder="aryan@gmail.com" />
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="form-group">
+            <label class="form-label">Destination</label>
+            <input type="text" id="manual-destination" class="form-input" style="padding-left: 14px;" placeholder="Spiti / Kasol / Ladakh" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Group / Pax</label>
+            <input type="text" id="manual-pax" class="form-input" style="padding-left: 14px;" placeholder="e.g. 2 Pax Double Sharing" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Notes / Inquiry Details</label>
+          <textarea id="manual-notes" class="form-input" style="padding-left: 14px;" rows="3" placeholder="Inquiry notes from phone call..."></textarea>
+        </div>
+        <button type="submit" class="btn-login" style="background: var(--navy);">
+          <i class="fa-solid fa-save"></i> Save Lead to Database
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Change Password Modal -->
+  <div id="password-modal" class="modal-backdrop">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title"><i class="fa-solid fa-key" style="color: var(--primary);"></i> Change Admin Password</h3>
+        <button class="modal-close" onclick="closeModal('password-modal')">&times;</button>
+      </div>
+      <form onsubmit="handleChangePasswordSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Current Master Password</label>
+          <input type="password" id="old-pass" class="form-input" style="padding-left: 14px;" required placeholder="Enter current password" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">New Password (min 6 characters)</label>
+          <input type="password" id="new-pass" class="form-input" style="padding-left: 14px;" required placeholder="Enter new strong password" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Confirm New Password</label>
+          <input type="password" id="confirm-pass" class="form-input" style="padding-left: 14px;" required placeholder="Re-enter new password" />
+        </div>
+        <div id="password-modal-msg" style="display: none; padding: 10px; border-radius: 8px; font-size: 0.85rem; margin-bottom: 14px;"></div>
+        <button type="submit" class="btn-login" style="background: var(--navy);">
+          <i class="fa-solid fa-lock"></i> Update Master Password
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script src="js/leads-manager.js"></script>
+  <script>
+    // State management
+    let currentLeads = [];
+    let filteredLeads = [];
+
+    // Initialize application
+    document.addEventListener('DOMContentLoaded', () => {
+      checkAuthAndRender();
+
+      // Listen for real-time lead submissions across tabs
+      window.addEventListener('wanderhums_leads_updated', () => {
+        if (WanderLeads.isAuthenticated()) {
+          loadAndRenderLeads();
+        }
+      });
+    });
+
+    // Check Authentication state
+    function checkAuthAndRender() {
+      const isAuth = WanderLeads.isAuthenticated();
+      const loginView = document.getElementById('login-view');
+      const dashboardView = document.getElementById('dashboard-view');
+
+      if (isAuth) {
+        loginView.style.display = 'none';
+        dashboardView.style.display = 'flex';
+        loadAndRenderLeads();
+      } else {
+        loginView.style.display = 'flex';
+        dashboardView.style.display = 'none';
+      }
+    }
+
+    // Handle Login
+    async function handleLoginSubmit(e) {
+      e.preventDefault();
+      const user = document.getElementById('login-user').value;
+      const pass = document.getElementById('login-pass').value;
+      const errorBox = document.getElementById('login-error-box');
+      const btn = document.getElementById('btn-login-submit');
+
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Authenticating...';
+      errorBox.style.display = 'none';
+
+      const res = await WanderLeads.login(user, pass);
+
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> Login to Leads Panel';
+
+      if (res.success) {
+        checkAuthAndRender();
+      } else {
+        errorBox.textContent = res.message;
+        errorBox.style.display = 'block';
+      }
+    }
+
+    // Handle Logout
+    function handleLogout() {
+      if (confirm('Are you sure you want to securely logout from the Admin Panel?')) {
+        WanderLeads.logout();
+        checkAuthAndRender();
+      }
+    }
+
+    // Toggle Password Visibility
+    function togglePasswordVisibility(inputId, btn) {
+      const input = document.getElementById(inputId);
+      if (input.type === 'password') {
+        input.type = 'text';
+        btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+      } else {
+        input.type = 'password';
+        btn.innerHTML = '<i class="fa-regular fa-eye"></i>';
+      }
+    }
+
+    // Load Leads & Analytics
+    function loadAndRenderLeads() {
+      currentLeads = WanderLeads.getLeads();
+      
+      // Update Analytics
+      const stats = WanderLeads.getStats();
+      document.getElementById('stat-total-leads').textContent = stats.total;
+      document.getElementById('stat-new-leads').textContent = stats.newLeads;
+      document.getElementById('stat-contacted-leads').textContent = stats.contacted;
+      document.getElementById('stat-converted-leads').textContent = stats.converted;
+
+      // Populate Destination Filter Dropdown
+      populateDestinationFilter();
+
+      // Render Table
+      applyFilters();
+    }
+
+    function populateDestinationFilter() {
+      const select = document.getElementById('filter-destination-select');
+      const currentVal = select.value;
+      const destinations = new Set();
+
+      currentLeads.forEach(l => {
+        if (l.destination) destinations.add(l.destination);
+      });
+
+      select.innerHTML = '<option value="ALL">All Trips / Destinations</option>';
+      Array.from(destinations).sort().forEach(dest => {
+        const opt = document.createElement('option');
+        opt.value = dest;
+        opt.textContent = dest;
+        select.appendChild(opt);
+      });
+
+      if (destinations.has(currentVal)) {
+        select.value = currentVal;
+      }
+    }
+
+    // Filters Handler
+    function handleFilterChange() {
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const query = (document.getElementById('leads-search-input')?.value || '').toLowerCase().trim();
+      const statusFilter = document.getElementById('filter-status-select')?.value || 'ALL';
+      const destFilter = document.getElementById('filter-destination-select')?.value || 'ALL';
+
+      filteredLeads = currentLeads.filter(lead => {
+        const matchesQuery = !query || 
+          (lead.name && lead.name.toLowerCase().includes(query)) ||
+          (lead.phone && lead.phone.toLowerCase().includes(query)) ||
+          (lead.email && lead.email.toLowerCase().includes(query)) ||
+          (lead.destination && lead.destination.toLowerCase().includes(query)) ||
+          (lead.message && lead.message.toLowerCase().includes(query)) ||
+          (lead.id && lead.id.toLowerCase().includes(query));
+
+        const matchesStatus = statusFilter === 'ALL' || lead.status === statusFilter;
+        const matchesDest = destFilter === 'ALL' || lead.destination === destFilter;
+
+        return matchesQuery && matchesStatus && matchesDest;
+      });
+
+      renderTable(filteredLeads);
+    }
+
+    // Render Table Rows
+    function renderTable(leads) {
+      const tbody = document.getElementById('leads-table-body');
+      if (!tbody) return;
+
+      if (!leads || leads.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="7">
+              <div class="empty-state">
+                <i class="fa-regular fa-folder-open"></i>
+                <h4 style="font-size: 1.1rem; color: #00263D; margin-bottom: 6px;">No Leads Found</h4>
+                <p>Try clearing your search query or status filter.</p>
+              </div>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = leads.map(lead => {
+        // Clean phone for whatsapp
+        const rawPhone = (lead.phone || '').replace(/\D/g, '');
+        const cleanPhone = rawPhone.length === 10 ? '91' + rawPhone : rawPhone;
+        const waMsg = encodeURIComponent(`Hi ${lead.name}! 👋 Thank you for connecting with WanderHums Travel Community. We received your inquiry regarding *${lead.destination}*. How can we assist you with dates and slots?`);
+
+        const statusClass = `status-${(lead.status || 'new').toLowerCase().replace(/\s+/g, '-')}`;
+
+        return `
+          <tr>
+            <td>
+              <strong style="color: var(--navy);">${escapeHtml(lead.id)}</strong>
+              <div style="color: var(--text-muted); font-size: 0.78rem; margin-top: 3px;">
+                <i class="fa-regular fa-clock"></i> ${escapeHtml(lead.date)}
+              </div>
+            </td>
+
+            <td>
+              <div style="font-weight: 700; color: var(--navy); font-size: 0.95rem;">${escapeHtml(lead.name)}</div>
+              <div style="margin-top: 4px; display: flex; align-items: center; gap: 8px;">
+                <span style="color: #475569; font-weight: 600;"><i class="fa-solid fa-phone" style="font-size: 0.75rem; color: var(--primary);"></i> ${escapeHtml(lead.phone)}</span>
+              </div>
+              ${lead.email ? `<div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;"><i class="fa-solid fa-envelope" style="font-size: 0.72rem;"></i> ${escapeHtml(lead.email)}</div>` : ''}
+            </td>
+
+            <td>
+              <span style="font-weight: 700; color: #003657; display: block;">${escapeHtml(lead.destination)}</span>
+              <span style="font-size: 0.75rem; background: #F1F5F9; color: #475569; padding: 2px 6px; border-radius: 4px; font-weight: 600; display: inline-block; margin-top: 4px;">
+                ${escapeHtml(lead.source)}
+              </span>
+            </td>
+
+            <td>
+              <div style="font-weight: 600; color: #334155;">${escapeHtml(lead.passengers || '1 Backpacker')}</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">
+                <i class="fa-regular fa-calendar-check"></i> ${escapeHtml(lead.batch || 'Flexible')}
+              </div>
+            </td>
+
+            <td style="max-width: 280px;">
+              <p style="color: #475569; font-size: 0.82rem; line-height: 1.4; word-break: break-word;">
+                ${escapeHtml(lead.message || 'No notes provided.')}
+              </p>
+            </td>
+
+            <td>
+              <select class="status-select-inline ${statusClass}" onchange="changeStatus('${lead.id}', this.value)">
+                <option value="New" ${lead.status === 'New' ? 'selected' : ''}>🟢 New</option>
+                <option value="Contacted" ${lead.status === 'Contacted' ? 'selected' : ''}>🟡 Contacted</option>
+                <option value="Follow-up" ${lead.status === 'Follow-up' ? 'selected' : ''}>🔵 Follow-up</option>
+                <option value="Converted" ${lead.status === 'Converted' ? 'selected' : ''}>🟣 Converted</option>
+                <option value="Cancelled" ${lead.status === 'Cancelled' ? 'selected' : ''}>⚪ Cancelled</option>
+              </select>
+            </td>
+
+            <td style="text-align: right; white-space: nowrap;">
+              <!-- 1-Click WhatsApp -->
+              <a href="https://wa.me/${cleanPhone}?text=${waMsg}" target="_blank" class="action-pill-btn btn-wa" title="Chat on WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+              </a>
+
+              <!-- 1-Click Call -->
+              <a href="tel:${cleanPhone}" class="action-pill-btn btn-tel" title="Call directly">
+                <i class="fa-solid fa-phone"></i> Call
+              </a>
+
+              <!-- Delete -->
+              <button onclick="deleteLead('${lead.id}')" class="btn-del" title="Delete lead">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // Quick Status Update
+    function changeStatus(id, newStatus) {
+      WanderLeads.updateStatus(id, newStatus);
+      loadAndRenderLeads();
+    }
+
+    // Delete Lead
+    function deleteLead(id) {
+      if (confirm(`Are you sure you want to delete lead ${id}? This action cannot be undone.`)) {
+        WanderLeads.deleteLead(id);
+        loadAndRenderLeads();
+      }
+    }
+
+    // Export Excel (.xlsx)
+    function triggerExcelExport() {
+      const listToExport = filteredLeads.length > 0 ? filteredLeads : currentLeads;
+      WanderLeads.exportToExcel(listToExport);
+    }
+
+    // Modal Helpers
+    function openAddLeadModal() {
+      document.getElementById('add-lead-modal').style.display = 'flex';
+    }
+
+    function openChangePasswordModal() {
+      document.getElementById('password-modal').style.display = 'flex';
+      document.getElementById('password-modal-msg').style.display = 'none';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    // Manual Lead Submission
+    function handleManualLeadSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('manual-name').value;
+      const phone = document.getElementById('manual-phone').value;
+      const email = document.getElementById('manual-email').value;
+      const destination = document.getElementById('manual-destination').value || 'Custom Tour';
+      const pax = document.getElementById('manual-pax').value || '1 Pax';
+      const notes = document.getElementById('manual-notes').value || 'Manual phone lead entry.';
+
+      WanderLeads.saveLead({
+        name,
+        phone,
+        email,
+        destination,
+        passengers: pax,
+        source: 'Manual Admin Entry',
+        message: notes
+      });
+
+      closeModal('add-lead-modal');
+      e.target.reset();
+      loadAndRenderLeads();
+      alert(`🎉 Lead for ${name} added successfully!`);
+    }
+
+    // Change Password Submission
+    async function handleChangePasswordSubmit(e) {
+      e.preventDefault();
+      const oldPass = document.getElementById('old-pass').value;
+      const newPass = document.getElementById('new-pass').value;
+      const confirmPass = document.getElementById('confirm-pass').value;
+      const msgBox = document.getElementById('password-modal-msg');
+
+      if (newPass !== confirmPass) {
+        msgBox.textContent = 'New passwords do not match!';
+        msgBox.style.background = '#FEE2E2';
+        msgBox.style.color = '#991B1B';
+        msgBox.style.display = 'block';
+        return;
+      }
+
+      const res = await WanderLeads.changePassword(oldPass, newPass);
+      if (res.success) {
+        msgBox.textContent = res.message;
+        msgBox.style.background = '#DCFCE7';
+        msgBox.style.color = '#166534';
+        msgBox.style.display = 'block';
+        setTimeout(() => {
+          closeModal('password-modal');
+          e.target.reset();
+        }, 1500);
+      } else {
+        msgBox.textContent = res.message;
+        msgBox.style.background = '#FEE2E2';
+        msgBox.style.color = '#991B1B';
+        msgBox.style.display = 'block';
+      }
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+  </script>
+</body>
+</html>

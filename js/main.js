@@ -409,18 +409,32 @@ function updateBookingPriceUI() {
 
 window.handleBookingSubmit = function(e) {
   e.preventDefault();
-  const name = document.getElementById('book-name').value;
-  const phone = document.getElementById('book-phone').value;
-  const email = document.getElementById('book-email').value;
-  const batch = document.getElementById('book-batch-select').value;
+  const name = document.getElementById('book-name')?.value || 'Traveler';
+  const phone = document.getElementById('book-phone')?.value || '';
+  const email = document.getElementById('book-email')?.value || '';
+  const batch = document.getElementById('book-batch-select')?.value || 'Upcoming Departure';
+  const tripTitle = currentBookingTrip?.title || 'Selected Trip';
+
+  if (window.WanderLeads) {
+    window.WanderLeads.saveLead({
+      name: name,
+      phone: phone,
+      email: email,
+      destination: tripTitle,
+      batch: batch,
+      passengers: `${typeof bookingPassengers !== 'undefined' ? bookingPassengers : 1} Backpacker(s)`,
+      source: 'Booking Modal Form',
+      message: `Provisional slot booking requested for ${tripTitle} (${batch}).`
+    });
+  }
 
   closeModal('booking-modal');
 
   // Success Notification
   showToast({
-    avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80",
+    avatar: currentBookingTrip?.image || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80",
     title: "Slot Reserved Successfully! 🎒",
-    text: `Thanks ${name}! Your slot for ${currentBookingTrip.title} (${batch}) has been provisionally reserved. Our trip leader will call you on ${phone}.`
+    text: `Thanks ${name}! Your slot for ${tripTitle} (${batch}) has been provisionally reserved. Our trip leader will call you on ${phone}.`
   });
 };
 
@@ -447,6 +461,18 @@ window.handleCallbackSubmit = function(e) {
   e.preventDefault();
   const phone = e.target.querySelector('input[type="tel"]')?.value || 'your number';
   closeModal('callback-modal');
+
+  if (window.WanderLeads) {
+    window.WanderLeads.saveLead({
+      name: 'Callback Request',
+      phone: phone,
+      email: '',
+      destination: 'General Trip Inquiry',
+      source: 'Instant Callback Form',
+      message: 'Traveler requested a call on mobile within 15 mins.'
+    });
+  }
+
   showToast({
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
     title: "Callback Scheduled! 📞",

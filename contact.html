@@ -584,7 +584,7 @@
       </div>
 
       <div class="footer-bottom">
-        <div>© 2026 WanderHums Experiential Travel Pvt. Ltd. All Rights Reserved.</div>
+        <div>© 2026 WanderHums Experiential Travel Pvt. Ltd. All Rights Reserved. • <a href="admin.html" style="color: #64748B; font-size: 0.78rem; text-decoration: none;"><i class="fa-solid fa-lock" style="font-size: 0.72rem;"></i> Admin Portal</a></div>
         <div class="payment-badges">
           <span style="font-size: 0.8rem; margin-right: 8px; color: #94A3B8;">100% Secure Payment:</span>
           <i class="fa-brands fa-google-pay" title="UPI & GPay"></i>
@@ -629,19 +629,37 @@
 
   <!-- Scripts -->
   <script src="js/trips-data.js"></script>
+  <script src="js/leads-manager.js"></script>
   <script src="js/main.js"></script>
   <script>
     function handleContactMessage(e) {
       e.preventDefault();
       const name = document.getElementById('contact-name').value;
       const phone = document.getElementById('contact-phone').value;
+      const email = document.getElementById('contact-email')?.value || '';
       const destination = document.getElementById('contact-destination').value;
+      const msg = document.getElementById('contact-msg')?.value || '';
+
+      if (window.WanderLeads) {
+        window.WanderLeads.saveLead({
+          name: name,
+          phone: phone,
+          email: email,
+          destination: destination,
+          source: 'Contact Us Form',
+          message: msg
+        });
+      }
       
       document.getElementById('contact-message-form').style.display = 'none';
       document.getElementById('contact-success-box').style.display = 'block';
 
       if (window.showToast) {
-        window.showToast(`Thank you ${name}! Message sent for ${destination}. We'll call you shortly.`);
+        window.showToast({
+          avatar: 'assets/wanderhums-brand-logo.png',
+          title: 'Inquiry Received! 🎒',
+          text: `Thank you ${name}! Your inquiry for ${destination} is registered. We'll call on ${phone} shortly.`
+        });
       }
     }
   </script>
