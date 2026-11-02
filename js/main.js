@@ -139,7 +139,10 @@ function renderTrips() {
 
   const wishlist = getWishlist();
 
-  container.innerHTML = filtered.map(trip => {
+  // Show a clean curated set (max 6 trips) on homepage so it doesn't clutter
+  const tripsToShow = filtered.slice(0, 6);
+
+  container.innerHTML = tripsToShow.map(trip => {
     const isWishlisted = wishlist.includes(trip.id);
     const firstBatches = trip.upcomingBatches.slice(0, 3).map(b => b.date.split(' - ')[0]).join(' • ');
 

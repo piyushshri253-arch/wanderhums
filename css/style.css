@@ -2441,13 +2441,83 @@ img {
     margin-top: 6px;
   }
 
-  /* Trips grid */
+  /* Trip Tabs Filter (Horizontal on mobile) */
+  .tabs-nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    margin-left: -14px;
+    margin-right: -14px;
+    padding-left: 14px;
+    padding-right: 14px;
+    scrollbar-width: none;
+  }
+  .tabs-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .tab-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 7px 15px;
+    font-size: 0.8rem;
+  }
+
+  /* Trips grid - side by side horizontal scroll on phone */
   .trips-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 18px;
+    padding-top: 4px;
+    margin-left: -14px;
+    margin-right: -14px;
+    padding-left: 14px;
+    padding-right: 14px;
+    scrollbar-width: thin;
+    scrollbar-color: #01AFD1 #F1F5F9;
+  }
+  .trips-grid::-webkit-scrollbar {
+    height: 5px;
+  }
+  .trips-grid::-webkit-scrollbar-track {
+    background: #F1F5F9;
+    border-radius: 999px;
+  }
+  .trips-grid::-webkit-scrollbar-thumb {
+    background: #01AFD1;
+    border-radius: 999px;
   }
   .trip-card {
-    border-radius: 14px;
+    flex: 0 0 82% !important;
+    max-width: 310px !important;
+    min-width: 260px !important;
+    scroll-snap-align: start;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Catalog page in destinations.html keeps vertical grid for full browsing */
+  #catalog-trips-container.trips-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    overflow-x: visible !important;
+    gap: 18px !important;
+  }
+  #catalog-trips-container.trips-grid .trip-card {
+    flex: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
   }
   .card-media {
     height: 195px;
@@ -2480,13 +2550,41 @@ img {
     padding: 20px 16px;
   }
 
-  /* Destinations grid */
+  /* Destinations grid - side by side scroll on phone */
   .destinations-grid {
-    grid-template-columns: 1fr;
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
     gap: 14px;
+    padding-bottom: 14px;
+    margin-left: -14px;
+    margin-right: -14px;
+    padding-left: 14px;
+    padding-right: 14px;
+    scrollbar-width: thin;
+    scrollbar-color: #01AFD1 #F1F5F9;
+  }
+  .destinations-grid::-webkit-scrollbar {
+    height: 5px;
+  }
+  .destinations-grid::-webkit-scrollbar-track {
+    background: #F1F5F9;
+    border-radius: 999px;
+  }
+  .destinations-grid::-webkit-scrollbar-thumb {
+    background: #01AFD1;
+    border-radius: 999px;
   }
   .dest-card {
+    flex: 0 0 78% !important;
+    max-width: 280px !important;
+    min-width: 240px !important;
     height: 240px;
+    scroll-snap-align: start;
+    border-radius: 16px;
   }
   .dest-card:first-child {
     grid-column: span 1;
