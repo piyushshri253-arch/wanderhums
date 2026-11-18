@@ -169,10 +169,7 @@ function renderTrips() {
         <div class="card-body">
           <div class="card-category-rating">
             <span class="card-category-name">${trip.categoryLabel}</span>
-            <span class="card-rating">
-              <i class="fa-solid fa-star"></i> ${trip.rating}
-              <small>(${trip.reviewsCount})</small>
-            </span>
+            
           </div>
 
           <a href="trip-detail.html?id=${trip.id}" class="card-title">${trip.title}</a>
@@ -274,8 +271,7 @@ window.openItineraryModal = function(tripId) {
         <h3>${trip.title}</h3>
         <p style="font-size: 0.88rem; color: #E2E8F0; margin-top: 4px;">
           <i class="fa-regular fa-clock"></i> ${trip.duration} &nbsp;|&nbsp; 
-          <i class="fa-solid fa-location-dot"></i> ${trip.pickup} &nbsp;|&nbsp; 
-          <i class="fa-solid fa-star" style="color: #F59E0B;"></i> ${trip.rating} (${trip.reviewsCount} reviews)
+          <i class="fa-solid fa-location-dot"></i> ${trip.pickup}
         </p>
       </div>
     </div>
