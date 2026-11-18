@@ -1172,11 +1172,17 @@ img {
   padding: 32px 24px;
   transition: var(--transition);
 }
-.why-card:hover {
+.why-section .why-card:hover {
   transform: translateY(-6px);
   border-color: var(--primary);
   background: rgba(30, 41, 59, 0.95);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+}
+.why-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  background: #FFFFFF;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
 }
 .why-icon {
   width: 60px;
